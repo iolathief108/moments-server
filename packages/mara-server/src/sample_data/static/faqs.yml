@@ -1,0 +1,232 @@
+common:
+  - qn: Do you have packages?
+    ans:
+      - I do not offer specific packages where you are required to purchase certain items. I create a custom proposal for each client based on the types of flowers and arrangements that they are looking for.
+  - qn: Do you have a minimum spend for weddings?
+    ans:
+      - I do not have a minimum. Everything is custom to each client's needs.
+  - qn: How far in advance should we order our wedding flowers?
+    ans:
+      - It’s never too early to get in touch about your wedding, but we recommend having a few details figured out before you do. For example - Have you selected the location for your ceremony and/or reception? What’s your wedding style? Do you have a color scheme decided on? Most flowers will be based around a color scheme. Typically, our couples reach out around 6 to 12 months before their big day.
+  - qn: Can I see a mockup of proposed flowers?
+    ans:
+      - Yes! After the contract is signed, we can provide a mock up for 50% of the proposal cost for the item being mocked up. We prefer to create this between 30 and 60 days before the wedding to take into account seasonal flowers and time to make adjustments before the final proposal and vendor commitments are due.
+
+venue:
+  - qn: Can we bring our own alcohol?
+    ans:
+      - No, we have bar packages that you can purchase with your catering package. We are an all-inclusive venue.
+
+  - qn: Do you have on-site parking?
+    ans:
+      - Yes, there is plenty of parking at our venue; free of charge.
+
+  - qn: Do you have accessible facilities?
+    ans:
+      - Yes, all our facilities are wheelchair accessible. We also have ramps at the main and side entrances, hearing-impaired fire alarm lights, and trained staff.
+
+  - qn: What is your peak season?
+    ans:
+      - May, June, July, August, September, October, and November
+
+  - qn: What is your off-peak season?
+    ans:
+      - January, February, March, April, and December
+
+  - qn: What’s included in your starting rental fee?
+    ans:
+      - Set up, clean up, tables, chairs, china, flatware, glassware, linen, food, beverage, and day-of planner.
+
+  - qn: Do we need to get insurance?
+    ans:
+      - No, our venue is fully insured.
+
+  - qn: How many hours are included in our booking?
+    ans:
+      - Your reservation includes a minimum of 4 hours to up to 5.5 hours from start to finish, depending on the package you choose.
+
+  - qn: Can I book an event at Troutbeck without contracting the rooms?
+    ans:
+      - We require a buyout of the property to host a wedding with over 80 people at Troutbeck. If you do not require a Friday, or Saturday reception, we can discuss alternative options with you.
+
+  - qn: Can my guests pay for the rooms on their own and can the host subsidize room rates?
+    ans:
+      - Yes, guests can pay for their own room. The host can also directly contribute towards the rooms, reducing the room rate for guests.
+
+  - qn: Can I bring in my own caterer?
+    ans:
+      - We do not allow outside caterers for events but are happy to work with you to tailor our locally sourced farm to table menu to your requirements.
+
+  - qn: Can I bring in my own event planner?
+    ans:
+      - Yes.
+
+  - qn: Do you provide event rentals?
+    ans:
+      - Yes, we can coordinate your event rentals to include, tables, chairs, tabletop items, cotton linens and a dance floor for the ballroom. We offer a number of upgrades as well, including handpicked vintage glassware, linens and flatware.
+
+  - qn: Do you have recommended or required vendors that we would bring in for our event?
+    ans:
+      - While we do not have required vendors at Troutbeck we have a hand selected list of local & regional vendors that we love. Please ask us for our vendor list.
+
+  - qn: What kind of activities can we arrange for our guests during their stay at Troutbeck?
+    ans:
+      - During the summer guests can enjoy our newly renovated outdoor pool with a grill and bar, a tennis round robin on our outdoor courts, fishing, hiking and nearby river rafting. Lime Rock Park, the famed racetrack, also offers year-round programming. During the Winter months, guests can enjoy a wide array of winter sports, including the nearby family-oriented Mohawk and Catamount mountains.
+
+  - qn: Are there different venue options to host my rehearsal dinner or farewell brunch?
+    ans:
+      - Troutbeck has many unique venues that can be tailored to your event including both indoor and outdoor options. Please speak with your event planner for more information about the options on property
+
+  - qn: Will regular hotel guests or restaurant diners be on the property during my event?
+    ans:
+      - The Restaurant at Troutbeck is popular and well supported by our community and remains open to the public. Provided your contract includes the buy-out of all of our guestrooms and the Ballroom, arrangements can be made to also reserve our Restaurant, Bar and public areas on an exclusive basis. Please speak with us to determine if this is the right approach for your event.
+
+  - qn: What is included for the ceremony site fee?
+    ans:
+      - The site fee includes set up & break down of the ceremony. As well as garden folding chairs for your guests. A tented rain plan option is not included in this fee. In the event of rain and set up is not completed this fee will be waived.
+
+  - qn: Is there a concierge on the property?
+    ans:
+      - Yes, there is a full staff onsite at your disposal.
+
+  - qn: Where is the nearest train station and does the hotel provide transportation for my guests?
+    ans:
+      - Troutbeck is 6 minutes from Wassaic, NY train station with 13 regularly scheduled trains to and from Grand Central Terminal. With advance notice, we can organize a shuttle for all hotel guests to and from the train station to Troutbeck.
+
+caterer:
+  - qn: Is there a delivery fee?
+    ans:
+      - Yes, we charge a standard fee for delivery within New York City. Additional fees may apply to deliveries outside of NYC.
+
+  - qn: Do you have a minimum for weddings?
+    ans:
+      - No, we cater weddings of all shapes and sizes and are happy to accomodate a small guest count.
+
+  - qn: Do you offer tastings?
+    ans:
+      - Yes, provided you have your venue booked and are comfortable with the proposal and budget we have presented to you, we offer complimentary tastings for two. Parents or additional guest are welcome for a fee. If you sign a contract with us beforehand, we can waive all tasting fees.
+
+  - qn: Do you offer help with rentals?
+    ans:
+      - We are full service. We will take you on a walk-through of available rentals and work with you to find options within your budget.
+
+  - qn: How far out do you recommend booking your services?
+    ans:
+      - For spring, summer and fall weddings, we recommend at least 6 to 12 months in advance.
+
+  - qn: Can you accommodate dietary restrictions?
+    ans:
+      - Yes, we accomodate all sorts of dietary requests. If we can not accommodate your request within or kitchen, we will partner with a vendor who can.
+
+  - qn: Do you offer cake cutting services?
+    ans:
+      - If you bring in your own cake, we do not charge a cake cutting fee. That being said, we would rather create a stunning cake for you!
+
+  - qn: Do you offer tastings?
+    ans:
+      - Yes, we offer tastings for you and a guest for a small fee. If you sign a contract with us beforehand, we can waive this fee.
+
+  - qn: How many times do we meet before the wedding?
+    ans:
+      - We meet several times before the wedding. From our welcome meeting, design/mood board meeting, to our tasting, walk-thru, and sample meeting. We also have a final production meeting the week prior to the wedding.
+
+  - qn: Do you offer help with rentals?
+    ans:
+      - We are full service. We will take you on a walk-through of available rentals and work with you to find options within your budget.
+
+  - qn: How far out do you recommend booking your services?
+    ans:
+      - This depends on your preferred date. High season in our area is usually Nov-April. Since we're a boutique, client focused, catering + production company, we don't commit to more than two events per date. This makes sure our commitment to quality + service is never compromised.
+
+  - qn: Do you have a minimum for weddings?
+    ans:
+      - We offer many different catering options, so we don't have a minimum spend.
+
+  - qn: What is your service area?
+    ans:
+      - We serve South Florida from Miami-Date to Broward County.
+
+  - qn: Can you accommodate dietary restrictions?
+    ans:
+      - We can customize fully vegetarian or vegan menus, gluten-free, and other dietary restricted eating preference.
+
+  - qn: Do you offer cake cutting services?
+    ans:
+      - We offer complimentary cake cutting services.
+
+  - qn: Is there a delivery fee?
+    ans:
+      - Delivery fees have already been calculated as part of our package. For items selected outside of our package inclusions, delivery/set-up and pick up fees may apply.
+
+photographer:
+  - qn: How long will it take to see our pictures?
+    ans:
+      - My turnaround time varies per project. By contract, it's listed as 8 weeks, but it's typically far sooner. Within days of your wedding, you can also expect a wedding preview gallery.
+
+  - qn: How far in advance should we book you for our wedding?
+    ans:
+      - Typically, couples book me about 8-12 months before their wedding date. Sometimes sooner. I encourage you to reach out as soon as possible about my availability, even if you’re planning on a shorter time frame. If I'm not available, I can reach out to colleagues and make sure you're in good hands!
+
+  - qn: Will you edit all our pictures?
+    ans:
+      - Yep. All final images (500+ on a typical wedding day) will be edited for color, saturation, exposure, and other artistic choices.
+
+  - qn: Do you have insurance?
+    ans:
+      - I do! If your venue requires a certificate of liability, let me know and I’ll send that over to them.
+
+  - qn: Do you work with assistants or other photographers?
+    ans:
+      - While I shoot a majority of my weddings alone, some events require another photographer. In that case, I secure only other professional wedding photographers who can emulate my shooting style and are a great addition to the team.
+
+  - qn: Do you work with assistants or other photographers?
+    ans:
+      - Sometimes, I’ll bring one or more assistant photographers depending on the size of your wedding. Don’t worry, this won’t cost you extra.
+
+  - qn: Will you edit all our pictures?
+    ans:
+      - Definitely. All final images will be edited for color, saturation, exposure, and sharpness to ensure they look beautiful.
+
+  - qn: How long will it take to see our pictures?
+    ans:
+      - My turnaround time varies by season. Typically, you’ll be able to view previews of your photos online same day or a day after your wedding. You can also expect to receive an online link with high-resolution image files, so you can share the photos with your loved ones and order prints as soon as all images are edited.
+
+  - qn: Do you have insurance?
+    ans:
+      - I do! Just let me know if your venue requires a certificate of liability, and I’ll send that over to them.
+
+  - qn: What’s your back-up plan if you can’t photograph our wedding as planned?
+    ans:
+      - In my 12 years of experience as a wedding photographer, I’ve never cancelled a booking. In the very rare event that I’m unable to photograph your wedding, I’ll make sure you’re covered by one of my colleagues or my contracted assistant. I’ll also provide you with a list of photographers from the many networking groups I’m in, so you can find the perfect replacement.
+
+  - qn: How far in advance should we book you for our wedding?
+    ans:
+      - Typically, couples book me about 15 months before their wedding date. I encourage you to reach out as soon as possible about my availability, even if you’re planning on a shorter time frame.
+
+  - qn: Do you shoot with assistants or other photographers?
+    ans:
+      - All wedding packages include a second photographer. Depending on the size of your wedding an assistant may be hired by me. Don't worry this is not cost extra.
+
+  - qn: Will you edit all our pictures?
+    ans:
+      - Definitely. All final images will be edited for color, saturation, exposure, and sharpness to ensure they look beautiful.
+
+  - qn: Do you also offer video services?
+    ans:
+      - No, I prefer focusing on photography only, so you can get the best wedding pictures possible. I do have great friends in the industry who i highly recommend for video.
+
+  - qn: How long will it take to see our pictures?
+    ans:
+      - My turnaround time is 6-8 weeks. Typically, depending on the season it may be sooner. Within this time, you can also expect to receive a preview of your wedding images the night of your wedding.
+
+  - qn: How many pictures will we get?
+    ans:
+      - You can expect about 80 to 100 images per hour of shooting. But keep in mind this estimate varies depending on your wedding package, number of guests, venue type, and other factors.
+
+  - qn: Do you have insurance?
+    ans:
+      - I do! Just let me know if your venue requires a certificate of liability, and I’ll send that over to them.
+
+  - qn: What’s your back-up plan if you can’t photograph our wedding as planned?
+    ans:
+      - In my years of experience as a wedding photographer, I’ve never cancelled a booking. In the very rare event that I’m unable to shoot your wedding, I’ll make sure you’re covered by one of my associates or my contracted second shooter.

@@ -1,0 +1,18 @@
+overwrite: true
+schema: "http://localhost:4000/api/"
+documents:
+  - "src/**/*.tsx"
+  - "src/**/*.ts"
+  - "src/**/*.graphql"
+generates:
+  src/http/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+      - plugin-typescript-swr
+    config:
+      rawRequest: false
+      autogenSWRKey: true
+      useSWRInfinite:
+        - VendorSearch

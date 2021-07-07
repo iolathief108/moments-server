@@ -1,0 +1,242 @@
+[
+  {
+    "id": "6089221a46e59e2a9cf46909",
+    "name": "Nuwara Eliya",
+    "districtID": "6089221946e59e2a9cf467e1"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d7a",
+    "name": "Colombo 01 - Fort",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d7c",
+    "name": "Colombo 03 - Kollupitiya",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d7d",
+    "name": "Colombo 04 - Bambalapitiya",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d80",
+    "name": "Colombo 07 - Cinnamon Gardens",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d81",
+    "name": "Colombo 08 - Borella",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d82",
+    "name": "Colombo 09 - Dematagoda",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d83",
+    "name": "Colombo 10 - Maradana",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d84",
+    "name": "Colombo 11 - Pettah",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d85",
+    "name": "Colombo 12 - Hultsdorf",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d87",
+    "name": "Colombo 14 - Grandpass",
+    "districtID": "6089221946e59e2a9cf467f5"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d8a",
+    "name": "Angoda",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d8c",
+    "name": "Athurugriya",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d8e",
+    "name": "Avissawella",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d8f",
+    "name": "Battaramulla",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d95",
+    "name": "Boralesgamuwa",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46d97",
+    "name": "Dehiwala",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46da3",
+    "name": "Homagama",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46da5",
+    "name": "Kaduwela",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46db0",
+    "name": "Kotikawatta",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46db1",
+    "name": "Kottawa",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46db2",
+    "name": "Kotte",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46db6",
+    "name": "Maharagama",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dbc",
+    "name": "Mount Lavinia",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dbd",
+    "name": "Mullegama",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dc1",
+    "name": "Nawala",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dc2",
+    "name": "Nawinna",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dc4",
+    "name": "Nugegoda",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dc6",
+    "name": "Orugodawatta",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dc9",
+    "name": "Paliyagoda",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dd0",
+    "name": "Rajagiriya",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dd7",
+    "name": "Sri Jayawardenapura Kotte",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46de0",
+    "name": "Wellampitiya",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46de1",
+    "name": "Werahera",
+    "districtID": "6089221946e59e2a9cf467f6"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46df5",
+    "name": "Dompe",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46df6",
+    "name": "Dunagaha",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46df7",
+    "name": "Ekala",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46df8",
+    "name": "Ellakkala",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46df9",
+    "name": "Essella",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dfa",
+    "name": "Gampaha Town",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dfb",
+    "name": "Ganemulla",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dfc",
+    "name": "Gonawala",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dfd",
+    "name": "Heiyanthuduwa",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dfe",
+    "name": "Hendala",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46dff",
+    "name": "Henegama",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46e01",
+    "name": "Ja-Ela",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46e02",
+    "name": "Kadawatha",
+    "districtID": "6089221946e59e2a9cf467f7"
+  },
+  {
+    "id": "6089221c46e59e2a9cf46e1d",
+    "name": "Negombo",
+    "districtID": "6089221946e59e2a9cf467f7"
+  }
+]

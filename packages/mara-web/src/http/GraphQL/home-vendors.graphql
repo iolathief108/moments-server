@@ -1,0 +1,17 @@
+query TopWeddingVendors {
+    vendorSearch (first: 10) {
+        edges {
+            node{
+                business_name
+                id
+                gallery_photos {
+                    id
+                    ht
+                    wd
+                }
+                vendor_type
+                district_display_name
+            }
+        }
+    }
+}

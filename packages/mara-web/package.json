@@ -1,0 +1,44 @@
+{
+  "name": "mara-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.5",
+    "@types/react-select": "^4.0.15",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "jquery": "^3.6.0",
+    "next": "11.0.0",
+    "normalize.css": "^8.0.1",
+    "rc-tooltip": "^5.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hooks-global-state": "^1.0.1",
+    "react-image-lightbox": "^5.1.1",
+    "react-images": "^1.2.0-beta.7",
+    "react-owl-carousel": "^2.3.3",
+    "react-photo-gallery": "^8.0.0",
+    "react-select": "^4.3.1",
+    "react-select-search": "^3.0.7",
+    "sass": "^1.35.1",
+    "swr": "^0.5.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.21.5",
+    "@graphql-codegen/typescript": "^1.22.1",
+    "@graphql-codegen/typescript-graphql-request": "^3.2.1",
+    "@graphql-codegen/typescript-operations": "^1.18.0",
+    "@types/react": "17.0.11",
+    "eslint": "7.28.0",
+    "eslint-config-next": "11.0.0",
+    "graphql-codegen-plugin-typescript-swr": "git+https://github.com/ioLathief/graphql-codegen-plugin-typescript-swr.git",
+    "typescript": "4.3.4"
+  }
+}

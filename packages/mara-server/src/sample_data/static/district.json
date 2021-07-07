@@ -1,0 +1,184 @@
+[
+  {
+    "parent": "R4630835",
+    "id": "R80300005",
+    "name": "Kandy",
+    "key": "kandy",
+    "displayName": "Kandy"
+  },
+  {
+    "parent": "R4630835",
+    "id": "R5351795",
+    "name": "Matale",
+    "key": "matale",
+    "displayName": "Matale"
+  },
+  {
+    "parent": "R4630835",
+    "id": "R5351796",
+    "name": "Nuwara Eliya",
+    "key": "nuwara-eliya",
+    "displayName": "Nuwara Eliya"
+  },
+  {
+    "parent": "R4630810",
+    "id": "R5351718",
+    "name": "Ampara",
+    "key": "ampara",
+    "displayName": "Ampara"
+  },
+  {
+    "parent": "R4630810",
+    "id": "R5351721",
+    "name": "Batticaloa",
+    "key": "batticaloa",
+    "displayName": "Batticaloa"
+  },
+  {
+    "parent": "R4630810",
+    "id": "R5620836",
+    "name": "Trincomalee",
+    "key": "trincomalee",
+    "displayName": "Trincomalee"
+  },
+  {
+    "parent": "R4630836",
+    "id": "R80300008",
+    "name": "Anuradhapura",
+    "key": "anuradhapura",
+    "displayName": "Anuradhapura"
+  },
+  {
+    "parent": "R4630836",
+    "id": "R5351723",
+    "name": "Polonnaruwa",
+    "key": "polonnaruwa",
+    "displayName": "Polonnaruwa"
+  },
+  {
+    "parent": "R3237344",
+    "id": "R3237345",
+    "name": "Jaffna",
+    "key": "jaffna",
+    "displayName": "Jaffna"
+  },
+  {
+    "parent": "R3237344",
+    "id": "R3237346",
+    "name": "Kilinochchi",
+    "key": "kilinochchi",
+    "displayName": "Kilinochchi"
+  },
+  {
+    "parent": "R3237344",
+    "id": "R3237347",
+    "name": "Mannar",
+    "key": "mannar",
+    "displayName": "Mannar"
+  },
+  {
+    "parent": "R3237344",
+    "id": "R3237348",
+    "name": "Mulativu",
+    "key": "mulativu",
+    "displayName": "Mulativu"
+  },
+  {
+    "parent": "R3237344",
+    "id": "R80300007",
+    "name": "Vavuniya",
+    "key": "vavuniya",
+    "displayName": "Vavuniya"
+  },
+  {
+    "parent": "R4630837",
+    "id": "R5351778",
+    "name": "Kurunegala",
+    "key": "kurunegala",
+    "displayName": "Kurunegala"
+  },
+  {
+    "parent": "R4630837",
+    "id": "R5351779",
+    "name": "Puttalam",
+    "key": "puttalam",
+    "displayName": "Puttalam"
+  },
+  {
+    "parent": "R4630838",
+    "id": "R5351777",
+    "name": "Kegalle",
+    "key": "kegalle",
+    "displayName": "Kegalle"
+  },
+  {
+    "parent": "R4630838",
+    "id": "R5351780",
+    "name": "Ratnapura",
+    "key": "ratnapura",
+    "displayName": "Ratnapura"
+  },
+  {
+    "parent": "R4630839",
+    "id": "R5345077",
+    "name": "Galle",
+    "key": "galle",
+    "displayName": "Galle"
+  },
+  {
+    "parent": "R4630839",
+    "id": "R5337945",
+    "name": "Hambantota",
+    "key": "hambantota",
+    "displayName": "Hambantota"
+  },
+  {
+    "parent": "R4630839",
+    "id": "R5345072",
+    "name": "Matara",
+    "key": "matara",
+    "displayName": "Matara"
+  },
+  {
+    "parent": "R4630840",
+    "id": "R5351720",
+    "name": "Badulla",
+    "key": "badulla",
+    "displayName": "Badulla"
+  },
+  {
+    "parent": "R4630840",
+    "id": "R5351722",
+    "name": "Monaragala",
+    "key": "monaragala",
+    "displayName": "Monaragala"
+  },
+  {
+    "parent": "R4630841",
+    "id": "R80300011",
+    "name": "Colombo (1 - 15)",
+    "key": "colombo-1-15",
+    "displayName": "Colombo (1 - 15)"
+  },
+  {
+    "parent": "R4630841",
+    "id": "R80300009",
+    "name": "Colombo - Greater",
+    "key": "colombo-greater",
+    "displayName": "Colombo - Greater"
+  },
+  {
+    "parent": "R4630841",
+    "id": "R5351775",
+    "name": "Gampaha",
+    "key": "gampaha",
+    "displayName": "Gampaha"
+  },
+  {
+    "parent": "R4630841",
+    "id": "R5351776",
+    "name": "Kalutara",
+    "key": "kalutara",
+    "displayName": "Kalutara"
+  }
+]

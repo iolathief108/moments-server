@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R4630835",
+    "name": "Central",
+    "key": "central",
+    "displayName": "Central"
+  },
+  {
+    "id": "R4630810",
+    "name": "Eastern",
+    "key": "eastern",
+    "displayName": "Eastern"
+  },
+  {
+    "id": "R4630836",
+    "name": "North Central",
+    "key": "north-central",
+    "displayName": "North Central"
+  },
+  {
+    "id": "R3237344",
+    "name": "Northern",
+    "key": "northern",
+    "displayName": "Northern"
+  },
+  {
+    "id": "R4630837",
+    "name": "North Western",
+    "key": "north-western",
+    "displayName": "North Western"
+  },
+  {
+    "id": "R4630838",
+    "name": "Sabaragamuwa",
+    "key": "sabaragamuwa",
+    "displayName": "Sabaragamuwa"
+  },
+  {
+    "id": "R4630839",
+    "name": "Southern",
+    "key": "southern",
+    "displayName": "Southern"
+  },
+  {
+    "id": "R4630840",
+    "name": "Uva",
+    "key": "uva",
+    "displayName": "Uva"
+  },
+  {
+    "id": "R4630841",
+    "name": "Western",
+    "key": "western",
+    "displayName": "Western"
+  }
+]

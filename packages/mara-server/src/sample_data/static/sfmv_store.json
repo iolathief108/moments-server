@@ -1,0 +1,118 @@
+{
+  "venue": [
+    {
+      "name": "Venue Type",
+      "values": [
+        "Restaurants, Breweries",
+        "Beaches, Waterfront Settings",
+        "Industrial Spaces",
+        "Historic Estates, Mansions",
+        "Museums, Galleries",
+        "Urban Locations",
+        "Hotels, Inns, Resorts",
+        "Ballrooms, Banquet Halls",
+        "Parks, Gardens",
+        "Lodges, Retreats"
+      ]
+    },
+    {
+      "name": "Venue Setting",
+      "values": [
+        "Indoor",
+        "Outdoor",
+        "Covered Outdoor"
+      ]
+    }
+  ],
+  "caterer": [
+    {
+      "name": "Services",
+      "values": [
+        "Serving staff",
+        "Rental coordination - directly invoice couple",
+        "Delivery and setup",
+        "Cleanup and breakdown",
+        "Bartenders",
+        "Event planner",
+        "Consultations and tastings - for a fee"
+      ]
+    },
+    {
+      "name": "Cuisines",
+      "values": [
+        "Farm-to-table",
+        "Southern",
+        "Pan-European",
+        "Pan-Asian"
+      ]
+    },
+    {
+      "name": "Dietary Accommodations",
+      "values": [
+        "Vegetarian",
+        "Vegan",
+        "Gluten-free",
+        "Dairy-free",
+        "Nut-free",
+        "Kosher"
+      ]
+    },
+    {
+      "name": "Types of Meal Service",
+      "values": [
+        "Buffet",
+        "Food stations",
+        "Family-style meal",
+        "Plated meal",
+        "Passed appetizers",
+        "Stationary appetizers",
+        "Dessert service",
+        "Wedding cake service"
+      ]
+    }
+  ],
+  "photographer": [
+    {
+      "name": "Services",
+      "values": [
+        "Image editing",
+        "Bride-only session",
+        "Drone photography",
+        "Extra hours",
+        "Printing rights",
+        "Online proofing",
+        "Engagement session",
+        "Same-day edits",
+        "Second photographer"
+      ]
+    },
+    {
+      "name": "Deliverables",
+      "values": [
+        "Digital files",
+        "Wedding album",
+        "Printed enlargements",
+        "Video",
+        "Photo box",
+        "Slideshow",
+        "Online gallery",
+        "Digital rights",
+        "Same/next-day sneak-peek images"
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

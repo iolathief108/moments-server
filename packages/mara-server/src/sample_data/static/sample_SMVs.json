@@ -1,0 +1,60 @@
+{
+  "venue": [
+    {
+      "name": "Stage colors",
+      "values": [
+        "Red",
+        "Black",
+        "Orange"
+      ]
+    },
+    {
+      "name": "Number of rooms",
+      "values": [
+        "4"
+      ]
+    },
+    {
+      "name": "Number of bathrooms",
+      "values": [
+        "20"
+      ]
+    }
+  ],
+  "caterer": [
+    {
+      "name": "Buriyani flavour",
+      "values": [
+        "Orange",
+        "Apple",
+        "Strawberry"
+      ]
+    },
+    {
+      "name": "Achcharu varga",
+      "values": [
+        "Orange achcharu",
+        "Strawberry achcharu",
+        "Caret achcharu"
+      ]
+    }
+  ],
+  "photographer": [
+    {
+      "name": "Photographer hair",
+      "values": [
+        "Thick",
+        "Long",
+        "Short"
+      ]
+    },
+    {
+      "name": "Dress code",
+      "values": [
+        "T-shirts and bottom",
+        "Saari",
+        "Arm cut"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+query VendorSearch($after: String, $searchQuery: String, $districtID: String, $vendorType: VendorType) {
+    vendorSearchWithExtra(
+        first: 12,
+        after: $after,
+        where: {
+            districtID: $districtID,
+            searchQuery: $searchQuery,
+            vendorType: $vendorType
+        }
+    ) {
+        district_key
+        vendor_type
+        district_id
+        edges {
+            cursor
+            node {
+                business_name
+                id
+                gallery_photos {
+                    id
+                    ht
+                    wd
+                }
+                vendor_type
+                district_display_name
+            }
+        }
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            endCursor
+        }
+    }
+
+}

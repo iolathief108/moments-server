@@ -1,0 +1,22 @@
+[
+  {
+    "id": "6089221946e59e2a9cf467e1",
+    "name": "Nuwara Eliya",
+    "provinceID": "6089221946e59e2a9cf467d6"
+  },
+  {
+    "id": "6089221946e59e2a9cf467f5",
+    "name": "Colombo (1 - 15)",
+    "provinceID": "6089221946e59e2a9cf467de"
+  },
+  {
+    "id": "6089221946e59e2a9cf467f6",
+    "name": "Colombo - Greater",
+    "provinceID": "6089221946e59e2a9cf467de"
+  },
+  {
+    "id": "6089221946e59e2a9cf467f7",
+    "name": "Gampaha",
+    "provinceID": "6089221946e59e2a9cf467de"
+  }
+]
