@@ -1,12 +1,12 @@
 # mara
 
 #### ports
-`
+````
 mara server = 4000
 virgin image = 4100
 mara web = 3000
 mara vendor = 3100
-`
+````
 Your can access vendor dash from /dash (in dev you supposed to use port 4200 because dev server websocket error)
 
 
