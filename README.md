@@ -31,11 +31,12 @@ all path related configs are contains in each package config file in root folder
 
 
 ##### gen data
+````sh
 gen-data
   ├── caterer - contains caterer related images
   ├── venue - contains venue related images
   └── default - default images to use if cat didn't exist 
-
+````
 
 
 #### Envs
