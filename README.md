@@ -12,8 +12,8 @@ Your can access vendor dash from /dash (in dev you supposed to use port 4200 bec
 
 ### default object paths
 ##### dev
-\~/mara-dev/objs/
-\~/mara-dev/gen-data/  - sample images for generate sample data
+- \~/mara-dev/objs/
+- \~/mara-dev/gen-data/  - sample images for generate sample data
 #### production
 \~/mara/objs/
 
@@ -52,12 +52,12 @@ VERGIN_PORT=3100
 dev process
 
 1 create folder 
-~/mara-dev/objs/main/img 
-~/mara-dev/objs/main/tmp
-~/mara-dev/objs/cache/p
+- ~/mara-dev/objs/main/img
+- ~/mara-dev/objs/main/tmp
+- ~/mara-dev/objs/cache/p
 
-~/mara-dev/gen-data/venue (and others as mara server specified - not mandatory)
-~/mara-dev/gen-data/default (mandotary for development)
+- ~/mara-dev/gen-data/venue (and others as mara server specified - not mandatory)
+- ~/mara-dev/gen-data/default (mandotary for development)
 
 put some sample images to venue and default folder
 
