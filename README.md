@@ -18,13 +18,14 @@ Your can access vendor dash from /dash (in dev you supposed to use port 4200 bec
 \~/mara/objs/
 
 ##### objs folder
+````sh
 objs
   ├── cache
   │    └── p - contains the generated main product cache files 
   └── main
        ├── tmp - contains the temparary uploaded image files
        └── img - main product files
-
+````
 all path related configs are contains in each package config file in root folder and nginx files
 
 
