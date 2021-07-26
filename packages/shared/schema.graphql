@@ -1,0 +1,266 @@
+# Exposes a URL that specifies the behaviour of this scalar.
+directive @specifiedBy(
+  # The URL that specifies the behaviour of this scalar.
+  url: String!
+) on SCALAR
+
+type CatererDataType {
+  sample: String
+}
+
+input CatererDetailsInput {
+  sample: String
+}
+
+type Clap {
+  name: String!
+  key: String!
+  values: [String!]!
+}
+
+input ClapInput {
+  name: String!
+  key: String!
+  values: [String!]!
+}
+
+type Connection {
+  pageInfo: PageInfo!
+  edges: [NodeEdge!]!
+}
+
+type ConnectionExtra {
+  pageInfo: PageInfo!
+  edges: [NodeEdge!]!
+  vendor_type: VendorType
+  district_key: String
+  district_id: String
+}
+
+type ConnectionNode {
+  business_name: String!
+  id: String!
+  gallery_photos: [Image!]!
+  vendor_type: VendorType!
+  district_display_name: String!
+}
+
+type FrequentQuestion {
+  question: String!
+  answer: String!
+}
+
+# Edit common vendor details
+input FrequentQuestionInput {
+  question: String!
+  answer: String!
+}
+
+input GalleryPhotoInput {
+  token: String
+  id: String
+}
+
+type Geo {
+  latitude: Float!
+  longitude: Float!
+}
+
+input GeoInput {
+  latitude: Float!
+  longitude: Float!
+}
+
+type Image {
+  ht: Float!
+  wd: Float!
+  id: String!
+}
+
+# Register new vendor data
+input ListInput {
+  districtID: String
+  vendorType: VendorType
+  searchQuery: String
+}
+
+type LocationNode {
+  id: String!
+  name: String!
+  key: String!
+  parent_id: String
+}
+
+type Mutation {
+  vendorRegisterOtp(phone: String!): Boolean!
+  vendorRegister(firstName: String!, lastName: String!, email: String, address: String, phone: String!, password: String!, otp: String!): Boolean!
+  vendorLoginOtp(phone: String!): Boolean
+  vendorLogin(otp: Float!, phone: String!): Boolean
+  vendorLogout: Boolean!
+  confirmEmailVendor(token: String!): Boolean
+  forgotPassword(email: String!): Boolean!
+  changePassword(data: VendorPasswordChangeInput!): VendorProfile
+  vendorEditDetails(data: VendorDetailsInput!): Boolean!
+}
+
+type NodeEdge {
+  node: ConnectionNode!
+
+  # Used in `before` and `after` args
+  cursor: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type PhotographerDataType {
+  sample: String
+}
+
+input PhotographerDetailsInput {
+  sample: String
+}
+
+type Query {
+  isVendorPhoneExist(phone: String!): Boolean!
+  vendorProfile: VendorProfile
+  vendorSearch(
+    # Paginate before opaque cursor
+    before: String
+
+    # Paginate after opaque cursor
+    after: String
+
+    # Paginate first
+    first: Float
+
+    # Paginate last
+    last: Float
+    where: ListInput
+  ): Connection!
+  vendorSearchWithExtra(
+    # Paginate before opaque cursor
+    before: String
+
+    # Paginate after opaque cursor
+    after: String
+
+    # Paginate first
+    first: Float
+
+    # Paginate last
+    last: Float
+    where: ListInput
+  ): ConnectionExtra!
+  vendorDetails(vendorDataId: String!): VendorDetails
+  vendorDetailsB(businessName: String!, vendorDataId: String): VendorDetails
+  vendorDetailsExtra: VendorDetailsExtra
+  provinces: [LocationNode!]!
+  districts(province_id: String): [LocationNode!]!
+  cities(districts_id: String): [LocationNode!]!
+  clapStore(vendorType: VendorType!): [StoreClap!]!
+}
+
+type SocialMedia {
+  facebook: String
+  instagram: String
+  pinterest: String
+  website: String
+}
+
+type StoreClap {
+  name: String!
+  key: String!
+  values: [String!]!
+}
+
+type VendorDetails {
+  phone: String
+  address: String
+  search_districts: [String!]
+  vendor_type: VendorType
+  links: SocialMedia
+  business_name: String
+  frequent_questions: [FrequentQuestion!]
+  vendorTypes: VendorTypes
+  galleryPhoto: [Image!]
+  geo: Geo
+  description: String
+  claps: [Clap!]
+}
+
+type VendorDetailsExtra {
+  phone: String
+  address: String
+  search_districts: [String!]
+  vendor_type: VendorType
+  links: SocialMedia
+  business_name: String
+  frequent_questions: [FrequentQuestion!]
+  vendorTypes: VendorTypes
+  galleryPhoto: [Image!]
+  geo: Geo
+  description: String
+  claps: [Clap!]
+  isComplete: Boolean
+}
+
+# Edit common vendor details
+input VendorDetailsInput {
+  address: String
+  searchDistrictIDs: [String!]
+  phone: String
+  frequentQuestion: [FrequentQuestionInput!]
+  vendorType: VendorType
+  businessName: String
+  facebook: String
+  instagram: String
+  pinterest: String
+  website: String
+  description: String
+  geo: GeoInput
+  gallery_photos: [GalleryPhotoInput!]
+  venueDetails: VenueDetailsInput
+  photographerDetails: PhotographerDetailsInput
+  catererDetails: CatererDetailsInput
+  claps: [ClapInput!]
+}
+
+# vendor password change input
+input VendorPasswordChangeInput {
+  password: String!
+  token: String!
+}
+
+type VendorProfile {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String
+  phone: String!
+  verified: Boolean!
+}
+
+enum VendorType {
+  venue
+  photographer
+  caterer
+}
+
+type VendorTypes {
+  caterer_type: CatererDataType
+  venue_type: VenueDataType
+  photographer_type: PhotographerDataType
+}
+
+type VenueDataType {
+  sample: String
+}
+
+input VenueDetailsInput {
+  sample: String
+}

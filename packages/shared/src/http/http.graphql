@@ -1,0 +1,137 @@
+mutation vendorLoginOtp($phone: String!){
+    vendorLoginOtp(phone: $phone)
+
+}
+
+mutation vendorLogin($phone: String!, $otp: Float!) {
+    vendorLogin(phone: $phone, otp: $otp)
+}
+
+query getVendorProfileId {
+    vendorProfile {
+        id
+    }
+}
+
+query getVendorProfile {
+    vendorProfile {
+        id
+        firstName
+        lastName
+        email
+        phone
+        verified
+    }
+}
+
+mutation vendorLogout {
+    vendorLogout
+}
+
+query isVendorPhoneExist($phone: String!) {
+    isVendorPhoneExist(phone: $phone)
+}
+
+mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $otp: String!) {
+    vendorRegister(firstName: $firstName, lastName: $lastName, phone: $phone, password: $password, otp: $otp)
+}
+
+mutation editVendorDetails(
+    $businessName: String
+    $vendorType: VendorType
+    $address: String
+    $galleryPhotos: [GalleryPhotoInput!]
+    $frequentQuestion: [ FrequentQuestionInput! ]
+    $geo: GeoInput
+    $phone: String
+    $searchDistrictIDs: [String!]
+    $facebook: String
+    $pinterest: String
+    $instagram: String
+    $website: String
+    $catererDetails: CatererDetailsInput
+    $photographerDetails: PhotographerDetailsInput 
+    $venueDetails: VenueDetailsInput
+    $claps: [ClapInput!]
+    $description: String
+){
+    vendorEditDetails(data: {
+        businessName: $businessName 
+        vendorType: $vendorType
+        address: $address
+        catererDetails: $catererDetails
+        facebook: $facebook
+        gallery_photos: $galleryPhotos
+        frequentQuestion: $frequentQuestion
+        geo: $geo
+        instagram: $instagram
+        phone: $phone
+        photographerDetails: $photographerDetails
+        pinterest: $pinterest
+        searchDistrictIDs: $searchDistrictIDs
+        venueDetails: $venueDetails
+        website: $website
+        claps: $claps
+        description: $description
+    })
+}
+
+query getVendorDetailsExtra {
+    vendorDetailsExtra {
+        phone
+        description
+        address
+        search_districts
+        geo {
+            latitude
+            longitude
+        }
+        frequent_questions {
+            question
+            answer
+        }
+        vendor_type 
+        links {
+            facebook
+            instagram
+            pinterest
+            website
+        }
+        business_name
+        galleryPhoto {
+            ht
+            wd
+            id
+        }
+        claps {
+            name
+            key
+            values
+        }
+        isComplete
+    }
+}
+
+query getInitialData {
+    vendorDetailsExtra{
+        business_name
+        vendor_type
+    }
+}
+
+query getDistricts {
+    districts {
+        id
+        name
+        key
+        parent_id
+    }
+}
+
+query getClapStore($vendorType: VendorType!) {
+    clapStore(vendorType: $vendorType){
+        name
+        key
+        values
+    }
+}

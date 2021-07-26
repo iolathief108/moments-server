@@ -1,0 +1,32 @@
+
+query VendorDetailsB($businessName: String!, $vid: String) {
+    vendorDetailsB(businessName: $businessName, vendorDataId: $vid) {
+        phone
+        galleryPhoto {
+            id
+            ht
+            wd
+        }
+        business_name
+        frequent_questions {
+            answer
+            question
+        }
+        vendor_type
+        search_districts
+        links {
+            facebook
+            instagram
+            pinterest
+            website
+        }
+        description
+        address
+        claps {
+            name
+            key
+            values
+        }
+    }
+
+}

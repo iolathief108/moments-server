@@ -1,0 +1,50 @@
+venue:
+  - name: Stage colors
+    key: stage-colors
+    values:
+      - Red
+      - Black
+      - Orange
+  - name: Foods
+    key: foods
+    values:
+      - Fruits
+      - Buriyani
+      - Sambar
+caterer:
+  - name: Buriyani flavour
+    key: buriyani-flavour
+    values:
+      - Orange
+      - Apple
+      - Strawberry
+  - name: Achcharu varga
+    key: achcharu-varga
+    values:
+      - Orange achcharu
+      - Strawberry achcharu
+      - Caret achcharu
+  - name: Types of food services
+    key: types-of-food-services
+    values:
+      - Buriyani
+      - Sambar
+      - Nudles
+      - Macaroni
+      - Kottu
+
+
+photographer:
+  - name: Photographer hair
+    key: photographer-hair
+    values:
+      - Thick
+      - Long
+      - Short
+  - name: Dress code
+    key: dress-code
+    values:
+      - T-shirts and bottom
+      - Saari
+      - Arm cut
+      - Damn

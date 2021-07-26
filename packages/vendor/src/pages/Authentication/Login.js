@@ -1,0 +1,262 @@
+import React, {Component} from 'react';
+import {Row, Col, Card, CardBody, Alert} from 'reactstrap';
+import {isNumeric} from '@mara/shared';
+
+
+// Redux
+import {withRouter, Link} from 'react-router-dom';
+
+// availity-reactstrap-validation
+import {AvForm, AvField} from 'availity-reactstrap-validation';
+
+import Loader from '../../comps/Loader';
+// actions
+
+// import images
+import logoSm from '../../assets/images/logo-sm.png';
+import {
+    sdk,
+    initAuthorization,
+    businessName,
+    parseSLPhone,
+    validateStandardSLPhone,
+} from '@mara/shared';
+
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            otpState: false,
+            phone: null,
+        };
+
+        // handleValidSubmit
+        this.handleContinue = this.handleContinue.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        initAuthorization().then((res) => {
+            if (res) {
+                this.props.history.push('/dashboard');
+            }
+        }).catch(() => {
+            console.log('something went wrong');
+        });
+    }
+
+    // handleValidSubmit
+    async handleContinue(event, values) {
+        const phone = parseSLPhone(values.phone);
+        if (!phone) {
+            this.setState({
+                error: 'Not a valid phone number!',
+            });
+            return;
+        }
+        try {
+            const res = await sdk('/api/').vendorLoginOtp({
+                phone,
+            });
+            if (res?.data?.vendorLoginOtp) {
+                this.setState({
+                    otpState: true,
+                    phone,
+                    error: false,
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async handleSubmit(event, values) {
+        const otp = values.otp;
+        if (!this.state.phone) return;
+        const res = await sdk().vendorLogin({
+            phone: this.state.phone,
+            otp: Number(otp),
+        });
+        if (res.data.vendorLogin) {
+            initAuthorization().then((res) => {
+                if (res) {
+                    // because we have initialize the cat and I like reload ^_~
+                    window.location.href = '/'
+                    // this.props.history.push('/dashboard');
+                }
+            }).catch(e => {
+                this.setState({
+                    error: 'Oops! Something went wrong!'
+                })
+                console.log(e);
+            });
+        } else {
+            this.setState({
+                error: 'Oops! Something went wrong!'
+            })
+        }
+    }
+
+    validateOtp(value) {
+        if (!isNumeric(value)) return 'otp code must have 6 numeric characters';
+        if (value.length !== 6) return 'otp code must have 6 numeric characters';
+        return true;
+    }
+
+    isPhoneValidate(value) {
+        let parsedPhone = parseSLPhone(value);
+        if (!parsedPhone) {
+            return 'Not a valid phone number';
+        }
+        if (!validateStandardSLPhone(parsedPhone || '')) {
+            return 'Not a valid phone number';
+        }
+        return true;
+    }
+
+    render() {
+        return (
+            <React.Fragment>
+                <div className="home-btn d-none d-sm-block">
+                    <Link to="/" className="text-dark">
+                        <i className="fas fa-home h2"/>
+                    </Link>
+                </div>
+                <div className="account-pages my-5 pt-5">
+                    <div className="container">
+                        <Row className="justify-content-center">
+                            <Col md={8} lg={6} xl={5}>
+                                <div className="position-relative">
+                                    {this.props.loading ? <Loader/> : null}
+
+                                    <Card className="overflow-hidden">
+                                        <div className="bg-primary">
+                                            <div
+                                                className="text-primary text-center p-4">
+                                                <h5 className="text-white font-size-20">
+                                                    Welcome Back !
+                                                </h5>
+                                                <p className="text-white-50">
+                                                    Sign in to continue
+                                                    to {businessName}.
+                                                </p>
+                                                <Link to="/"
+                                                      className="logo logo-admin">
+                                                    <img src={logoSm}
+                                                         height="24"
+                                                         alt="logo"/>
+                                                </Link>
+                                            </div>
+                                        </div>
+
+                                        <CardBody className="p-4">
+                                            <div className="p-3">
+
+                                                {
+                                                    !this.state.otpState ?
+                                                        <AvForm
+                                                            className="form-horizontal mt-4"
+                                                            onValidSubmit={this.handleContinue}
+                                                        >
+                                                            {this.state.error ? (
+                                                                <Alert
+                                                                    color="danger">{this.state.error}</Alert>
+                                                            ) : null}
+
+                                                            <div
+                                                                className="form-group">
+                                                                <AvField
+                                                                    name="phone"
+                                                                    label="Phone"
+                                                                    className="form-control"
+                                                                    placeholder="Enter phone"
+                                                                    type="phone"
+                                                                    validate={{validate: this.isPhoneValidate}}
+                                                                    required
+                                                                />
+                                                            </div>
+                                                            <Row
+                                                                className="form-group">
+                                                                <Col
+                                                                    sm={6}> &nbsp; </Col>
+                                                                <Col sm={6}
+                                                                     className="text-right">
+                                                                    <button
+                                                                        className="btn btn-primary w-md waves-effect waves-light"
+                                                                        type="submit"
+                                                                    >
+                                                                        Continue
+                                                                    </button>
+                                                                </Col>
+                                                            </Row>
+                                                        </AvForm> :
+                                                        <AvForm
+                                                            className="form-horizontal mt-4"
+                                                            onValidSubmit={this.handleSubmit}
+                                                        >
+                                                            {this.state.error ? (
+                                                                <Alert
+                                                                    color="danger">{this.state.error}</Alert>
+                                                            ) : null}
+
+                                                            <div
+                                                                className="form-group">
+                                                                <AvField
+                                                                    name="otp"
+                                                                    label="OTP"
+                                                                    className="form-control"
+                                                                    value=""
+                                                                    placeholder="Enter otp"
+                                                                    type="text"
+                                                                    validate={{validate: this.validateOtp}}
+                                                                    required
+                                                                />
+                                                            </div>
+                                                            <Row
+                                                                className="form-group">
+                                                                <Col
+                                                                    sm={6}> &nbsp; </Col>
+                                                                <Col sm={6}
+                                                                     className="text-right">
+                                                                    <button
+                                                                        className="btn btn-primary w-md waves-effect waves-light"
+                                                                        type="submit"
+                                                                    >
+                                                                        Log In
+                                                                    </button>
+                                                                </Col>
+                                                            </Row>
+                                                        </AvForm>
+                                                }
+
+                                            </div>
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                <div className="mt-5 text-center">
+                                    <p>
+                                        Don't have an account ?{' '}
+                                        <Link
+                                            to="/register"
+                                            className="font-weight-medium text-primary"
+                                        >
+                                            {' '}
+                                            Signup now{' '}
+                                        </Link>{' '}
+                                    </p>
+                                    <p className="mb-0">
+                                        © {new Date().getFullYear()} {businessName}.
+                                        Crafted with{' '}
+                                        <i className="mdi mdi-heart text-danger"/> by
+                                        HiTek
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    }
+}
+
+
+export default withRouter(Login);

@@ -1,0 +1,51 @@
+{
+    "ad": {
+        "category": 417,
+        "location": 1521,
+        "type": "for_sale",
+        "images": [
+            "745db49f-fa46-4b00-981f-41dfeb38086a"
+        ],
+        "contact_card": {
+            "phone_numbers": [
+                "0775737981"
+            ],
+            "email": "iolathief108@gmail.com"
+        },
+        "properties": [
+            {
+                "key": "item_type",
+                "type": "multi",
+                "value": [
+                    "commercial",
+                    "other"
+                ]
+            },
+            {
+                "key": "size",
+                "type": "measurement",
+                "value": 855,
+                "unit": "perches"
+            },
+            {
+                "key": "title",
+                "type": "title",
+                "value": "Daraz Profit"
+            },
+            {
+                "key": "description",
+                "type": "description",
+                "value": "asdfasdfsadfsd"
+            },
+            {
+                "type": "money",
+                "key": "price",
+                "amount": 50000,
+                "currency": "LKR",
+                "negotiable": false,
+                "unit": "total_price"
+            }
+        ]
+    },
+    "account_phone_numbers": false
+}

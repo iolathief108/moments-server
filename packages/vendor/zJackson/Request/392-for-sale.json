@@ -1,0 +1,85 @@
+{
+  "ad": {
+    "category": 392,
+    "location": 1521,
+    "type": "for_sale",
+    "images": [
+      "6456ddcf-9f7a-4896-922f-a380551913b0"
+    ],
+    "contact_card": {
+      "phone_numbers": [
+        "0775737981"
+      ],
+      "email": "iolathief108@gmail.com"
+    },
+    "properties": [
+      {
+        "key": "condition",
+        "type": "enum",
+        "value": "used"
+      },
+      {
+        "key": "brand",
+        "type": "tree",
+        "parent": {
+          "key": "brand",
+          "value": "aston-martin"
+        },
+        "child": {
+          "key": "model",
+          "value": "aston-martin-other-model"
+        }
+      },
+      {
+        "key": "edition",
+        "type": "text",
+        "value": "asdfsad"
+      },
+      {
+        "key": "model_year",
+        "type": "year",
+        "value": 2000
+      },
+      {
+        "key": "mileage",
+        "type": "measurement",
+        "value": 23,
+        "unit": "km"
+      },
+      {
+        "key": "engine_capacity",
+        "type": "measurement",
+        "value": 23,
+        "unit": "cc"
+      },
+      {
+        "key": "fuel_type",
+        "type": "enum",
+        "value": "petrol"
+      },
+      {
+        "key": "transmission",
+        "type": "enum",
+        "value": "automatic"
+      },
+      {
+        "key": "body",
+        "type": "enum",
+        "value": "saloon"
+      },
+      {
+        "key": "description",
+        "type": "description",
+        "value": "asdfasasdfasd"
+      },
+      {
+        "type": "money",
+        "key": "price",
+        "amount": 34444,
+        "currency": "LKR",
+        "negotiable": false
+      }
+    ]
+  },
+  "account_phone_numbers": false
+}

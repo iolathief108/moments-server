@@ -1,0 +1,13 @@
+.phone-123 {
+	.text-danger {
+		color: unset !important;
+	}	
+	input {
+		border-color: #ced4da !important;
+		background-image: unset !important;
+	}
+	.invalid-feedback {
+		display: none;
+	}
+}
+

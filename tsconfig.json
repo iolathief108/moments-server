@@ -1,0 +1,10 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "@mara/shared": ["../shared/src"],
+      "@mara/shared/*": ["../shared/src/*"]
+    }
+  }
+}
+

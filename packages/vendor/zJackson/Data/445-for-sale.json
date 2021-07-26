@@ -1,0 +1,1788 @@
+{
+  "locale": "en",
+  "marketLocales": [
+    "en",
+    "si",
+    "ta"
+  ],
+  "locations": {
+    "type": "NotAsked"
+  },
+  "categories": {
+    "type": "NotAsked"
+  },
+  "category": {
+    "id": 445,
+    "name": "Furniture"
+  },
+  "browserInfo": {
+    "fakeWidth": 1200,
+    "webpSupported": true
+  },
+  "jobsVertical": {
+    "filters": {
+      "type": "NotAsked"
+    }
+  },
+  "serp": {
+    "ads": {
+      "type": "NotAsked"
+    },
+    "staticFilters": {
+      "sort": "date_desc",
+      "posterType": "all_posters",
+      "isDoorstepDelivery": false,
+      "isUrgent": false,
+      "location": -1,
+      "category": -1,
+      "categorySlug": "",
+      "locationSlug": "sri-lanka",
+      "page": 1,
+      "query": ""
+    },
+    "dynamicFilters": {},
+    "snapshot": null
+  },
+  "verticals": [
+    {
+      "key": "jobs",
+      "name": "Jobs in Sri Lanka",
+      "categories": [
+        {
+          "id": 700
+        },
+        {
+          "id": 1401
+        },
+        {
+          "id": 1402
+        },
+        {
+          "id": 1403
+        },
+        {
+          "id": 1481
+        },
+        {
+          "id": 1497
+        },
+        {
+          "id": 1496
+        },
+        {
+          "id": 1404
+        },
+        {
+          "id": 1498
+        },
+        {
+          "id": 1499
+        },
+        {
+          "id": 1405
+        },
+        {
+          "id": 1500
+        },
+        {
+          "id": 1513
+        },
+        {
+          "id": 1501
+        },
+        {
+          "id": 1406
+        },
+        {
+          "id": 1407
+        },
+        {
+          "id": 1408
+        },
+        {
+          "id": 1409
+        },
+        {
+          "id": 1502
+        },
+        {
+          "id": 1410
+        },
+        {
+          "id": 1411
+        },
+        {
+          "id": 1485
+        },
+        {
+          "id": 1412
+        },
+        {
+          "id": 1413
+        },
+        {
+          "id": 1414
+        },
+        {
+          "id": 1503
+        },
+        {
+          "id": 1415
+        },
+        {
+          "id": 1514
+        },
+        {
+          "id": 1416
+        },
+        {
+          "id": 1417
+        },
+        {
+          "id": 1504
+        },
+        {
+          "id": 1505
+        },
+        {
+          "id": 1494
+        },
+        {
+          "id": 1418
+        },
+        {
+          "id": 1419
+        },
+        {
+          "id": 1420
+        },
+        {
+          "id": 1421
+        },
+        {
+          "id": 1422
+        },
+        {
+          "id": 1423
+        },
+        {
+          "id": 1506
+        },
+        {
+          "id": 1424
+        },
+        {
+          "id": 1482
+        },
+        {
+          "id": 1425
+        },
+        {
+          "id": 1426
+        },
+        {
+          "id": 1427
+        },
+        {
+          "id": 1428
+        },
+        {
+          "id": 1429
+        },
+        {
+          "id": 1430
+        },
+        {
+          "id": 1486
+        },
+        {
+          "id": 1431
+        },
+        {
+          "id": 1515
+        },
+        {
+          "id": 1432
+        },
+        {
+          "id": 1490
+        },
+        {
+          "id": 1433
+        },
+        {
+          "id": 1523
+        },
+        {
+          "id": 1434
+        },
+        {
+          "id": 1516
+        },
+        {
+          "id": 1493
+        },
+        {
+          "id": 1489
+        },
+        {
+          "id": 1435
+        },
+        {
+          "id": 1436
+        },
+        {
+          "id": 1492
+        },
+        {
+          "id": 1437
+        },
+        {
+          "id": 1438
+        },
+        {
+          "id": 1439
+        },
+        {
+          "id": 1491
+        },
+        {
+          "id": 1440
+        },
+        {
+          "id": 1507
+        },
+        {
+          "id": 1508
+        },
+        {
+          "id": 1441
+        },
+        {
+          "id": 1442
+        },
+        {
+          "id": 1495
+        },
+        {
+          "id": 1443
+        },
+        {
+          "id": 1444
+        },
+        {
+          "id": 1445
+        },
+        {
+          "id": 1446
+        },
+        {
+          "id": 1447
+        },
+        {
+          "id": 1448
+        },
+        {
+          "id": 1449
+        },
+        {
+          "id": 1509
+        },
+        {
+          "id": 1450
+        },
+        {
+          "id": 1452
+        },
+        {
+          "id": 1453
+        },
+        {
+          "id": 1454
+        },
+        {
+          "id": 1456
+        },
+        {
+          "id": 1457
+        },
+        {
+          "id": 1458
+        },
+        {
+          "id": 1459
+        },
+        {
+          "id": 1510
+        },
+        {
+          "id": 1460
+        },
+        {
+          "id": 1483
+        },
+        {
+          "id": 1461
+        },
+        {
+          "id": 1462
+        },
+        {
+          "id": 1463
+        },
+        {
+          "id": 1488
+        },
+        {
+          "id": 1464
+        },
+        {
+          "id": 1465
+        },
+        {
+          "id": 1466
+        },
+        {
+          "id": 1467
+        },
+        {
+          "id": 1517
+        },
+        {
+          "id": 1521
+        },
+        {
+          "id": 1468
+        },
+        {
+          "id": 1518
+        },
+        {
+          "id": 1469
+        },
+        {
+          "id": 1470
+        },
+        {
+          "id": 1519
+        },
+        {
+          "id": 1471
+        },
+        {
+          "id": 1520
+        },
+        {
+          "id": 1472
+        },
+        {
+          "id": 1473
+        },
+        {
+          "id": 1474
+        },
+        {
+          "id": 1487
+        },
+        {
+          "id": 1475
+        },
+        {
+          "id": 1511
+        },
+        {
+          "id": 1476
+        },
+        {
+          "id": 1512
+        },
+        {
+          "id": 1477
+        },
+        {
+          "id": 1484
+        },
+        {
+          "id": 1478
+        },
+        {
+          "id": 1479
+        },
+        {
+          "id": 1480
+        },
+        {
+          "id": 1522
+        },
+        {
+          "id": 1451
+        }
+      ]
+    }
+  ],
+  "isGhanaWeb": false,
+  "market": {
+    "integrations": []
+  },
+  "experimentCookie": "",
+  "adDetail": {
+    "type": "Success",
+    "data": {
+      "ad": {
+        "id": "605948e7d5e9b2007b203c35",
+        "account": {
+          "id": "5f6499d1a2f72100167aabad",
+          "traits": {
+            "member": true
+          }
+        },
+        "details": "",
+        "slug": "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1",
+        "title": "Teak Modern Lotus 321 Sofa Set With Glass Top Stool Code 1043",
+        "description": "🔴🔴🔴සේල් සේල් සේල් 🔴🔴🔴\n\n🌄🌄🌄New Year Offer 🌄🌄🌄\n\n✅වසර 30ක පලපුරුද්දක් සහිතව\n\n✅National.lk අපගේ Face book පිටුව හරහා ද සම්බන්ධ විය හැක( you can see our recommendation)\n\n✅ original තේක්ක ලීයෙන් නිෂ්පාදනය කර ඇති අතර තේක්ක ලීය සදහා Life time replacement warranty ලබා දේ \n\n✅ **  ලංකවේ අඩුම මිල හා ඉහල ගුණ්ත්වය**\n\n✅ භාණ්ඩ ලැබුණු පසු මුදල් ගෙවන්න \n\n✅ Credit හා debit card  මගින් පහසු ගෙවිම් සිදු කර හැක. \n\n✅** කි.ම්. 10 ඇතුලත ප්‍රවාහනය නෝමිලේ 🚚🚚🚚🚚🚚🚛🚛🚛🚛🚛**\n\n✅ ••** ඔබගේ නිවසට අවශ්‍ය සියලුම ගෘහ භාණ්ඩ සහ ගෘහ විදුලි උපකරන එකම තැනකින් ඉතා අඩු මිලකට ••**",
+        "properties": [
+          {
+            "label": "Condition",
+            "value": "New",
+            "key": "condition",
+            "value_key": "new"
+          },
+          {
+            "label": "Furniture type",
+            "value": "Sofa / living room item",
+            "key": "item_type",
+            "value_key": "living_room"
+          }
+        ],
+        "isMember": true,
+        "isAuthDealer": false,
+        "type": "for_sale",
+        "status": "published",
+        "membershipLevel": "premium",
+        "memberSince": "September 2020",
+        "isVerified": false,
+        "postedDate": 0,
+        "isDoorstepDelivery": false,
+        "timestamp": "21 Jul 7:20 am",
+        "adDate": "2021-07-21T07:20:17+05:30",
+        "noExpiration": true,
+        "deactivates": "2021-05-22T01:48:23.000Z",
+        "location": {
+          "id": 1540,
+          "name": "Kottawa",
+          "children": [],
+          "geography": {
+            "simple_polygons": [
+              {
+                "coordinates": [
+                  {
+                    "latitude": 6.847351,
+                    "longitude": 79.968796
+                  },
+                  {
+                    "latitude": 6.839681,
+                    "longitude": 79.959269
+                  },
+                  {
+                    "latitude": 6.835676,
+                    "longitude": 79.957552
+                  },
+                  {
+                    "latitude": 6.832522,
+                    "longitude": 79.966822
+                  },
+                  {
+                    "latitude": 6.833971,
+                    "longitude": 79.968967
+                  },
+                  {
+                    "latitude": 6.835931,
+                    "longitude": 79.968882
+                  },
+                  {
+                    "latitude": 6.839766,
+                    "longitude": 79.966478
+                  },
+                  {
+                    "latitude": 6.843942,
+                    "longitude": 79.970427
+                  }
+                ]
+              }
+            ]
+          },
+          "geo_region": "LK-11",
+          "slug": "kottawa",
+          "link": "/ads/kottawa",
+          "parentId": 1506,
+          "parent": {
+            "id": 1506,
+            "children": [
+              1553,
+              1549,
+              1541,
+              1527,
+              1517,
+              1540,
+              1545,
+              1542,
+              1508,
+              1514,
+              1532,
+              1534,
+              1511,
+              1554,
+              1507,
+              1522,
+              2173,
+              1521,
+              1519,
+              1516,
+              2154,
+              1551,
+              1515,
+              2179,
+              1546,
+              1525,
+              1555,
+              2132,
+              2151,
+              2129,
+              1536,
+              1537,
+              1550,
+              1524,
+              1520,
+              1523,
+              1513,
+              1526,
+              2131,
+              1530,
+              1518,
+              1548,
+              2130,
+              1512
+            ],
+            "name": "Colombo",
+            "geography": {
+              "simple_polygons": [
+                {
+                  "coordinates": [
+                    {
+                      "latitude": 6.995651,
+                      "longitude": 79.804039
+                    },
+                    {
+                      "latitude": 6.766976,
+                      "longitude": 79.872818
+                    },
+                    {
+                      "latitude": 6.776097,
+                      "longitude": 80.22678
+                    },
+                    {
+                      "latitude": 6.879256,
+                      "longitude": 80.190765
+                    },
+                    {
+                      "latitude": 6.874357,
+                      "longitude": 80.211899
+                    },
+                    {
+                      "latitude": 6.987546,
+                      "longitude": 80.208466
+                    },
+                    {
+                      "latitude": 6.959255,
+                      "longitude": 79.979614
+                    }
+                  ]
+                }
+              ]
+            },
+            "geo_region": "LK-11",
+            "slug": "colombo",
+            "link": "/ads/colombo",
+            "parentId": -1
+          }
+        },
+        "category": {
+          "id": 445,
+          "name": "Furniture",
+          "children": [],
+          "ad_types": [
+            "for_sale",
+            "to_buy"
+          ],
+          "serp_type": "ads",
+          "available_serp_layouts": [
+            "classic",
+            "fluid"
+          ],
+          "default_serp_layout": "fluid",
+          "default_ad_type": "for_sale",
+          "slug": "furniture",
+          "form_view_version": "1",
+          "parentId": 444,
+          "parent": {
+            "id": 444,
+            "children": [
+              445,
+              463,
+              458,
+              460,
+              459,
+              461,
+              457,
+              455,
+              488
+            ],
+            "name": "Home & Garden",
+            "ad_types": [],
+            "serp_type": "ads",
+            "available_serp_layouts": [
+              "classic",
+              "fluid"
+            ],
+            "default_serp_layout": "fluid",
+            "type": "home",
+            "slug": "home-garden",
+            "form_view_version": "1",
+            "parentId": -1
+          }
+        },
+        "area": {
+          "id": 1506,
+          "name": "Colombo"
+        },
+        "contactCard": {
+          "name": "National.lk",
+          "phoneNumbers": [
+            {
+              "number": "0773533183",
+              "verified": true
+            },
+            {
+              "number": "0701474840",
+              "verified": true
+            }
+          ],
+          "chatEnabled": true
+        },
+        "images": {
+          "meta": [
+            {
+              "src": "https://i.ikman-st.com/e2fd0d33-aa50-4473-9b73-e465da343564",
+              "alt": "Teak Modern Lotus 321 Sofa Set With Glass Top Stool Code 1043 in Colombo"
+            },
+            {
+              "src": "https://i.ikman-st.com/625f9dcd-7635-485a-b018-ddde2958f743",
+              "alt": "Teak Modern Lotus 321 Sofa Set With Glass Top Stool Code 1043 in Kottawa"
+            }
+          ],
+          "base_uri": "https://i.ikman-st.com"
+        },
+        "shop": {
+          "id": "5f65765a40c46f0001729ee2",
+          "slug": "national-lk",
+          "name": " Dream Furniture ",
+          "email": "nationalgroup040@gmail.com",
+          "logo": "https://i.ikman-st.com/u/204171e4-682b-47fa-9172-24654210c315/48/36/cropped.jpg",
+          "contactSectionLogo": "https://i.ikman-st.com/u/204171e4-682b-47fa-9172-24654210c315/72/54/cropped.jpg"
+        },
+        "money": {
+          "label": "Price",
+          "amount": "Rs 69,900"
+        },
+        "statistics": {},
+        "job": {},
+        "isDeliveryFree": false,
+        "memberLogo": "https://i.ikman-st.com/e2fd0d33-aa50-4473-9b73-e465da343564/72/54/cropped.jpg",
+        "imgUrl": "https://i.ikman-st.com/e2fd0d33-aa50-4473-9b73-e465da343564/142/107/cropped.jpg",
+        "isLocalJob": false
+      },
+      "similarAds": [
+        {
+          "id": "60555b551d6a71004b4f0b98",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1033-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1033",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/3a44ecf3-8bc0-4ef2-bc16-d386c235c37e/142/107/cropped.jpg",
+          "price": "Rs 42,500",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "2 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60e2927275d4ab004968cc89",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3521-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 3521",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/e56dc7a6-7770-4c6c-a0cd-b30a5dbc04d5/142/107/cropped.jpg",
+          "price": "Rs 52,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "16 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "6057fed52548e200471c13d3",
+          "slug": "teak-modern-311-sofa-set-with-glass-top-stool-code-1044-for-sale-colombo",
+          "title": "Teak Modern 311 Sofa Set With Glass Top Stool Code 1044",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/df1660fc-1b6e-4a7a-9325-d7a838483447/142/107/cropped.jpg",
+          "price": "Rs 33,500",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "1 day",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60c83c3741e5f40078cc6104",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3201-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 3201",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/4cafc09b-05f3-48a6-bb03-b01079960efb/142/107/cropped.jpg",
+          "price": "Rs 42,500",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "36 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60e6754467df9a00417bcb68",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3621-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa set with glass top stool code 3621",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/3c71e7e3-aff7-4339-ba39-d3a5b0aedfb2/142/107/cropped.jpg",
+          "price": "Rs 49,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "13 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "6057fe8bd469da0079408625",
+          "slug": "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo",
+          "title": "Teak Modern Lotus 321 Sofa Set With Glass Top Stool Code 1043",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/12085808-4ed8-4103-81c6-538aaa4c4889/142/107/cropped.jpg",
+          "price": "Rs 69,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "1 day",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "605e97d8a98f58004a755057",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1075-for-sale-colombo-1",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1075",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/be4a832f-2654-4da0-a98b-29947c231683/142/107/cropped.jpg",
+          "price": "Rs 49,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "56 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "605c286d118d180042001f48",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1064-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1064",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/d521f954-3097-4f87-bd69-b6b3512c6a0f/142/107/cropped.jpg",
+          "price": "Rs 41,500",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "58 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "605fed8b41d7f1007da0f959",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1086-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1086",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/2f04e7e6-f2d8-49bb-a61e-75db53f116a4/142/107/cropped.jpg",
+          "price": "Rs 67,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "55 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60c072cd1e53080019d5ca69",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3011-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 3011",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/ecc6d090-bc06-49b1-a120-1f0a33844b3c/142/107/cropped.jpg",
+          "price": "Rs 42,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "42 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60710fc8134f68007b9edf99",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1268-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1268",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/2f24a8d2-4a4b-4ae7-881f-3aff5f50deef/142/107/cropped.jpg",
+          "price": "Rs 65,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "42 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "606d195b520dbc007b6e93d5",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1230-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1230",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/94075f81-0e12-4ca8-8e3d-d75b683a54d6/142/107/cropped.jpg",
+          "price": "Rs 47,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "45 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "606d0f1f61a20e004a84a305",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1209-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1209",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/0b5a740f-2b09-4536-951d-60f17fb86f9f/142/107/cropped.jpg",
+          "price": "Rs 65,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "45 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60e81b2b39fefa484cecadcb",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3783-for-sale-colombo-1",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 3783",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/93bf9a96-ccfd-40ad-9693-36a35aadf910/142/107/cropped.jpg",
+          "price": "Rs 68,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "12 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "60e81b91a0f754615ae6c91f",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-3783-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 3783",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/7c43dfaa-1d37-4cc9-acf6-e2048f8d4310/142/107/cropped.jpg",
+          "price": "Rs 65,900",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "12 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        },
+        {
+          "id": "6073ab0a584746001adbe6ca",
+          "slug": "teak-modern-321-sofa-set-with-glass-top-stool-code-1344-for-sale-colombo",
+          "title": "Teak Modern 321 Sofa Set With Glass Top Stool Code 1344",
+          "description": "Colombo, Furniture",
+          "details": "",
+          "imgUrl": "https://i.ikman-st.com/659daa60-ca14-4fc6-8b4f-31938d60dd79/142/107/cropped.jpg",
+          "price": "Rs 65,800",
+          "discount": 0,
+          "mrp": 0,
+          "isMember": true,
+          "isAuthDealer": false,
+          "membershipLevel": "premium",
+          "shopName": " Dream Furniture ",
+          "isDoorstepDelivery": false,
+          "isDeliveryFree": false,
+          "isTopAd": false,
+          "isUrgentAd": false,
+          "timeStamp": "4 days",
+          "category": {
+            "id": 445,
+            "name": "Furniture"
+          },
+          "isVerified": false,
+          "isJobAd": false,
+          "location": "Colombo",
+          "adType": "for_sale",
+          "isLocalJob": false
+        }
+      ],
+      "title": "Teak Modern Lotus 321 Sofa Set With Glass Top Stool Code 1043  in Kottawa | ikman.lk",
+      "description": "🔴🔴🔴සේල් සේල් සේල් 🔴🔴🔴\n\n🌄🌄🌄New Year Offer 🌄🌄🌄\n\n✅වසර 30ක පලපුරුද්දක් සහිතව\n\n✅National.lk අපගේ Face book පිටුව හරහා ද සම්බන්ධ විය හැක( you can see our recommenda..."
+    }
+  },
+  "subShop": {
+    "type": "NotAsked"
+  },
+  "shop": {
+    "type": "NotAsked"
+  },
+  "shopSerp": {
+    "type": "NotAsked"
+  },
+  "banners": {
+    "type": "Success",
+    "data": {
+      "web": {
+        "skyscraper": {
+          "slot": "/134461134/ikman_desktop_detailview_skyscraper",
+          "sizes": [
+            [
+              300,
+              250
+            ],
+            [
+              300,
+              600
+            ]
+          ],
+          "key_values": [
+            {
+              "key": "url",
+              "values": [
+                "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1"
+              ]
+            },
+            {
+              "key": "page",
+              "values": [
+                "detail"
+              ]
+            },
+            {
+              "key": "locale",
+              "values": [
+                "en"
+              ]
+            },
+            {
+              "key": "by_paying_member",
+              "values": [
+                true
+              ]
+            },
+            {
+              "key": "by_authorized_dealer",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "buy_now",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "shop_id",
+              "values": [
+                "5f65765a40c46f0001729ee2"
+              ]
+            },
+            {
+              "key": "l1_category",
+              "values": [
+                "home"
+              ]
+            },
+            {
+              "key": "l2_category",
+              "values": [
+                "furniture"
+              ]
+            },
+            {
+              "key": "ikman_l1_location",
+              "values": [
+                "colombo"
+              ]
+            },
+            {
+              "key": "ikman_l2_location",
+              "values": [
+                "kottawa"
+              ]
+            },
+            {
+              "key": "ikman_price",
+              "values": [
+                "50-100k"
+              ]
+            },
+            {
+              "key": "condition",
+              "values": [
+                "new"
+              ]
+            },
+            {
+              "key": "Ad_Format",
+              "values": [
+                "skyscraper"
+              ]
+            },
+            {
+              "key": "Platform",
+              "values": [
+                "Desktop"
+              ]
+            }
+          ]
+        },
+        "leaderboard": {
+          "slot": "/134461134/ikman_desktop_detailview_leaderboard",
+          "sizes": [
+            [
+              970,
+              90
+            ]
+          ],
+          "key_values": [
+            {
+              "key": "url",
+              "values": [
+                "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1"
+              ]
+            },
+            {
+              "key": "page",
+              "values": [
+                "detail"
+              ]
+            },
+            {
+              "key": "locale",
+              "values": [
+                "en"
+              ]
+            },
+            {
+              "key": "by_paying_member",
+              "values": [
+                true
+              ]
+            },
+            {
+              "key": "by_authorized_dealer",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "buy_now",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "shop_id",
+              "values": [
+                "5f65765a40c46f0001729ee2"
+              ]
+            },
+            {
+              "key": "l1_category",
+              "values": [
+                "home"
+              ]
+            },
+            {
+              "key": "l2_category",
+              "values": [
+                "furniture"
+              ]
+            },
+            {
+              "key": "ikman_l1_location",
+              "values": [
+                "colombo"
+              ]
+            },
+            {
+              "key": "ikman_l2_location",
+              "values": [
+                "kottawa"
+              ]
+            },
+            {
+              "key": "ikman_price",
+              "values": [
+                "50-100k"
+              ]
+            },
+            {
+              "key": "condition",
+              "values": [
+                "new"
+              ]
+            },
+            {
+              "key": "Ad_Format",
+              "values": [
+                "leaderboard"
+              ]
+            },
+            {
+              "key": "Platform",
+              "values": [
+                "Desktop"
+              ]
+            }
+          ]
+        },
+        "lowerboard": {
+          "slot": "/134461134/ikman_desktop_detailview_lowerboard",
+          "sizes": [
+            [
+              970,
+              90
+            ]
+          ],
+          "key_values": [
+            {
+              "key": "url",
+              "values": [
+                "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1"
+              ]
+            },
+            {
+              "key": "page",
+              "values": [
+                "detail"
+              ]
+            },
+            {
+              "key": "locale",
+              "values": [
+                "en"
+              ]
+            },
+            {
+              "key": "by_paying_member",
+              "values": [
+                true
+              ]
+            },
+            {
+              "key": "by_authorized_dealer",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "buy_now",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "shop_id",
+              "values": [
+                "5f65765a40c46f0001729ee2"
+              ]
+            },
+            {
+              "key": "l1_category",
+              "values": [
+                "home"
+              ]
+            },
+            {
+              "key": "l2_category",
+              "values": [
+                "furniture"
+              ]
+            },
+            {
+              "key": "ikman_l1_location",
+              "values": [
+                "colombo"
+              ]
+            },
+            {
+              "key": "ikman_l2_location",
+              "values": [
+                "kottawa"
+              ]
+            },
+            {
+              "key": "ikman_price",
+              "values": [
+                "50-100k"
+              ]
+            },
+            {
+              "key": "condition",
+              "values": [
+                "new"
+              ]
+            },
+            {
+              "key": "Ad_Format",
+              "values": [
+                "lowerboard"
+              ]
+            },
+            {
+              "key": "Platform",
+              "values": [
+                "Desktop"
+              ]
+            }
+          ]
+        }
+      },
+      "mobile_web": {
+        "middle": {
+          "slot": "/134461134/ikman_mobile_detailview_middle",
+          "sizes": [
+            [
+              300,
+              250
+            ],
+            [
+              320,
+              100
+            ],
+            [
+              320,
+              250
+            ]
+          ],
+          "key_values": [
+            {
+              "key": "url",
+              "values": [
+                "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1"
+              ]
+            },
+            {
+              "key": "page",
+              "values": [
+                "detail"
+              ]
+            },
+            {
+              "key": "locale",
+              "values": [
+                "en"
+              ]
+            },
+            {
+              "key": "by_paying_member",
+              "values": [
+                true
+              ]
+            },
+            {
+              "key": "by_authorized_dealer",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "buy_now",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "shop_id",
+              "values": [
+                "5f65765a40c46f0001729ee2"
+              ]
+            },
+            {
+              "key": "l1_category",
+              "values": [
+                "home"
+              ]
+            },
+            {
+              "key": "l2_category",
+              "values": [
+                "furniture"
+              ]
+            },
+            {
+              "key": "ikman_l1_location",
+              "values": [
+                "colombo"
+              ]
+            },
+            {
+              "key": "ikman_l2_location",
+              "values": [
+                "kottawa"
+              ]
+            },
+            {
+              "key": "ikman_price",
+              "values": [
+                "50-100k"
+              ]
+            },
+            {
+              "key": "condition",
+              "values": [
+                "new"
+              ]
+            },
+            {
+              "key": "Ad_Format",
+              "values": [
+                "middle"
+              ]
+            },
+            {
+              "key": "Platform",
+              "values": [
+                "Mobile"
+              ]
+            }
+          ]
+        },
+        "lowerboard": {
+          "slot": "/134461134/ikman_mobile_detailview_lowerboard",
+          "sizes": [
+            [
+              300,
+              250
+            ],
+            [
+              320,
+              100
+            ],
+            [
+              320,
+              250
+            ]
+          ],
+          "key_values": [
+            {
+              "key": "url",
+              "values": [
+                "teak-modern-lotus-321-sofa-set-with-glass-top-stool-code-1043-for-sale-colombo-1"
+              ]
+            },
+            {
+              "key": "page",
+              "values": [
+                "detail"
+              ]
+            },
+            {
+              "key": "locale",
+              "values": [
+                "en"
+              ]
+            },
+            {
+              "key": "by_paying_member",
+              "values": [
+                true
+              ]
+            },
+            {
+              "key": "by_authorized_dealer",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "buy_now",
+              "values": [
+                false
+              ]
+            },
+            {
+              "key": "shop_id",
+              "values": [
+                "5f65765a40c46f0001729ee2"
+              ]
+            },
+            {
+              "key": "l1_category",
+              "values": [
+                "home"
+              ]
+            },
+            {
+              "key": "l2_category",
+              "values": [
+                "furniture"
+              ]
+            },
+            {
+              "key": "ikman_l1_location",
+              "values": [
+                "colombo"
+              ]
+            },
+            {
+              "key": "ikman_l2_location",
+              "values": [
+                "kottawa"
+              ]
+            },
+            {
+              "key": "ikman_price",
+              "values": [
+                "50-100k"
+              ]
+            },
+            {
+              "key": "condition",
+              "values": [
+                "new"
+              ]
+            },
+            {
+              "key": "Ad_Format",
+              "values": [
+                "lowerboard"
+              ]
+            },
+            {
+              "key": "Platform",
+              "values": [
+                "Mobile"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "user": {
+    "favorites": {
+      "type": "NotAsked"
+    },
+    "ads": {
+      "type": "NotAsked"
+    },
+    "id": "5d67dcc58c3bd800167b4545",
+    "sessionToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50IjoiNWQ2N2RjYzU4YzNiZDgwMDE2N2I0NTQ1In0.O1CrYfR28Bq_zMVXqZSpXoSb3zfSSot-VLuWRQftDnY",
+    "account": {
+      "type": "Success",
+      "data": {
+        "account": {
+          "id": "5d67dcc58c3bd800167b4545",
+          "profile": {
+            "name": "iolathief108",
+            "type": "private",
+            "opt_out": true,
+            "location": {
+              "id": 1521,
+              "name": "Colombo 10"
+            }
+          },
+          "facebook_profile": {
+            "id": "280707929881649",
+            "name": "Lathief Hafil",
+            "first_name": "Hafil",
+            "last_name": "Lathief",
+            "picture": {
+              "data": {
+                "height": 50,
+                "is_silhouette": false,
+                "url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=280707929881649&height=50&width=50&ext=1622258623&hash=AeTyW4ki_wVkCmGDZDs",
+                "width": 50
+              }
+            },
+            "email": "iolathief108@gmail.com"
+          },
+          "recent_phone_numbers": [
+            {
+              "number": "0775737981",
+              "verified": true
+            }
+          ],
+          "login": {
+            "email": "iolathief108@gmail.com",
+            "has_password": true
+          },
+          "pick_up_code": "232",
+          "capabilities": [
+            "AccountCapability_CHAT_ENABLED"
+          ]
+        },
+        "session": {
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50IjoiNWQ2N2RjYzU4YzNiZDgwMDE2N2I0NTQ1In0.O1CrYfR28Bq_zMVXqZSpXoSb3zfSSot-VLuWRQftDnY"
+        }
+      }
+    },
+    "signup": {
+      "type": "NotAsked"
+    }
+  },
+  "availableProducts": {
+    "type": "NotAsked"
+  },
+  "paymentDetails": {
+    "type": "NotAsked"
+  },
+  "categoryBreakdown": {
+    "type": "NotAsked"
+  }
+}
