@@ -13,7 +13,12 @@ query VendorDetailsB($businessName: String!, $vid: String) {
             question
         }
         vendor_type
-        search_districts
+        searchLocations {
+            cities {
+                name
+            }
+            name
+        }
         links {
             facebook
             instagram

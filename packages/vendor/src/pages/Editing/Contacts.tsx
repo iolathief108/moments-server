@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Alert, Button, Card, CardBody, FormGroup} from 'reactstrap';
 import {AvField, AvForm} from 'availity-reactstrap-validation';
 import {isValidBusinessAddress, parseSLPhone, sdk, validateStandardSLPhone} from '@mara/shared';
-import SingleCard from './Layout/SingleCard';
+// import SingleCard from './Layout/SingleCard';
 
 
 const Contact = function () {
@@ -37,7 +37,7 @@ const Contact = function () {
         }
         setLoadiing(true);
         sdk().editVendorDetails({
-            address: values.address,
+            address: values.address || undefined,
             phone: parsedPhone,
         }).then(res => {
             if (res.data.vendorEditDetails) {
@@ -90,10 +90,10 @@ const Contact = function () {
                         <div>
                             <dl className="row">
                                 <dt className="col-sm-3">Phone</dt>
-                                <dd className="col-sm-9">{phone ?? 'No Phone'}</dd>
+                                <dd className="col-sm-9">{phone || <span className={'text-danger'}>No Phone</span>}</dd>
 
                                 <dt className="col-sm-3">Business Address</dt>
-                                <dd className="col-sm-9">{address ?? 'No Address'}</dd>
+                                <dd className="col-sm-9">{address || <span className={'text-danger'}>No Address</span>}</dd>
                             </dl>
                             <Button onClick={() => setEditMode(true)}>Edit</Button>
                         </div> :
@@ -257,23 +257,23 @@ const Links = function () {
     return (
         <Card>
             <CardBody>
-                <h4 className="card-title mb-4">Contact Details</h4>
+                <h4 className="card-title mb-4">Links</h4>
                 {
                     !editMode ?
                         // Preview Mode
                         <div>
                             <dl className="row">
                                 <dt className="col-sm-3">Facebook</dt>
-                                <dd className="col-sm-9">{facebook ?? 'Not set'}</dd>
+                                <dd className="col-sm-9">{facebook ?? <span className={'text-danger'}>Not set</span>}</dd>
 
                                 <dt className="col-sm-3">Instagram</dt>
-                                <dd className="col-sm-9">{instagram ?? 'Not set'}</dd>
+                                <dd className="col-sm-9">{instagram ?? <span className={'text-danger'}>Not set</span>}</dd>
 
                                 <dt className="col-sm-3">Pinterest</dt>
-                                <dd className="col-sm-9">{pinterest ?? 'Not set'}</dd>
+                                <dd className="col-sm-9">{pinterest ?? <span className={'text-danger'}>Not set</span>}</dd>
 
                                 <dt className="col-sm-3">Website</dt>
-                                <dd className="col-sm-9">{website ?? 'Not set'}</dd>
+                                <dd className="col-sm-9">{website ?? <span className={'text-danger'}>Not set</span>}</dd>
                             </dl>
                             <Button onClick={() => setEditMode(true)}>Edit</Button>
                         </div> :

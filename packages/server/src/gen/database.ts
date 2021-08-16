@@ -1,4 +1,4 @@
-import { VendorModel, VendorSchema } from '../models/Vendor';
+import {VendorModel, VendorSchema} from '../models/Vendor';
 import bcrypt from 'bcryptjs';
 import {
     chooseOne,
@@ -18,15 +18,15 @@ import {
     getWebAddress,
     selectRandom,
 } from './utils';
-import { VendorDataModel, VendorDataSchema } from '../models/VendorData';
-import { VendorType } from '../common/const';
-import { Types } from 'mongoose';
-import { CatererDataSchema } from '../models/vendors/CatererData';
-import { VenueDataSchema } from '../models/vendors/VenueData';
-import { PhotographerDataSchema } from '../models/vendors/PhotographerData';
+import {VendorDataModel, VendorDataSchema} from '../models/VendorData';
+import {VendorType} from '../common/const';
+import {Types} from 'mongoose';
+import {CatererDataSchema} from '../models/vendors/CatererData';
+import {VenueDataSchema} from '../models/vendors/VenueData';
+import {PhotographerDataSchema} from '../models/vendors/PhotographerData';
 import yaml from 'js-yaml';
-import { readFileSync } from 'fs';
-import { ClapStoreModel, ClapStoreSchema } from '../models/stores/ClapStore';
+import {readFileSync} from 'fs';
+import {ClapStoreModel, ClapStoreSchema} from '../models/stores/ClapStore';
 
 export async function createVendors(count: number) {
     const getVendorParam = (): VendorSchema => {
@@ -54,7 +54,7 @@ export async function createVendors(count: number) {
 
     let mixed_districts = [...(await getRandomLocation('district', 12)).map(item => item.id)];
     // remove duplicates
-    mixed_districts = mixed_districts.filter(function (item, pos) {
+    mixed_districts = mixed_districts.filter(function(item, pos) {
         return mixed_districts.indexOf(item) == pos;
     });
 
@@ -117,7 +117,7 @@ export async function createVendors(count: number) {
                 latitude: geo[0],
                 longitude: geo[1],
             },
-            search_district_ids: selectRandom(mixed_districts).map(item =>
+            search_city_ids: selectRandom(mixed_districts).map(item =>
                 Types.ObjectId(item),
             ),
             gallery_photos: createRandomImage(
@@ -252,6 +252,11 @@ export async function createClapStore() {
         venue: clapStoreObject[];
         caterer: clapStoreObject[];
         photographer: clapStoreObject[];
+        videographer: clapStoreObject[];
+        bands_dj: clapStoreObject[];
+        cakes_dessert: clapStoreObject[];
+        florist: clapStoreObject[];
+        beauty_professional: clapStoreObject[];
     }
 
     const clapStore: ClapStore = yaml.load(
@@ -280,6 +285,47 @@ export async function createClapStore() {
             values: clapStoreObject.values,
             key: clapStoreObject.key,
             vendor_type: VendorType.caterer,
+        });
+    }
+    for (let clapStoreObject of clapStore.videographer) {
+        await ClapStoreModel.create<ClapStoreSchema>({
+            name: clapStoreObject.name,
+            values: clapStoreObject.values,
+            key: clapStoreObject.key,
+            vendor_type: VendorType.videographer,
+        });
+    }
+
+    for (let clapStoreObject of clapStore.bands_dj) {
+        await ClapStoreModel.create<ClapStoreSchema>({
+            name: clapStoreObject.name,
+            values: clapStoreObject.values,
+            key: clapStoreObject.key,
+            vendor_type: VendorType.bands_dj,
+        });
+    }
+    for (let clapStoreObject of clapStore.cakes_dessert) {
+        await ClapStoreModel.create<ClapStoreSchema>({
+            name: clapStoreObject.name,
+            values: clapStoreObject.values,
+            key: clapStoreObject.key,
+            vendor_type: VendorType.cakes_dessert,
+        });
+    }
+    for (let clapStoreObject of clapStore.florist) {
+        await ClapStoreModel.create<ClapStoreSchema>({
+            name: clapStoreObject.name,
+            values: clapStoreObject.values,
+            key: clapStoreObject.key,
+            vendor_type: VendorType.florist,
+        });
+    }
+    for (let clapStoreObject of clapStore.beauty_professional) {
+        await ClapStoreModel.create<ClapStoreSchema>({
+            name: clapStoreObject.name,
+            values: clapStoreObject.values,
+            key: clapStoreObject.key,
+            vendor_type: VendorType.beauty_professional,
         });
     }
 }

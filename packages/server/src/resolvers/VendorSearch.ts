@@ -64,7 +64,7 @@ export class ConnectionNode {
     @Field(() => VendorType)
     vendor_type: VendorType;
 
-    @Field(() => String)
+    @Field(() => String, {nullable: true})
     district_display_name?: string;
 }
 
@@ -82,6 +82,7 @@ class Connection extends connectionTypes<ConnectionNode>("Node", ConnectionNode)
         this.edges = [];
     }
 
+    //todo: now
     static async getConnectionFromCursor(
         cursor: VendorDataDoc[],
         limit: number,
@@ -101,7 +102,7 @@ class Connection extends connectionTypes<ConnectionNode>("Node", ConnectionNode)
                     business_name: vData.business_name,
                     gallery_photos: vData.gallery_photos,
                     vendor_type: vData.vendor_type,
-                    district_display_name: (await getDistrictNames(vData.search_district_ids[0]))[0]
+                    district_display_name: (await getDistrictNames(vData.search_city_ids[0]))[0]
                 },
             });
         }
@@ -139,7 +140,7 @@ export class VendorSearchResolver {
         const parsedSearchQuery = !data?.where?.districtID && !data?.where?.vendorType && data?.where?.searchQuery
             ? await parseSearchQuery(data?.where?.searchQuery) : null;
 
-        if (parseSearchQuery && conExtra) {
+        if (parsedSearchQuery && conExtra) {
             conExtra.vendor_type = parsedSearchQuery?.vendorType ?? undefined;
             conExtra.district_key = parsedSearchQuery?.districtKey ?? undefined;
             conExtra.district_id = parsedSearchQuery?.districtID ?? undefined;

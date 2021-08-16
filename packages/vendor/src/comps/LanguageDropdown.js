@@ -53,33 +53,33 @@ class LanguageDropdown extends Component {
             <DropdownItem tag="a" href="#" className="notify-item">
               <img
                 src={germanyFlag}
-                alt="veltrix"
+                alt="Moments"
                 className="mr-1"
                 height="12"
               />{" "}
               <span className="align-middle"> German </span>
             </DropdownItem>
             <DropdownItem tag="a" href="#" className="notify-item">
-              <img src={italyFlag} alt="veltrix" className="mr-1" height="12" />{" "}
+              <img src={italyFlag} alt="Moments" className="mr-1" height="12" />{" "}
               <span className="align-middle"> Italian </span>
             </DropdownItem>
             <DropdownItem tag="a" href="#" className="notify-item">
               <img
                 src={frenchFlag}
-                alt="veltrix"
+                alt="Moments"
                 className="mr-1"
                 height="12"
               />{" "}
               <span className="align-middle"> French </span>
             </DropdownItem>
             <DropdownItem tag="a" href="#" className="notify-item">
-              <img src={spainFlag} alt="veltrix" className="mr-1" height="12" />{" "}
+              <img src={spainFlag} alt="Moments" className="mr-1" height="12" />{" "}
               <span className="align-middle"> Spanish </span>
             </DropdownItem>
             <DropdownItem tag="a" href="#" className="notify-item">
               <img
                 src={russiaFlag}
-                alt="veltrix"
+                alt="Moments"
                 className="mr-1"
                 height="12"
               />{" "}

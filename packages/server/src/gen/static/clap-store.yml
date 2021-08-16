@@ -1,50 +1,261 @@
 venue:
-  - name: Stage colors
-    key: stage-colors
+  - name: Venue Type
+    key: venue-type
     values:
-      - Red
-      - Black
-      - Orange
-  - name: Foods
-    key: foods
+      - Restaurants, Breweries
+      - Beaches, Waterfront Settings
+      - Industrial Spaces
+      - Historic Estates, Mansions
+      - Museums, Galleries
+      - Urban Locations
+      - Hotels, Inns, Resorts
+      - Ballrooms, Banquet Halls
+      - Parks, Gardens
+      - Lodges, Retreats
+  - name: Venue Setting
+    key: venue-setting
     values:
-      - Fruits
-      - Buriyani
-      - Sambar
+      - Indoor
+      - Outdoor
+      - Covered Outdoor
+
+
 caterer:
-  - name: Buriyani flavour
-    key: buriyani-flavour
+  - name: Services
+    key: services
     values:
-      - Orange
-      - Apple
-      - Strawberry
-  - name: Achcharu varga
-    key: achcharu-varga
+      - Serving staff
+      - Delivery and setup
+      - Cleanup
+      - Bartenders
+      - Event planner
+      - Consultations and tastings
+  - name: Cuisines
+    key: cuisines
     values:
-      - Orange achcharu
-      - Strawberry achcharu
-      - Caret achcharu
-  - name: Types of food services
-    key: types-of-food-services
+      - Farm-to-table
+      - Southern
+      - Pan-European
+      - Pan-Asian
+  - name: Dietary Accommodations
+    key: dietary-accommodations
     values:
-      - Buriyani
-      - Sambar
-      - Nudles
-      - Macaroni
-      - Kottu
+      - Vegetarian
+      - Vegan
+      - Gluten-free
+      - Dairy-free
+      - Nut-free
+  - name: Types of Meal Service
+    key: types-of-meal-services
+    values:
+      - Buffet
+      - Food stations
+      - Family-style meal
+      - Plated meal
+      - Passed appetizers
+      - Stationary appetizers
+      - Dessert service
+      - Wedding cake service
 
 
 photographer:
-  - name: Photographer hair
-    key: photographer-hair
+  - name: Services
+    key: services
     values:
-      - Thick
-      - Long
-      - Short
-  - name: Dress code
-    key: dress-code
+      - Image editing
+      - Bride-only session
+      - Drone photography
+      - Extra hours
+      - Printing rights
+      - Online proofing
+      - Engagement session
+      - Same-day edits
+      - Second photographer
+  - name: Deliverables
+    key: deliverables
     values:
-      - T-shirts and bottom
-      - Saari
-      - Arm cut
-      - Damn
+      - Digital files
+      - Wedding album
+      - Printed enlargements
+      - Video
+      - Photo box
+      - Slideshow
+      - Online gallery
+      - Digital rights
+      - Same/next-day sneak-peek images
+
+
+bands_dj:
+  - name: Services
+    key: services
+    values:
+      - Sound System Capability Audience >300
+      - Master of Ceremonies
+      - Learning New Songs
+      - Music During Breaks
+      - Sound System Capability Audience <300
+      - Hear Us Live
+      - Event Planning
+      - Fog/Snow Machines
+      - Multimedia Displays
+      - Dancefloor Lighting
+      - Multiple Location Support
+      - Uplighting
+      - Ceremony Microphones and Sound
+
+  - name: Musical Genres
+    key: musical-genres
+    values:
+      - Blues
+      - Country/Folk
+      - Gospel/Christian
+      - R&B
+      - Rap/Hip Hop
+      - Reggae
+      - Arabic/Persian
+      - Bollywood/Bhangra
+      - Rock
+      - EDM/House
+      - Pop/Top 40s
+      - Motown/Soul
+      - Jazz
+      - Latin
+      - Disco/Funk
+      - Classical
+
+  - name: Event Types
+    key: event-types
+    values:
+      - Wedding shower
+      - Engagement party
+      - After party
+      - Elopement
+      - Cocktail hour
+      - Other
+      - Wedding ceremony
+      - Wedding reception
+      - Rehearsal dinner
+      - Welcome party
+      - Farewell brunch
+      - Couples luncheon
+      - Baraat
+  - name: Musician Type
+    key: musician-type
+    values:
+      - Live Band or Ensemble
+      - Production Company
+      - Live Solo Performer
+      - DJ
+
+cakes_dessert:
+  - name: Dessert types
+    key: dessert-types
+    values:
+      - Cupcakes
+      - Pies
+      - Donuts
+      - Mini desserts
+      - Cookies
+      - Tiered cakes
+      - Single layer cakes
+
+  - name: Decor options
+    key: decor-options
+    values:
+      - 3D sugar work
+      - Sugar flowers
+      - Fruit topping
+      - Cake toppers
+      - Custom text
+
+  - name: Available Customizations
+    key: available-customizations
+    values:
+      - Cake flavors
+      - Cake frosting
+      - Cake filling
+
+  - name: Services Offered
+    key: services-offered
+    values:
+      - Consultations
+      - Tastings
+      - Delivery
+      - Setup
+
+  - name: Dietary Accommodations
+    key: dietary-accommodations
+    values:
+      - Dairy-free
+      - Nut-free
+      - Vegan
+      - Gluten-free
+      - Sugar-free
+
+videographer:
+  - name: Deliverables
+    key: deliverables
+    values:
+      - Highlight Reel
+      - Short Feature
+      - Long Feature
+      - Raw Footage
+
+florist:
+  - name: Pre-Wedding Services
+    key: pre-wedding-services
+    values:
+      - Mock-ups
+      - Event design
+      - Venue visits
+      - Consultations
+  - name: Post-Wedding Services
+    key: post-wedding-services
+    values:
+      - Cleanup
+      - Flower preservation
+  - name: Arrangement Types
+    key: arrangement-types
+    values:
+      - Flower-forward with fresh blooms
+      - Architectural with branches and twigs
+      - Foliage-centric with leaves and tall grasses
+  - name: Day-Of Services
+    key: day-of-services
+    values:
+      - Delivery
+      - Setup
+      - Container rentals
+      - Structure rentals
+      - Decor rentals
+
+beauty_professional:
+  - name: Service Types
+    key: service-types
+    values:
+      - Bridal
+      - Engagement shoots
+      - Groom
+      - Guests
+      - Large groups
+      - Wedding party
+  - name: Specific Services
+    key: specific-services
+    values:
+      - Hair trials
+      - Airbrush makeup
+      - Day-of touch ups
+      - False lashes
+      - Hair extensions
+      - Makeup trials
+      - Pre-wedding beauty prep
+      - Styling advice
+  - name: Specialty Styles
+    key: specialty-styles
+    values:
+      - Natural
+      - Romantic
+      - Glamorous
+      - Classic
+      - Dramatic
+      - Trendy

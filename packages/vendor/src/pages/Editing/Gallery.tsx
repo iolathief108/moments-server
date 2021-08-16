@@ -48,7 +48,8 @@ const Gallery = () => {
             id?: string
         }[] = [];
         for (const image of editImages) {
-            const token = image.source.includes('api') && image.source.match(/^\/api\/tmp-img\/(\S+)\.(jpg|jpeg|png|webp|whatever)$/)[1];
+            // const token = image.source.includes('api') && image.source.match(/^\/api\/tmp-img\/(\S+)\.(jpg|jpeg|png|webp|whatever)$/)[1];
+            const token = image.source.includes('api') && image.source.match(/^\/api\/tmp-img\/(\S+)$/)[1];
             if (token) {
                 thing.push({token});
                 continue;
@@ -66,7 +67,7 @@ const Gallery = () => {
             setEditMode(false);
             window.location.reload();
         }).catch(e => {
-            setError(e.response?.errors[0]?.message ?? 'Something went wrong!');
+            setError(e.response?.errors[0]?.message || 'Something went wrong!');
             setLoading(false);
         });
     };
@@ -137,6 +138,9 @@ const Gallery = () => {
                                         ))
                                     }
                                 </Row>
+                                {
+                                    CloudImages?.length ? null : <p className={'text-danger'}>No Images</p>
+                                }
                                 <br/>
                                 <Button onClick={() => setEditMode(true)}>Edit</Button>
                             </div> :
@@ -146,11 +150,11 @@ const Gallery = () => {
                                 ) : null}
                                 <RUG
                                     initialState={editImages}
-                                    accept={['jpg', 'jpeg']}
+                                    accept={['jpg', 'jpeg', 'webp', 'png']}
                                     customRequest={addImage}
                                     onChange={e => setEditImage(e)}
                                     source={response => {
-                                        return '/api/tmp-img/' + response.token + '.jpg';
+                                        return '/api/tmp-img/' + response.token;
                                     }}
                                 />
                                 <div>

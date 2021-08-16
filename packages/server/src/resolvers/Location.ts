@@ -58,13 +58,14 @@ export class LocationResolver {
     async cities(
         @Arg("districts_id", {nullable: true}) district_id?: string,
     ): Promise<LocationNode[]> {
-        if (district_id)
+        if (district_id) {
             return (await CityModel.find({district_id})).map((item) => ({
                 name: item.name,
                 id: item.id,
                 key: item.key,
                 parent_id: item.district_id.toHexString(),
             }));
+        }
         return (await CityModel.find()).map((item) => ({
             name: item.name,
             id: item.id,

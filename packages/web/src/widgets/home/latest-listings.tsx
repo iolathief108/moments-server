@@ -33,17 +33,17 @@ function WeddingList(props: Props) {
                         </Link>
                     </div>
                     <div className="vendor-content">
-                            <Link href={getProductUrl(props.businessName, props.vType, props.id)}>
-                                <a className="title">
-                        <h2 className="vendor-title">
+                        <Link href={getProductUrl(props.businessName, props.vType, props.id)}>
+                            <a className="title">
+                                <h2 className="vendor-title">
                                     {props.businessName}
-                        </h2>
-                                </a>
-                            </Link>
+                                </h2>
+                            </a>
+                        </Link>
                         <p className="vendor-address">
                             <span className="vendor-address-icon">
                                 <i className="fa fa-map-marker-alt"/>
-                            </span> {props.location}.
+                            </span> {props.location}
                         </p>
                     </div>
                 </div>
@@ -73,59 +73,66 @@ export function LatestListings() {
             </div>
             <div className="container-fluid">
                 <div className="venue-thumbnail-carousel">
-                    <OwlCarousel className="owl-carousel owl-theme owl-venue-thumb" loop margin={0} autoPlay
-                                 autoplayTimeout={3000} nav
-                                 navText={['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']}
-                                 responsive={{
-                                     0: {
-                                         items: 1,
+                    {
+                        data?.vendorSearch.edges.length > 3 ?
+                            <OwlCarousel className="owl-carousel owl-theme owl-venue-thumb" loop margin={0} autoPlay
+                                         autoplayTimeout={3000} nav
+                                         navText={['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']}
+                                         responsive={{
+                                             0: {
+                                                 items: 1,
 
-                                     },
-                                     600: {
-                                         items: 2,
+                                             },
+                                             600: {
+                                                 items: 2,
 
-                                     },
-                                     1000: {
-                                         items: 4,
+                                             },
+                                             1000: {
+                                                 items: 4,
 
-                                     },
-                                     1200: {
-                                         items: 6,
+                                             },
+                                             1200: {
+                                                 items: 6,
 
-                                     },
-                                     1400: {
-                                         items: 6,
+                                             },
+                                             1400: {
+                                                 items: 6,
 
-                                     },
-                                     1600: {
-                                         items: 6,
+                                             },
+                                             1600: {
+                                                 items: 6,
 
-                                     },
-                                     1800: {
-                                         items: 6,
+                                             },
+                                             1800: {
+                                                 items: 6,
 
-                                     },
-                                 }}
-                                 width={100}
-                    >
-                        {
-                            data?.vendorSearch.edges.map(item => <WeddingList
-                                key={item.node.id}
-                                businessName={item.node.business_name}
-                                vType={item.node.vendor_type}
-                                imageUrl={item.node.gallery_photos[0].id}
-                                location={item.node.district_display_name}
-                                id={item.node.id}/>)
-                        }
-                    </OwlCarousel>
+                                             },
+                                         }}
+                                         width={100}
+                            >
+                                {
+                                    data?.vendorSearch.edges.map(item => <WeddingList
+                                        key={item.node.id}
+                                        businessName={item.node.business_name}
+                                        vType={item.node.vendor_type}
+                                        imageUrl={item.node.gallery_photos[0].id}
+                                        location={item.node.district_display_name}
+                                        id={item.node.id}/>)
+                                }
+                            </OwlCarousel> : <p className={'text-danger'}>Not enough listing available</p>
+                    }
+
                     {/*View All Listing*/}
-                    <div className="row">
-                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                            <Link href={'/search/'}>
-                                <a className="btn btn-primary">View All Listing</a>
-                            </Link>
+                    {
+                        !!data?.vendorSearch.edges.length &&
+                        <div className="row">
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+                                <Link href={'/search/'}>
+                                    <a className="btn btn-primary">View All Listing</a>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>

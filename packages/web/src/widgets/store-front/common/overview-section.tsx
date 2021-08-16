@@ -1,11 +1,7 @@
 import {VendorDetailsBQuery} from '../../../http/generated';
 import OverviewStyle from '../../../styles/store-front-comps/OverviewSection.module.scss';
-import {contactPopupState} from '../../../state';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
-
-// import 'rc-tooltip/assets/bootstrap_white.css'
-
 
 export function OverviewSection({data}: {data: VendorDetailsBQuery}) {
     return (
@@ -19,18 +15,18 @@ export function OverviewSection({data}: {data: VendorDetailsBQuery}) {
                         <h1 className="h1"
                             style={{marginBottom: 0, marginTop: 0}}>{data.vendorDetailsB?.business_name}</h1>
                         <h6 className="location" style={{fontWeight: 400, marginTop: '7px'}}>
-                            Based in {data.vendorDetailsB?.search_districts[0]}
+                            Based in {data.vendorDetailsB?.searchLocations[0].name}
                             {
-                                (data.vendorDetailsB?.search_districts.length ?? 0) > 1 ?
+                                (data.vendorDetailsB?.searchLocations.length || 0) > 1 ?
                                     <Tooltip
                                         placement="top"
                                         trigger={['click', 'hover']}
                                         overlay={
                                             <span>
                                                 {
-                                                    (data.vendorDetailsB?.search_districts.slice(1) ?? []).map(item => (
-                                                        <span key={item}>
-                                                            <span>{item}</span><br/>
+                                                    (data.vendorDetailsB?.searchLocations.slice(1) ?? []).map(item => (
+                                                        <span key={item.name}>
+                                                            <span>{item.name}</span><br/>
                                                         </span>),
                                                     )
                                                 }
@@ -38,7 +34,7 @@ export function OverviewSection({data}: {data: VendorDetailsBQuery}) {
                                         }
                                         arrowContent={<div className="rc-tooltip-arrow-inner"/>}
                                     >
-                                        <a> +{(data.vendorDetailsB?.search_districts.length ?? 0) - 1} locations</a>
+                                        <a> +{(data.vendorDetailsB?.searchLocations.length || 0) - 1} locations</a>
                                     </Tooltip> : null
                             }
                         </h6>

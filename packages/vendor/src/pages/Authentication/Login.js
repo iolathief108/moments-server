@@ -243,10 +243,7 @@ class Login extends Component {
                                         </Link>{' '}
                                     </p>
                                     <p className="mb-0">
-                                        © {new Date().getFullYear()} {businessName}.
-                                        Crafted with{' '}
-                                        <i className="mdi mdi-heart text-danger"/> by
-                                        HiTek
+                                        © 2021 {businessName} <span className="d-none d-sm-inline-block"> - All rights reserved.</span>
                                     </p>
                                 </div>
                             </Col>

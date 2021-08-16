@@ -4,12 +4,41 @@ directive @specifiedBy(
   url: String!
 ) on SCALAR
 
+type BandDjsDataType {
+  sample: String
+}
+
+input BandDjsDetailsInput {
+  sample: String
+}
+
+type BeautyProfessionalDataType {
+  sample: String
+}
+
+input BeautyProfessionalDetailsInput {
+  sample: String
+}
+
+type CakesDessertsDataType {
+  sample: String
+}
+
+input CakesDessertsDetailsInput {
+  sample: String
+}
+
 type CatererDataType {
   sample: String
 }
 
 input CatererDetailsInput {
   sample: String
+}
+
+type City {
+  name: String!
+  key: String!
 }
 
 type Clap {
@@ -43,6 +72,20 @@ type ConnectionNode {
   gallery_photos: [Image!]!
   vendor_type: VendorType!
   district_display_name: String!
+}
+
+type District {
+  name: String!
+  key: String!
+  cities: [City!]!
+}
+
+type FloristsDataType {
+  sample: String
+}
+
+input FloristsDetailsInput {
+  sample: String
 }
 
 type FrequentQuestion {
@@ -181,7 +224,7 @@ type StoreClap {
 type VendorDetails {
   phone: String
   address: String
-  search_districts: [String!]
+  searchLocations: [District!]
   vendor_type: VendorType
   links: SocialMedia
   business_name: String
@@ -196,7 +239,7 @@ type VendorDetails {
 type VendorDetailsExtra {
   phone: String
   address: String
-  search_districts: [String!]
+  searchLocations: [District!]
   vendor_type: VendorType
   links: SocialMedia
   business_name: String
@@ -212,7 +255,7 @@ type VendorDetailsExtra {
 # Edit common vendor details
 input VendorDetailsInput {
   address: String
-  searchDistrictIDs: [String!]
+  cityIDs: [String!]
   phone: String
   frequentQuestion: [FrequentQuestionInput!]
   vendorType: VendorType
@@ -227,6 +270,11 @@ input VendorDetailsInput {
   venueDetails: VenueDetailsInput
   photographerDetails: PhotographerDetailsInput
   catererDetails: CatererDetailsInput
+  bandDjsDetails: BandDjsDetailsInput
+  beautyProfessionalDetails: BeautyProfessionalDetailsInput
+  cakesDessertsDetails: CakesDessertsDetailsInput
+  floristsDetails: FloristsDetailsInput
+  videographerDetails: VideographerDetailsInput
   claps: [ClapInput!]
 }
 
@@ -249,12 +297,22 @@ enum VendorType {
   venue
   photographer
   caterer
+  videographer
+  florist
+  bands_dj
+  beauty_professional
+  cakes_dessert
 }
 
 type VendorTypes {
   caterer_type: CatererDataType
   venue_type: VenueDataType
   photographer_type: PhotographerDataType
+  band_djs_type: BandDjsDataType
+  beauty_professionals_type: BeautyProfessionalDataType
+  cakes_desserts_type: CakesDessertsDataType
+  florists_type: FloristsDataType
+  videographer_type: VideographerDataType
 }
 
 type VenueDataType {
@@ -262,5 +320,13 @@ type VenueDataType {
 }
 
 input VenueDetailsInput {
+  sample: String
+}
+
+type VideographerDataType {
+  sample: String
+}
+
+input VideographerDetailsInput {
   sample: String
 }

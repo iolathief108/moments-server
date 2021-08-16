@@ -1,2 +1,2 @@
 
-export const businessName = 'Zola';
+export const businessName = 'Moments';

@@ -27,7 +27,7 @@ const build = (cat: VendorType | null) => {
     const common = [
         // <Li key={1} to={paths.dashboard()} name={'Dashboard'}/>,
         <Li key={3} to={paths.profile()} name={'Profile'} iconCln={'ti-user'}/>,
-        <Li key={5} to={paths.yan()} name={'Primary'} iconCln={'ti-check-box'}/>,
+        <Li key={5} to={paths.yan()} name={'Listing'} iconCln={'ti-check-box'}/>,
         <Li key={4} to={paths.gallery()} name={'Gallery'} iconCln={'ti-image'}/>,
         // <Li key={2} to={paths.editContact()} name={'Contacts'}/>,
         // <Li key={6} to={paths.location()} name={'Location'} iconCln={'ti-calendar'}/>,
@@ -35,6 +35,11 @@ const build = (cat: VendorType | null) => {
     const caterer = [...common];
     const photographer = [...common];
     const venue = [...common];
+    const florist = [...common];
+    const beautyProfessional = [...common];
+    const musician= [...common];
+    const baker = [...common];
+    const videographer = [...common];
 
     if (cat === VendorType.Caterer) {
         return caterer;
@@ -44,6 +49,21 @@ const build = (cat: VendorType | null) => {
     }
     if (cat === VendorType.Photographer) {
         return photographer;
+    }
+    if (cat === VendorType.Florist) {
+        return florist
+    }
+    if (cat === VendorType.BeautyProfessional) {
+        return beautyProfessional
+    }
+    if (cat === VendorType.BandsDj) {
+        return musician;
+    }
+    if (cat === VendorType.CakesDessert) {
+        return baker;
+    }
+    if (cat === VendorType.Videographer) {
+        return videographer
     }
     return nocat;
 };

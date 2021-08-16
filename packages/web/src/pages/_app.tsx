@@ -1,19 +1,12 @@
 import type {AppProps} from 'next/app';
 import 'normalize.css';
 import Head from 'next/head';
+// import '../../public/css/style.css'
 import {Header} from '../widgets/header';
 import {Footer} from '../widgets/footer';
 import '../styles/globals.scss';
 import '../styles/override.scss';
-/*
 
-query Example($after: String) {
-    vendorSearchWithExtra(after: $after ) {
-        district_key
-    }
-}
-
-*/
 function MyApp({Component, pageProps}: AppProps) {
     return (
         <>

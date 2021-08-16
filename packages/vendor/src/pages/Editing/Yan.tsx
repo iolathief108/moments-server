@@ -1,6 +1,6 @@
 import {Button, Card, CardBody} from 'reactstrap';
 import SingleCard from './Layout/SingleCard';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {sdk, Clap, StoreClap} from '@mara/shared';
 import {getGlobalState} from '../../state';
 import Select from 'react-select';
@@ -129,18 +129,27 @@ const Ghost = () => {
         return (
                 <Card>
                     <CardBody>
+                        <h4 className="card-title mb-4">Key Informations</h4>
+                        <ul className={'list-unstyled mb-4'}>
+
                         {
                             (!loading && claps && claps.length) ? claps.map(clap => (
-                                <div key={clap.key}>
-                                    <h4>{clap.name}</h4>
-                                    {
-                                        clap?.values.map(value => (
-                                            <p key={value}>{value}</p>
-                                        ))
-                                    }
-                                </div>
-                            )) : <p className="text-danger">No Claps Available</p>
+                                <li key={clap.key} className={'mb-3'}>
+                                    {/*<p className={'card-title-desc'}>{clap.name}</p>*/}
+                                    {clap.name}
+                                    <ul className={'pt-1 pl-4'}>
+                                        {
+                                            clap?.values.map(value => (
+                                                <li key={value}>
+                                                    {value}
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </li>
+                            )) : <p className="text-danger">No data has been added yet.</p>
                         }
+                        </ul>
                         <Button disabled={loading} onClick={() => changeEditMode(true)} className="mr-1">Edit</Button>
                     </CardBody>
                 </Card>
@@ -150,13 +159,14 @@ const Ghost = () => {
     return (
         <Card>
             <CardBody>
+                <h4 className="card-title mb-4">Key Informations</h4>
                 {
                     error ? <p className="text-danger">{error}</p> : null
                 }
                 {
                     clapStores.map(clapStore => (
-                        <div key={clapStore.key}>
-                            <h3>{clapStore.name}</h3>
+                        <div key={clapStore.key} className={'mb-4'}>
+                            <span className={'d-block mb-2'}>{clapStore.name}</span>
                             <Select
                                 defaultValue={claps.find(item => item.key === clapStore.key)?.values?.map(i => ({
                                     value: i,
@@ -175,8 +185,8 @@ const Ghost = () => {
                     ))
                 }
 
-                <Button onClick={() => changeEditMode(false)} className="mr-1">Cancel</Button>
-                <Button onClick={onSubmit} color="primary" className="mr-1">Submit</Button>
+                <Button onClick={() => changeEditMode(false)} className="mr-2">Cancel</Button>
+                <Button onClick={onSubmit} color="primary" className="mr-2">Submit</Button>
             </CardBody>
         </Card>
     );

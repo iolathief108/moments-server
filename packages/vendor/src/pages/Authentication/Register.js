@@ -150,11 +150,17 @@ class Register extends Component {
         sdk().isVendorPhoneExist({phone: parsedPhone}).then(response => {
             cBack(response.data.isVendorPhoneExist || 'This phone number already exists');
             this.setState({
-                phoneError: !response.data.isVendorPhoneExist
+                phoneError: !response.data.isVendorPhoneExist,
+                error: null
             })
             return;
         }).catch(e => {
-            console.log(e);
+            console.log(e.response.status);
+            if (e.response.status === 502) {
+                this.setState({
+                    error: 'Unfortunately the server is down, please try again later'
+                })
+            }
             cBack('Ooops! Something went wrong!');
         });
     }, 1050);
@@ -209,11 +215,10 @@ class Register extends Component {
                                             <div
                                                 className="text-primary text-center p-4">
                                                 <h5 className="text-white font-size-20">
-                                                    Free Register
+                                                    Moments Registration
                                                 </h5>
                                                 <p className="text-white-50">
-                                                    Get your free Veltrix
-                                                    account now.
+                                                    You're one step away from completing the registration.
                                                 </p>
                                                 <Link to="/"
                                                       className="logo logo-admin">
@@ -315,7 +320,7 @@ class Register extends Component {
                                                                         you
                                                                         agree to
                                                                         the
-                                                                        {businessName + ' '}
+                                                                        {' ' + businessName + ' '}
                                                                         <Link
                                                                             to="#"
                                                                             className="text-primary">
@@ -372,7 +377,7 @@ class Register extends Component {
                                                                         you
                                                                         agree to
                                                                         the
-                                                                        Veltrix{' '}
+                                                                        Moments{' '}
                                                                         <Link
                                                                             to="#"
                                                                             className="text-primary">
@@ -401,10 +406,7 @@ class Register extends Component {
                                         </Link>{' '}
                                     </p>
                                     <p>
-                                        © {new Date().getFullYear()} {businessName}.
-                                        Crafted with{' '}
-                                        <i className="mdi mdi-heart text-danger"></i> by
-                                        HiTek
+                                        © 2021 {businessName} <span className="d-none d-sm-inline-block"> - All rights reserved.</span>
                                     </p>
                                 </div>
                             </Col>

@@ -42,23 +42,23 @@ class Layout extends Component {
     let currentage = this.capitalizeFirstLetter(this.props.location.pathname);
 
     document.title =
-      currentage + " | Veltrix - Responsive Bootstrap 4 Admin Dashboard";
+      currentage + " | Moments - Vendor Dashboard";
     if (this.props.leftSideBarTheme) {
       this.props.changeSidebarTheme(this.props.leftSideBarTheme);
     }
-    
+
     if (this.props.layoutWidth) {
       this.props.changeLayoutWidth(this.props.layoutWidth);
     }
-    
-    
+
+
     if (this.props.leftSideBarType) {
       this.props.changeSidebarType(this.props.leftSideBarType);
     }
     if (this.props.topbarTheme) {
       this.props.changeTopbarTheme(this.props.topbarTheme);
     }
-    
+
     if(this.props.showRightSidebar) {
       this.toggleRightSidebar();
     }

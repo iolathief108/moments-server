@@ -1,9 +1,9 @@
-export function makeID(length: number, add_weird_characters: boolean = true): string {
+export function makeID(length: number, weirdChars: boolean = true): string {
     let result = "";
     // noinspection SpellCheckingInspection
     let characters =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    characters = add_weird_characters ? characters + ".~*@,-_" : characters;
+    characters = weirdChars ? characters + ".~*@,-_" : characters;
 
     let charactersLength = characters.length;
     for (let i = 0; i < length; i++) {

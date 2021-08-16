@@ -5,8 +5,25 @@ schema {
     mutation: Mutation
 }
 
+type BandDjsDataType {
+    sample: String
+}
+
+type BeautyProfessionalDataType {
+    sample: String
+}
+
+type CakesDessertsDataType {
+    sample: String
+}
+
 type CatererDataType {
     sample: String
+}
+
+type City {
+    key: String!
+    name: String!
 }
 
 type Clap {
@@ -34,6 +51,16 @@ type ConnectionNode {
     gallery_photos: [Image!]!
     id: String!
     vendor_type: VendorType!
+}
+
+type District {
+    cities: [City!]!
+    key: String!
+    name: String!
+}
+
+type FloristsDataType {
+    sample: String
 }
 
 type FrequentQuestion {
@@ -145,7 +172,7 @@ type VendorDetails {
     geo: Geo
     links: SocialMedia
     phone: String
-    search_districts: [String!]
+    searchLocations: [District!]
     vendorTypes: VendorTypes
     vendor_type: VendorType
 }
@@ -161,7 +188,7 @@ type VendorDetailsExtra {
     isComplete: Boolean
     links: SocialMedia
     phone: String
-    search_districts: [String!]
+    searchLocations: [District!]
     vendorTypes: VendorTypes
     vendor_type: VendorType
 }
@@ -176,19 +203,45 @@ type VendorProfile {
 }
 
 type VendorTypes {
+    band_djs_type: BandDjsDataType
+    beauty_professionals_type: BeautyProfessionalDataType
+    cakes_desserts_type: CakesDessertsDataType
     caterer_type: CatererDataType
+    florists_type: FloristsDataType
     photographer_type: PhotographerDataType
     venue_type: VenueDataType
+    videographer_type: VideographerDataType
 }
 
 type VenueDataType {
     sample: String
 }
 
+type VideographerDataType {
+    sample: String
+}
+
 enum VendorType {
+    bands_dj
+    beauty_professional
+    cakes_dessert
     caterer
+    florist
     photographer
     venue
+    videographer
+}
+
+input BandDjsDetailsInput {
+    sample: String
+}
+
+input BeautyProfessionalDetailsInput {
+    sample: String
+}
+
+input CakesDessertsDetailsInput {
+    sample: String
 }
 
 input CatererDetailsInput {
@@ -199,6 +252,10 @@ input ClapInput {
     key: String!
     name: String!
     values: [String!]!
+}
+
+input FloristsDetailsInput {
+    sample: String
 }
 
 "Edit common vendor details"
@@ -231,10 +288,16 @@ input PhotographerDetailsInput {
 "Edit common vendor details"
 input VendorDetailsInput {
     address: String
+    bandDjsDetails: BandDjsDetailsInput
+    beautyProfessionalDetails: BeautyProfessionalDetailsInput
     businessName: String
+    cakesDessertsDetails: CakesDessertsDetailsInput
     catererDetails: CatererDetailsInput
+    cityIDs: [String!]
     claps: [ClapInput!]
+    description: String
     facebook: String
+    floristsDetails: FloristsDetailsInput
     frequentQuestion: [FrequentQuestionInput!]
     gallery_photos: [GalleryPhotoInput!]
     geo: GeoInput
@@ -242,9 +305,9 @@ input VendorDetailsInput {
     phone: String
     photographerDetails: PhotographerDetailsInput
     pinterest: String
-    searchDistrictIDs: [String!]
     vendorType: VendorType
     venueDetails: VenueDetailsInput
+    videographerDetails: VideographerDetailsInput
     website: String
 }
 
@@ -255,5 +318,9 @@ input VendorPasswordChangeInput {
 }
 
 input VenueDetailsInput {
+    sample: String
+}
+
+input VideographerDetailsInput {
     sample: String
 }

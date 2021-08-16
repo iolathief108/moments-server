@@ -25,6 +25,26 @@ const optionData = [
         name: 'Venue',
         vType: VendorType.Venue,
     },
+    {
+        name: 'Videographer',
+        vType: VendorType.Videographer
+    },
+    {
+        name: 'Beauty Professional',
+        vType: VendorType.BeautyProfessional
+    },
+    {
+        name: 'Florists',
+        vType: VendorType.Florist
+    },
+    {
+        name: 'Musician',
+        vType: VendorType.BandsDj
+    },
+    {
+        name: 'Cakes & Desserts',
+        vType: VendorType.CakesDessert
+    },
 ];
 
 class Initialize extends Component<{}, IState> {
@@ -95,7 +115,7 @@ class Initialize extends Component<{}, IState> {
                     {/*            <h4 className="font-size-18">Form Editors</h4>*/}
                     {/*            <ol className="breadcrumb mb-0">*/}
                     {/*                <li className="breadcrumb-item">*/}
-                    {/*                    <Link to="#">Veltrix</Link>*/}
+                    {/*                    <Link to="#">Moments</Link>*/}
                     {/*                </li>*/}
                     {/*                <li className="breadcrumb-item">*/}
                     {/*                    <Link to="#">Forms</Link>*/}
@@ -110,10 +130,9 @@ class Initialize extends Component<{}, IState> {
                         <div className="col-12">
                             <Card>
                                 <CardBody>
-                                    <h4 className="card-title">What is your business type?</h4>
+                                    {/*<h4 className="card-title">Fill in the fields below</h4>*/}
                                     <p className="card-title-desc">
-                                        Choose your business type carefully. Changing the type of business is a long
-                                        process.
+                                        Choose your business type carefully and click Submit.
                                     </p>
 
                                     <AvForm

@@ -10,7 +10,6 @@ import store from './store';
 const app = (
     <Provider store={store}>
         <BrowserRouter basename={'/dash'}>
-        {/*<BrowserRouter>*/}
             <App/>
         </BrowserRouter>
     </Provider>

@@ -75,7 +75,7 @@ export async function search(
                   skip: options.offset,
               },
           ).exec()
-        : await VendorDataModel.find({}, null, {
+        : await VendorDataModel.find({isComplete: true}, null, {
               limit: options.limit,
               skip: options.offset,
           }).exec();
@@ -92,5 +92,7 @@ export async function searchResultCount(filters: {
                   filters.vendorType,
               ),
           })
-        : await VendorDataModel.countDocuments();
+        : await VendorDataModel.countDocuments({
+            isComplete: true
+        });
 }

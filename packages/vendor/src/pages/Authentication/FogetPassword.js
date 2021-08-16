@@ -109,9 +109,7 @@ class ForgetPasswordPage extends Component {
                       </Link>{" "}
                     </p>
                     <p className="mb-0">
-                      © {new Date().getFullYear()} Veltrix. Crafted with{" "}
-                      <i className="mdi mdi-heart text-danger"/> by
-                      Themesbrand
+                      © 2021 Moments - All rights reserved.
                     </p>
                   </div>
                 </div>

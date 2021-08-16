@@ -6,30 +6,38 @@ import {
     modelOptions,
     prop,
 } from '@typegoose/typegoose';
-import {Types} from 'mongoose';
-import {VendorType} from '../common/const';
-import {VenueDataSchema} from './vendors/VenueData';
-import {CatererDataSchema} from './vendors/CatererData';
-import {PhotographerDataSchema} from './vendors/PhotographerData';
-import {GeoSchema} from './objects/Geo';
-import {FrequentQuestionSchema} from './objects/FrequentQuestion';
-import {VendorDoc} from './Vendor';
-import {LinkObjectSchema} from './objects/Links';
-import {ImageSchema} from './objects/Image';
-import {ClapSchema} from './objects/Clap';
+import { Types } from 'mongoose';
+import { VendorType } from '../common/const';
+import { VenueDataSchema } from './vendors/VenueData';
+import { CatererDataSchema } from './vendors/CatererData';
+import { PhotographerDataSchema } from './vendors/PhotographerData';
+import { GeoSchema } from './objects/Geo';
+import { FrequentQuestionSchema } from './objects/FrequentQuestion';
+import { VendorDoc } from './Vendor';
+import { LinkObjectSchema } from './objects/Links';
+import { ImageSchema } from './objects/Image';
+import { ClapSchema } from './objects/Clap';
+import { BandDjsDataSchema } from './vendors/BandDjsData';
+import { BeautyProfessionalDataSChema } from './vendors/BeautyProfessional';
+import { CakesDessertsDataSchema } from './vendors/CakesDesserts';
+import { FloristsDataSchema } from './vendors/FloristsData';
+import { VideographerDataSchema } from './vendors/Videographer';
 
-@modelOptions({options: {customName: 'vendor_data'}})
+@modelOptions({ options: { customName: 'vendor_data' } })
 export class VendorDataSchema {
-    @prop({required: false, type: () => String})
+    @prop({ required: false, type: () => String })
     address?: string;
 
-    @prop({required: false, type: () => [Types.ObjectId], default: []})
+    @prop({ required: false, type: () => [Types.ObjectId], default: [] })
+    search_city_ids?: Types.ObjectId[];
+
+    @prop({ required: false, type: () => [Types.ObjectId], default: [] })
     search_district_ids?: Types.ObjectId[];
 
-    @prop({required: false, type: () => String})
+    @prop({ required: false, type: () => String })
     phone?: string;
 
-    @prop({required: false, type: () => [FrequentQuestionSchema]})
+    @prop({ required: false, type: () => [FrequentQuestionSchema] })
     frequent_questions?: FrequentQuestionSchema[];
 
     @prop({
@@ -39,37 +47,53 @@ export class VendorDataSchema {
     })
     vendor_type?: VendorType;
 
-    @prop({type: () => String, required: false, unique: true})
+    @prop({ type: () => String, required: false, unique: true })
     business_name?: string;
 
-    @prop({type: () => String, required: false})
+    @prop({ type: () => String, required: false })
     description?: string;
 
-    @prop({type: () => Boolean, required: false})
+    @prop({ type: () => Boolean, required: false })
     isComplete?: boolean;
 
     // optional
-    @prop({required: false, type: () => LinkObjectSchema})
+    @prop({ required: false, type: () => LinkObjectSchema })
     links?: LinkObjectSchema;
 
-    @prop({required: false, type: () => GeoSchema})
+    @prop({ required: false, type: () => GeoSchema })
     geo?: GeoSchema;
 
-    @prop({required: false, type: () => [ImageSchema]})
+    @prop({ required: false, type: () => [ImageSchema] })
     gallery_photos?: ImageSchema[];
 
     // depends on category
-    @prop({required: false, type: () => [ClapSchema]})
+    @prop({ required: false, type: () => [ClapSchema] })
     claps?: ClapSchema[];
 
-    @prop({required: false, type: () => VenueDataSchema})
+    // Vendor Type
+    @prop({ required: false, type: () => VenueDataSchema })
     venue_data?: VenueDataSchema;
 
-    @prop({required: false, type: () => CatererDataSchema})
+    @prop({ required: false, type: () => CatererDataSchema })
     caterer_data?: CatererDataSchema;
 
-    @prop({required: false, type: () => PhotographerDataSchema})
+    @prop({ required: false, type: () => PhotographerDataSchema })
     photographer_data?: PhotographerDataSchema;
+
+    @prop({ required: false, type: () => BandDjsDataSchema })
+    bandDjsData?: BandDjsDataSchema;
+
+    @prop({ required: false, type: () => BeautyProfessionalDataSChema })
+    beautyProfessional?: BeautyProfessionalDataSChema;
+
+    @prop({ required: false, type: () => CakesDessertsDataSchema })
+    CakesDesserts?: CakesDessertsDataSchema;
+
+    @prop({ required: false, type: () => FloristsDataSchema })
+    Florists?: FloristsDataSchema;
+
+    @prop({ required: false, type: () => VideographerDataSchema })
+    Videographer?: VideographerDataSchema;
 }
 
 export const VendorDataModel = getModelForClass(VendorDataSchema);
@@ -82,7 +106,13 @@ function validateGalleryComplete(vData: VendorDataDoc): boolean {
         case VendorType.venue:
         case VendorType.photographer:
         case VendorType.caterer:
+        case VendorType.beauty_professional:
+        case VendorType.cakes_dessert:
+        case VendorType.florist:
             return galleryExist;
+        case VendorType.bands_dj:
+        case VendorType.videographer:
+            return true;
         default:
             throw new Error('Vendor Data must have a Category Before Gallery Complete Thing');
     }
@@ -94,7 +124,13 @@ function validateDescriptionComplete(vData: VendorDataDoc): boolean {
         case VendorType.venue:
         case VendorType.photographer:
         case VendorType.caterer:
+        case VendorType.beauty_professional:
+        case VendorType.cakes_dessert:
+        case VendorType.florist:
             return descriptionExist;
+        case VendorType.videographer:
+        case VendorType.bands_dj:
+            return true;
         default:
             throw new Error('Vendor Data must have a Category Before Gallery Complete Thing');
     }
@@ -111,7 +147,8 @@ export function isVendorDataComplete(vData: VendorDataDoc) {
     if (!vData.address) {
         return false;
     }
-    if (!vData.search_district_ids || vData.search_district_ids.length < 1) {
+    // todo: now
+    if (!vData.search_city_ids || vData.search_city_ids.length < 1) {
         return false;
     }
 

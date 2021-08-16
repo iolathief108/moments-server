@@ -2,13 +2,14 @@ export enum VendorType {
     venue = "venue",
     photographer = "photographer",
     caterer = "caterer",
-    // videographer = "videographer",
-    // florist = "florist",
-    // bands_dj = "bands_dj",
-    // beauty_professional = "beauty_professional",
-    // cakes_dessert = "cakes_dessert",
+    videographer = "videographer",
+    florist = "florist",
+    bands_dj = "bands_dj",
+    beauty_professional = "beauty_professional",
+    cakes_dessert = "cakes_dessert",
 }
 
+//todo: thing
 export function resolveCategorySlug(slug: string): VendorType | undefined {
     switch (slug) {
         case "wedding-venue":

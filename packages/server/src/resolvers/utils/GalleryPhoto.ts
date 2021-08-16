@@ -1,6 +1,6 @@
 import {Field, InputType} from 'type-graphql';
 import {VendorDataDoc} from '../../models/VendorData';
-import {checkTokenExist, commitAndGetUrl} from '../../mediaAPI/largeImage';
+import {tokenExists, commit} from '../../mediaAPI/largeImage';
 import {ImageSchema} from '../../models/objects/Image';
 
 @InputType()
@@ -31,7 +31,7 @@ export class GalleryPhotoInput {
             throw new Error('given id is not valid!');
 
         if (this.token) {
-            if (!checkTokenExist(this.token)) {
+            if (!tokenExists(this.token)) {
                 throw new Error('given token is not valid!');
             }
         }
@@ -46,7 +46,7 @@ export class GalleryPhotoInput {
         }
     }
 
-    fillUrl(vData: VendorDataDoc) {
+    async fillUrl(vData: VendorDataDoc) {
         if (!this.token) {
             const thing = vData.gallery_photos.find(
                 (photo) => photo.id === this.id,
@@ -55,7 +55,8 @@ export class GalleryPhotoInput {
             this.wd = thing.wd;
             return;
         }
-        const ret = commitAndGetUrl(this.token);
+        const ret = await commit(this.token);
+        if (!ret) throw new Error('Not recognizable!')
         this.wd = ret.wd;
         this.ht = ret.ht;
         this.id = ret.id;

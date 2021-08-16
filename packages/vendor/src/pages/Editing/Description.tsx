@@ -28,7 +28,7 @@ const Description = () => {
         setLoading(true);
 
         sdk().editVendorDetails({
-            description: values.description,
+            description: values.About,
         }).then(res => {
             if (res.data.vendorEditDetails) {
                 setTimeout(() => {
@@ -37,7 +37,7 @@ const Description = () => {
                     }
                 }, 800);
                 setEditMode(false);
-                setDescription(values.description);
+                setDescription(values.About);
             } else {
                 setError('Ooops! Something went wrong!');
             }
@@ -54,15 +54,18 @@ const Description = () => {
         }
         return true;
     };
+
     return (
         <Card>
             <CardBody>
-                <h4 className="card-title mb-4">Desctiption</h4>
+                <h4 className="card-title mb-2">About</h4>
+                <p className="card-title-desc">
+                    Briefly describe your offering
+                </p>
                 {
                     !editMode ?
-                        // preview mode
                         <div>
-                            <p>{description}</p>
+                            <p>{description || <span className={'text-danger'}>No data has been added yet</span>}</p>
                             <Button onClick={() => setEditMode(true)}>Edit</Button>
                         </div> :
                         <div>
@@ -73,9 +76,8 @@ const Description = () => {
                                     <Alert color="danger">{error}</Alert>
                                 ) : null}
                                 <AvField
-                                    name="description"
-                                    // label="Description"
-                                    placeholder="Enter your description"
+                                    name="About"
+                                    placeholder="Type your description here"
                                     type="textarea"
                                     style={{height: '100px'}}
                                     disabled={loading}
@@ -85,7 +87,7 @@ const Description = () => {
 
                                 <FormGroup className="mb-0">
                                     <div>
-                                        <Button className="mr-3" onClick={() => setEditMode(false)}>Cancel</Button>
+                                        <Button className="mr-2" onClick={() => setEditMode(false)}>Cancel</Button>
                                         <Button type="submit" color="primary" className="mr-1" disabled={loading}>
                                             Submit
                                         </Button>

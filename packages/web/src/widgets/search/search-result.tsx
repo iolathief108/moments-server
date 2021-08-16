@@ -9,6 +9,7 @@ import {VendorCard} from './vendor-card';
 import {searchState} from '../../state';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
+import {getWindowDimensions} from '../../utils/useWindowDimentions';
 
 
 const getKey: SWRInfiniteKeyLoader<VendorSearchQuery, VendorSearchQueryVariables> = (pageIndex, previousPageData) => {
@@ -34,6 +35,9 @@ function ConnectionNodes(props: ConNodesProps) {
         <div className="content">
             <div className="container">
                 <div className="row">
+                    {
+                        !props.conNodes.length && <p className={'text-danger'}>No listing Available</p>
+                    }
                     {props.conNodes.map((value, index) => (
                         <VendorCard key={index}
                                     photoUrl={value.gallery_photos[0].id}
@@ -51,10 +55,10 @@ function ConnectionNodes(props: ConNodesProps) {
 
 export function SearchResult(props: SearchResultProps) {
     const [vType, setVType] = searchState.useGlobalState('vendorType');
-    const [districtId, setDiscrictId] = searchState.useGlobalState('districtId');
+    const [districtId, setDistrictId] = searchState.useGlobalState('districtId');
 
-    const [, setVTypeSec] = searchState.useGlobalState('vTypeSec')
-    const [, setDisIdSec] = searchState.useGlobalState('disKeySec')
+    const [, setVTypeSec] = searchState.useGlobalState('vTypeSec');
+    const [, setDisIdSec] = searchState.useGlobalState('disKeySec');
 
 
     const router = useRouter();
@@ -80,9 +84,9 @@ export function SearchResult(props: SearchResultProps) {
     useEffect(() => {
         return () => {
             setVType(null);
-            setDiscrictId(null);
-            setDisIdSec(null)
-            setVTypeSec(null)
+            setDistrictId(null);
+            setDisIdSec(null);
+            setVTypeSec(null);
             searchState.setGlobalState('districtKey', null);
         };
     }, []);
@@ -97,7 +101,8 @@ export function SearchResult(props: SearchResultProps) {
         data?.forEach((value) => (
             value.vendorSearchWithExtra.edges.forEach((value) => {
                 conNodes.push(value.node);
-            })));
+            }))
+        );
         return conNodes;
     };
 
@@ -106,15 +111,18 @@ export function SearchResult(props: SearchResultProps) {
     return (
         <div className={'container'}>
             <ConnectionNodes conNodes={getConNodes()}/>
-            <div className={'row'} style={{
-                marginTop: -90,
-            }}>
-                <div className={'col pb-5 justify-content-center text-center'}>
-                    <button className={'btn btn-primary'} disabled={isDisable() || isValidating}
-                            onClick={() => setSize(size + 1)}>Load More
-                    </button>
+            {
+                !!getConNodes().length &&
+                <div className={'row'} style={{
+                    marginTop: getWindowDimensions().width > 768 ? -90 : -10,
+                }}>
+                    <div className={'col pb-5 justify-content-center text-center'}>
+                        <button className={'btn btn-primary'} disabled={isDisable() || isValidating}
+                                onClick={() => setSize(size + 1)}>Load More
+                        </button>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     );
 }

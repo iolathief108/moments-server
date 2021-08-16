@@ -44,7 +44,7 @@ mutation editVendorDetails(
     $frequentQuestion: [ FrequentQuestionInput! ]
     $geo: GeoInput
     $phone: String
-    $searchDistrictIDs: [String!]
+    $cityIds: [String!]
     $facebook: String
     $pinterest: String
     $instagram: String
@@ -68,7 +68,7 @@ mutation editVendorDetails(
         phone: $phone
         photographerDetails: $photographerDetails
         pinterest: $pinterest
-        searchDistrictIDs: $searchDistrictIDs
+        cityIDs: $cityIds
         venueDetails: $venueDetails
         website: $website
         claps: $claps
@@ -81,7 +81,14 @@ query getVendorDetailsExtra {
         phone
         description
         address
-        search_districts
+        searchLocations {
+            name
+            key
+            cities {
+                name
+                key
+            }
+        }
         geo {
             latitude
             longitude
@@ -121,6 +128,15 @@ query getInitialData {
 
 query getDistricts {
     districts {
+        id
+        name
+        key
+        parent_id
+    }
+}
+
+query getCities($districtId: String!) {
+    cities(districts_id: $districtId) {
         id
         name
         key

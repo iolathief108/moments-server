@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {getCategoryUrl} from '../utils/other';
+import {getCategoryUrl, localVendorTypes} from '../utils/other';
 import {VendorType} from '../http/generated';
 
 
@@ -46,30 +46,40 @@ export function Header() {
                                             </a>
                                         </Link>
                                         <ul className="dropdown-menu" aria-labelledby="menu-3">
-                                            <li>
-                                                <Link href={getCategoryUrl(VendorType.Venue)}>
-                                                    <a className="dropdown-item"
-                                                       title="">Venues</a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={getCategoryUrl(VendorType.Photographer)}>
-                                                    <a className="dropdown-item"
-                                                       title="">Photographers</a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href={getCategoryUrl(VendorType.Caterer)}>
-                                                    <a className="dropdown-item"
-                                                       title="">Caterers</a>
-                                                </Link>
-                                            </li>
+                                            {
+                                                localVendorTypes.map(i => (
+                                                    <li key={i.key}>
+                                                        <Link href={`/search/${i.slug}`}>
+                                                            <a className="dropdown-item"
+                                                               title="">{i.displayName}</a>
+                                                        </Link>
+                                                    </li>
+                                                ))
+                                            }
+                                            {/*<li>*/}
+                                            {/*    <Link href={getCategoryUrl(VendorType.Venue)}>*/}
+                                            {/*        <a className="dropdown-item"*/}
+                                            {/*           title="">Venues</a>*/}
+                                            {/*    </Link>*/}
+                                            {/*</li>*/}
+                                            {/*<li>*/}
+                                            {/*    <Link href={getCategoryUrl(VendorType.Photographer)}>*/}
+                                            {/*        <a className="dropdown-item"*/}
+                                            {/*           title="">Photographers</a>*/}
+                                            {/*    </Link>*/}
+                                            {/*</li>*/}
+                                            {/*<li>*/}
+                                            {/*    <Link href={getCategoryUrl(VendorType.Caterer)}>*/}
+                                            {/*        <a className="dropdown-item"*/}
+                                            {/*           title="">Caterers</a>*/}
+                                            {/*    </Link>*/}
+                                            {/*</li>*/}
                                         </ul>
                                     </li>
                                 </ul>
-                                <Link href={'/'}>
-                                    <a className="btn btn-default btn-sm">Become a Vendor</a>
-                                </Link>
+                                {/*<Link href={'/'}>*/}
+                                    <a href='/dash' target='_blank' className="btn btn-default btn-sm">Become a Vendor</a>
+                                {/*</Link>*/}
                             </div>
                         </nav>
                     </div>

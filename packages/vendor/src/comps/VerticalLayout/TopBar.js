@@ -14,8 +14,6 @@ import logosmImg from "../../assets/images/logo-sm.png";
 import logolightImg from "../../assets/images/logo-light.png";
 
 // Import other Dropdown
-import LanguageDropdown from "../LanguageDropdown";
-import NotificationDropdown from "../NotificationDropdown";
 import ProfileMenu from "../ProfileMenu";
 import {paths} from '../../routes';
 

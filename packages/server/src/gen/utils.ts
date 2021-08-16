@@ -44,6 +44,11 @@ export async function getClapData(vType: VendorType): Promise<ClapSchema[]> {
         venue: { name: string, key: string, values: string[]; }[],
         photographer: { name: string, key: string, values: string[]; }[],
         caterer: { name: string, key: string, values: string[]; }[],
+        videographer: { name: string, key: string, values: string[]; }[],
+        bands_dj: { name: string, key: string, values: string[]; }[],
+        cakes_dessert: { name: string, key: string, values: string[]; }[],
+        florist: { name: string, key: string, values: string[]; }[],
+        beauty_professional: { name: string, key: string, values: string[]; }[],
     };
     const res: d = Yaml.load(file.toString()) as any;
 

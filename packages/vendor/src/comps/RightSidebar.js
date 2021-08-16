@@ -69,7 +69,7 @@ class RightSidebar extends Component {
 
   /**
    * Changes layout width
-   * @param {*} e 
+   * @param {*} e
    */
   changeLayoutWidth(e) {
     if (e.target.checked) {
@@ -279,41 +279,15 @@ class RightSidebar extends Component {
 
                 <h6 className="text-center">Choose Layouts</h6>
 
-                <div className="mb-2">
-                  <Link to="//veltrix-h.react.themesbrand.com/" target="_blank">
-                    <img
-                      src={layout1}
-                      className="img-fluid img-thumbnail"
-                      alt=""
-                    />
-                  </Link>
-                </div>
-
-                <div className="mb-2">
-                  <Link
-                    to="//veltrix-h-dark.react.themesbrand.com/"
-                    target="_blank"
-                  >
-                    <img
-                      src={layout2}
-                      className="img-fluid img-thumbnail"
-                      alt=""
-                    />
-                  </Link>
-                </div>
-
-                <div className="mb-2">
-                  <Link
-                    to="//veltrix-h-rtl.react.themesbrand.com/"
-                    target="_blank"
-                  >
-                    <img
-                      src={layout3}
-                      className="img-fluid img-thumbnail"
-                      alt=""
-                    />
-                  </Link>
-                </div>
+                {/*<div className="mb-2">*/}
+                {/*  <Link to="//moments-h.react.themesbrand.com/" target="_blank">*/}
+                {/*    <img*/}
+                {/*      src={layout1}*/}
+                {/*      className="img-fluid img-thumbnail"*/}
+                {/*      alt=""*/}
+                {/*    />*/}
+                {/*  </Link>*/}
+                {/*</div>*/}
 
                 <Link
                   to="https://1.envato.market/grNDB"

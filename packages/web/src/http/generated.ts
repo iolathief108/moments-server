@@ -16,6 +16,33 @@ export type Scalars = {
   Float: number;
 };
 
+export type BandDjsDataType = {
+  __typename?: 'BandDjsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BandDjsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BeautyProfessionalDataType = {
+  __typename?: 'BeautyProfessionalDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BeautyProfessionalDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type CakesDessertsDataType = {
+  __typename?: 'CakesDessertsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type CakesDessertsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
 export type CatererDataType = {
   __typename?: 'CatererDataType';
   sample?: Maybe<Scalars['String']>;
@@ -23,6 +50,12 @@ export type CatererDataType = {
 
 export type CatererDetailsInput = {
   sample?: Maybe<Scalars['String']>;
+};
+
+export type City = {
+  __typename?: 'City';
+  name: Scalars['String'];
+  key: Scalars['String'];
 };
 
 export type Clap = {
@@ -59,7 +92,23 @@ export type ConnectionNode = {
   id: Scalars['String'];
   gallery_photos: Array<Image>;
   vendor_type: VendorType;
-  district_display_name: Scalars['String'];
+  district_display_name?: Maybe<Scalars['String']>;
+};
+
+export type District = {
+  __typename?: 'District';
+  name: Scalars['String'];
+  key: Scalars['String'];
+  cities: Array<City>;
+};
+
+export type FloristsDataType = {
+  __typename?: 'FloristsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type FloristsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
 };
 
 export type FrequentQuestion = {
@@ -204,7 +253,7 @@ export type Query = {
   vendorSearchWithExtra: ConnectionExtra;
   vendorDetails?: Maybe<VendorDetails>;
   vendorDetailsB?: Maybe<VendorDetails>;
-  vendorDetailsExtra?: Maybe<VendorDetails>;
+  vendorDetailsExtra?: Maybe<VendorDetailsExtra>;
   provinces: Array<LocationNode>;
   districts: Array<LocationNode>;
   cities: Array<LocationNode>;
@@ -279,7 +328,7 @@ export type VendorDetails = {
   __typename?: 'VendorDetails';
   phone?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
-  search_districts?: Maybe<Array<Scalars['String']>>;
+  searchLocations?: Maybe<Array<District>>;
   vendor_type?: Maybe<VendorType>;
   links?: Maybe<SocialMedia>;
   business_name?: Maybe<Scalars['String']>;
@@ -291,10 +340,27 @@ export type VendorDetails = {
   claps?: Maybe<Array<Clap>>;
 };
 
+export type VendorDetailsExtra = {
+  __typename?: 'VendorDetailsExtra';
+  phone?: Maybe<Scalars['String']>;
+  address?: Maybe<Scalars['String']>;
+  searchLocations?: Maybe<Array<District>>;
+  vendor_type?: Maybe<VendorType>;
+  links?: Maybe<SocialMedia>;
+  business_name?: Maybe<Scalars['String']>;
+  frequent_questions?: Maybe<Array<FrequentQuestion>>;
+  vendorTypes?: Maybe<VendorTypes>;
+  galleryPhoto?: Maybe<Array<Image>>;
+  geo?: Maybe<Geo>;
+  description?: Maybe<Scalars['String']>;
+  claps?: Maybe<Array<Clap>>;
+  isComplete?: Maybe<Scalars['Boolean']>;
+};
+
 /** Edit common vendor details */
 export type VendorDetailsInput = {
   address?: Maybe<Scalars['String']>;
-  searchDistrictIDs?: Maybe<Array<Scalars['String']>>;
+  cityIDs?: Maybe<Array<Scalars['String']>>;
   phone?: Maybe<Scalars['String']>;
   frequentQuestion?: Maybe<Array<FrequentQuestionInput>>;
   vendorType?: Maybe<VendorType>;
@@ -303,11 +369,17 @@ export type VendorDetailsInput = {
   instagram?: Maybe<Scalars['String']>;
   pinterest?: Maybe<Scalars['String']>;
   website?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   geo?: Maybe<GeoInput>;
   gallery_photos?: Maybe<Array<GalleryPhotoInput>>;
   venueDetails?: Maybe<VenueDetailsInput>;
   photographerDetails?: Maybe<PhotographerDetailsInput>;
   catererDetails?: Maybe<CatererDetailsInput>;
+  bandDjsDetails?: Maybe<BandDjsDetailsInput>;
+  beautyProfessionalDetails?: Maybe<BeautyProfessionalDetailsInput>;
+  cakesDessertsDetails?: Maybe<CakesDessertsDetailsInput>;
+  floristsDetails?: Maybe<FloristsDetailsInput>;
+  videographerDetails?: Maybe<VideographerDetailsInput>;
   claps?: Maybe<Array<ClapInput>>;
 };
 
@@ -330,7 +402,12 @@ export type VendorProfile = {
 export enum VendorType {
   Venue = 'venue',
   Photographer = 'photographer',
-  Caterer = 'caterer'
+  Caterer = 'caterer',
+  Videographer = 'videographer',
+  Florist = 'florist',
+  BandsDj = 'bands_dj',
+  BeautyProfessional = 'beauty_professional',
+  CakesDessert = 'cakes_dessert'
 }
 
 export type VendorTypes = {
@@ -338,6 +415,11 @@ export type VendorTypes = {
   caterer_type?: Maybe<CatererDataType>;
   venue_type?: Maybe<VenueDataType>;
   photographer_type?: Maybe<PhotographerDataType>;
+  band_djs_type?: Maybe<BandDjsDataType>;
+  beauty_professionals_type?: Maybe<BeautyProfessionalDataType>;
+  cakes_desserts_type?: Maybe<CakesDessertsDataType>;
+  florists_type?: Maybe<FloristsDataType>;
+  videographer_type?: Maybe<VideographerDataType>;
 };
 
 export type VenueDataType = {
@@ -346,6 +428,15 @@ export type VenueDataType = {
 };
 
 export type VenueDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type VideographerDataType = {
+  __typename?: 'VideographerDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type VideographerDetailsInput = {
   sample?: Maybe<Scalars['String']>;
 };
 
@@ -381,19 +472,6 @@ export type LocationsQuery = (
   )> }
 );
 
-export type ExampleQueryVariables = Exact<{
-  after?: Maybe<Scalars['String']>;
-}>;
-
-
-export type ExampleQuery = (
-  { __typename?: 'Query' }
-  & { vendorSearchWithExtra: (
-    { __typename?: 'ConnectionExtra' }
-    & Pick<ConnectionExtra, 'district_key'>
-  ) }
-);
-
 export type VendorDetailsBQueryVariables = Exact<{
   businessName: Scalars['String'];
   vid?: Maybe<Scalars['String']>;
@@ -404,13 +482,20 @@ export type VendorDetailsBQuery = (
   { __typename?: 'Query' }
   & { vendorDetailsB?: Maybe<(
     { __typename?: 'VendorDetails' }
-    & Pick<VendorDetails, 'phone' | 'business_name' | 'vendor_type' | 'search_districts' | 'description' | 'address'>
+    & Pick<VendorDetails, 'phone' | 'business_name' | 'vendor_type' | 'description' | 'address'>
     & { galleryPhoto?: Maybe<Array<(
       { __typename?: 'Image' }
       & Pick<Image, 'id' | 'ht' | 'wd'>
     )>>, frequent_questions?: Maybe<Array<(
       { __typename?: 'FrequentQuestion' }
       & Pick<FrequentQuestion, 'answer' | 'question'>
+    )>>, searchLocations?: Maybe<Array<(
+      { __typename?: 'District' }
+      & Pick<District, 'name'>
+      & { cities: Array<(
+        { __typename?: 'City' }
+        & Pick<City, 'name'>
+      )> }
     )>>, links?: Maybe<(
       { __typename?: 'SocialMedia' }
       & Pick<SocialMedia, 'facebook' | 'instagram' | 'pinterest' | 'website'>
@@ -481,13 +566,6 @@ export const LocationsDocument = gql`
   }
 }
     `;
-export const ExampleDocument = gql`
-    query Example($after: String) {
-  vendorSearchWithExtra(after: $after) {
-    district_key
-  }
-}
-    `;
 export const VendorDetailsBDocument = gql`
     query VendorDetailsB($businessName: String!, $vid: String) {
   vendorDetailsB(businessName: $businessName, vendorDataId: $vid) {
@@ -503,7 +581,12 @@ export const VendorDetailsBDocument = gql`
       question
     }
     vendor_type
-    search_districts
+    searchLocations {
+      cities {
+        name
+      }
+      name
+    }
     links {
       facebook
       instagram
@@ -566,9 +649,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     Locations(variables?: LocationsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LocationsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<LocationsQuery>(LocationsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Locations');
     },
-    Example(variables?: ExampleQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<ExampleQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<ExampleQuery>(ExampleDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Example');
-    },
     VendorDetailsB(variables: VendorDetailsBQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<VendorDetailsBQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<VendorDetailsBQuery>(VendorDetailsBDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'VendorDetailsB');
     },
@@ -605,9 +685,6 @@ export function getSdkWithHooks(client: GraphQLClient, withWrapper: SdkFunctionW
     },
     useLocations(variables?: LocationsQueryVariables, config?: SWRConfigInterface<LocationsQuery, ClientError>) {
       return useSWR<LocationsQuery, ClientError>(genKey<LocationsQueryVariables>('Locations', variables), () => sdk.Locations(variables), config);
-    },
-    useExample(variables?: ExampleQueryVariables, config?: SWRConfigInterface<ExampleQuery, ClientError>) {
-      return useSWR<ExampleQuery, ClientError>(genKey<ExampleQueryVariables>('Example', variables), () => sdk.Example(variables), config);
     },
     useVendorDetailsB(variables: VendorDetailsBQueryVariables, config?: SWRConfigInterface<VendorDetailsBQuery, ClientError>) {
       return useSWR<VendorDetailsBQuery, ClientError>(genKey<VendorDetailsBQueryVariables>('VendorDetailsB', variables), () => sdk.VendorDetailsB(variables), config);

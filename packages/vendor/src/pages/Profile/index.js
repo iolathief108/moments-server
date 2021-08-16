@@ -48,22 +48,10 @@ class Profile extends Component {
                     <Row className="align-items-center">
                         <Col sm={6}>
                             <div className="page-title-box">
-                                <h4 className="font-size-18">Form Repeater</h4>
-                                <ol className="breadcrumb mb-0">
-                                    <li className="breadcrumb-item">
-                                        <Link to="#">Veltrix</Link>
-                                    </li>
-                                    <li className="breadcrumb-item">
-                                        <Link to="#">Forms</Link>
-                                    </li>
-                                    <li className="breadcrumb-item active">Form
-                                        Repeater
-                                    </li>
-                                </ol>
+                                <h4 className="font-size-18">Profile</h4>
                             </div>
                         </Col>
                     </Row>
-
                     <Row>
                         <div className="col-12">
                             <Card>
@@ -85,6 +73,10 @@ class Profile extends Component {
                                             </dt>
                                             <dd className="col-sm-9">{this.state.vendorDetailsExtra?.business_name}</dd>
 
+                                            <dt className="col-sm-3">Account Status
+                                            </dt>
+                                            <dd className="col-sm-9">{this.state.vendorDetailsExtra?.isComplete ? 'Complete' : <span className={'text-danger'}>Not complete</span>}</dd>
+
                                             {/*<dt className="col-sm-3">Email</dt>*/}
                                             {/*{*/}
                                             {/*    this.state.vProfile?.email ?*/}
@@ -94,41 +86,10 @@ class Profile extends Component {
                                         </dl>
                                         {/* <Button color="success">Edit Profile</Button> */}
                                     </div>
-
-
                                 </CardBody>
                             </Card>
-
-
-                            <Card>
-                                <CardBody>
-                                    <h4 className="card-title mb-4">Profile
-                                        Details</h4>
-                                    <div>
-                                        <p>your account
-                                            is {this.state.vendorDetailsExtra?.isComplete ? 'complete' : 'not complete'}</p>
-                                        {
-                                            this.state.vendorDetailsExtra?.isComplete ||
-                                            <div>
-                                                {
-                                                    this.state.vendorDetailsExtra?.phone ||
-                                                    <p>phone not complete</p>
-                                                }
-                                                {
-                                                    this.state.vendorDetailsExtra?.address ||
-                                                    <p>Your address not
-                                                        complete</p>
-                                                }
-                                            </div>
-                                        }
-                                    </div>
-                                </CardBody>
-                            </Card>
-
                         </div>
                     </Row>
-
-
                 </div>
             </React.Fragment>
         );

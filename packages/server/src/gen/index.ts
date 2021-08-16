@@ -7,7 +7,7 @@ import initDb from "../init-db";
     await initDb()
     // await InitDatabase();
     // await create_sfmv_store();
-    await createVendors(100)
-    // await createClapStore()
+    // await createVendors(100)
+    await createClapStore()
     process.exit();
 })();

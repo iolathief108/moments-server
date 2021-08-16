@@ -16,6 +16,33 @@ export type Scalars = {
   Float: number;
 };
 
+export type BandDjsDataType = {
+  __typename?: 'BandDjsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BandDjsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BeautyProfessionalDataType = {
+  __typename?: 'BeautyProfessionalDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type BeautyProfessionalDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type CakesDessertsDataType = {
+  __typename?: 'CakesDessertsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type CakesDessertsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
 export type CatererDataType = {
   __typename?: 'CatererDataType';
   sample?: Maybe<Scalars['String']>;
@@ -23,6 +50,12 @@ export type CatererDataType = {
 
 export type CatererDetailsInput = {
   sample?: Maybe<Scalars['String']>;
+};
+
+export type City = {
+  __typename?: 'City';
+  name: Scalars['String'];
+  key: Scalars['String'];
 };
 
 export type Clap = {
@@ -60,6 +93,22 @@ export type ConnectionNode = {
   gallery_photos: Array<Image>;
   vendor_type: VendorType;
   district_display_name: Scalars['String'];
+};
+
+export type District = {
+  __typename?: 'District';
+  name: Scalars['String'];
+  key: Scalars['String'];
+  cities: Array<City>;
+};
+
+export type FloristsDataType = {
+  __typename?: 'FloristsDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type FloristsDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
 };
 
 export type FrequentQuestion = {
@@ -279,7 +328,7 @@ export type VendorDetails = {
   __typename?: 'VendorDetails';
   phone?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
-  search_districts?: Maybe<Array<Scalars['String']>>;
+  searchLocations?: Maybe<Array<District>>;
   vendor_type?: Maybe<VendorType>;
   links?: Maybe<SocialMedia>;
   business_name?: Maybe<Scalars['String']>;
@@ -295,7 +344,7 @@ export type VendorDetailsExtra = {
   __typename?: 'VendorDetailsExtra';
   phone?: Maybe<Scalars['String']>;
   address?: Maybe<Scalars['String']>;
-  search_districts?: Maybe<Array<Scalars['String']>>;
+  searchLocations?: Maybe<Array<District>>;
   vendor_type?: Maybe<VendorType>;
   links?: Maybe<SocialMedia>;
   business_name?: Maybe<Scalars['String']>;
@@ -311,7 +360,7 @@ export type VendorDetailsExtra = {
 /** Edit common vendor details */
 export type VendorDetailsInput = {
   address?: Maybe<Scalars['String']>;
-  searchDistrictIDs?: Maybe<Array<Scalars['String']>>;
+  cityIDs?: Maybe<Array<Scalars['String']>>;
   phone?: Maybe<Scalars['String']>;
   frequentQuestion?: Maybe<Array<FrequentQuestionInput>>;
   vendorType?: Maybe<VendorType>;
@@ -326,6 +375,11 @@ export type VendorDetailsInput = {
   venueDetails?: Maybe<VenueDetailsInput>;
   photographerDetails?: Maybe<PhotographerDetailsInput>;
   catererDetails?: Maybe<CatererDetailsInput>;
+  bandDjsDetails?: Maybe<BandDjsDetailsInput>;
+  beautyProfessionalDetails?: Maybe<BeautyProfessionalDetailsInput>;
+  cakesDessertsDetails?: Maybe<CakesDessertsDetailsInput>;
+  floristsDetails?: Maybe<FloristsDetailsInput>;
+  videographerDetails?: Maybe<VideographerDetailsInput>;
   claps?: Maybe<Array<ClapInput>>;
 };
 
@@ -348,7 +402,12 @@ export type VendorProfile = {
 export enum VendorType {
   Venue = 'venue',
   Photographer = 'photographer',
-  Caterer = 'caterer'
+  Caterer = 'caterer',
+  Videographer = 'videographer',
+  Florist = 'florist',
+  BandsDj = 'bands_dj',
+  BeautyProfessional = 'beauty_professional',
+  CakesDessert = 'cakes_dessert'
 }
 
 export type VendorTypes = {
@@ -356,6 +415,11 @@ export type VendorTypes = {
   caterer_type?: Maybe<CatererDataType>;
   venue_type?: Maybe<VenueDataType>;
   photographer_type?: Maybe<PhotographerDataType>;
+  band_djs_type?: Maybe<BandDjsDataType>;
+  beauty_professionals_type?: Maybe<BeautyProfessionalDataType>;
+  cakes_desserts_type?: Maybe<CakesDessertsDataType>;
+  florists_type?: Maybe<FloristsDataType>;
+  videographer_type?: Maybe<VideographerDataType>;
 };
 
 export type VenueDataType = {
@@ -364,6 +428,15 @@ export type VenueDataType = {
 };
 
 export type VenueDetailsInput = {
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type VideographerDataType = {
+  __typename?: 'VideographerDataType';
+  sample?: Maybe<Scalars['String']>;
+};
+
+export type VideographerDetailsInput = {
   sample?: Maybe<Scalars['String']>;
 };
 
@@ -450,7 +523,7 @@ export type EditVendorDetailsMutationVariables = Exact<{
   frequentQuestion?: Maybe<Array<FrequentQuestionInput> | FrequentQuestionInput>;
   geo?: Maybe<GeoInput>;
   phone?: Maybe<Scalars['String']>;
-  searchDistrictIDs?: Maybe<Array<Scalars['String']> | Scalars['String']>;
+  cityIds?: Maybe<Array<Scalars['String']> | Scalars['String']>;
   facebook?: Maybe<Scalars['String']>;
   pinterest?: Maybe<Scalars['String']>;
   instagram?: Maybe<Scalars['String']>;
@@ -475,8 +548,15 @@ export type GetVendorDetailsExtraQuery = (
   { __typename?: 'Query' }
   & { vendorDetailsExtra?: Maybe<(
     { __typename?: 'VendorDetailsExtra' }
-    & Pick<VendorDetailsExtra, 'phone' | 'description' | 'address' | 'search_districts' | 'vendor_type' | 'business_name' | 'isComplete'>
-    & { geo?: Maybe<(
+    & Pick<VendorDetailsExtra, 'phone' | 'description' | 'address' | 'vendor_type' | 'business_name' | 'isComplete'>
+    & { searchLocations?: Maybe<Array<(
+      { __typename?: 'District' }
+      & Pick<District, 'name' | 'key'>
+      & { cities: Array<(
+        { __typename?: 'City' }
+        & Pick<City, 'name' | 'key'>
+      )> }
+    )>>, geo?: Maybe<(
       { __typename?: 'Geo' }
       & Pick<Geo, 'latitude' | 'longitude'>
     )>, frequent_questions?: Maybe<Array<(
@@ -512,6 +592,19 @@ export type GetDistrictsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetDistrictsQuery = (
   { __typename?: 'Query' }
   & { districts: Array<(
+    { __typename?: 'LocationNode' }
+    & Pick<LocationNode, 'id' | 'name' | 'key' | 'parent_id'>
+  )> }
+);
+
+export type GetCitiesQueryVariables = Exact<{
+  districtId: Scalars['String'];
+}>;
+
+
+export type GetCitiesQuery = (
+  { __typename?: 'Query' }
+  & { cities: Array<(
     { __typename?: 'LocationNode' }
     & Pick<LocationNode, 'id' | 'name' | 'key' | 'parent_id'>
   )> }
@@ -582,9 +675,9 @@ export const VendorRegisterDocument = gql`
 }
     `;
 export const EditVendorDetailsDocument = gql`
-    mutation editVendorDetails($businessName: String, $vendorType: VendorType, $address: String, $galleryPhotos: [GalleryPhotoInput!], $frequentQuestion: [FrequentQuestionInput!], $geo: GeoInput, $phone: String, $searchDistrictIDs: [String!], $facebook: String, $pinterest: String, $instagram: String, $website: String, $catererDetails: CatererDetailsInput, $photographerDetails: PhotographerDetailsInput, $venueDetails: VenueDetailsInput, $claps: [ClapInput!], $description: String) {
+    mutation editVendorDetails($businessName: String, $vendorType: VendorType, $address: String, $galleryPhotos: [GalleryPhotoInput!], $frequentQuestion: [FrequentQuestionInput!], $geo: GeoInput, $phone: String, $cityIds: [String!], $facebook: String, $pinterest: String, $instagram: String, $website: String, $catererDetails: CatererDetailsInput, $photographerDetails: PhotographerDetailsInput, $venueDetails: VenueDetailsInput, $claps: [ClapInput!], $description: String) {
   vendorEditDetails(
-    data: {businessName: $businessName, vendorType: $vendorType, address: $address, catererDetails: $catererDetails, facebook: $facebook, gallery_photos: $galleryPhotos, frequentQuestion: $frequentQuestion, geo: $geo, instagram: $instagram, phone: $phone, photographerDetails: $photographerDetails, pinterest: $pinterest, searchDistrictIDs: $searchDistrictIDs, venueDetails: $venueDetails, website: $website, claps: $claps, description: $description}
+    data: {businessName: $businessName, vendorType: $vendorType, address: $address, catererDetails: $catererDetails, facebook: $facebook, gallery_photos: $galleryPhotos, frequentQuestion: $frequentQuestion, geo: $geo, instagram: $instagram, phone: $phone, photographerDetails: $photographerDetails, pinterest: $pinterest, cityIDs: $cityIds, venueDetails: $venueDetails, website: $website, claps: $claps, description: $description}
   )
 }
     `;
@@ -594,7 +687,14 @@ export const GetVendorDetailsExtraDocument = gql`
     phone
     description
     address
-    search_districts
+    searchLocations {
+      name
+      key
+      cities {
+        name
+        key
+      }
+    }
     geo {
       latitude
       longitude
@@ -643,6 +743,16 @@ export const GetDistrictsDocument = gql`
   }
 }
     `;
+export const GetCitiesDocument = gql`
+    query getCities($districtId: String!) {
+  cities(districts_id: $districtId) {
+    id
+    name
+    key
+    parent_id
+  }
+}
+    `;
 export const GetClapStoreDocument = gql`
     query getClapStore($vendorType: VendorType!) {
   clapStore(vendorType: $vendorType) {
@@ -668,6 +778,7 @@ const EditVendorDetailsDocumentString = print(EditVendorDetailsDocument);
 const GetVendorDetailsExtraDocumentString = print(GetVendorDetailsExtraDocument);
 const GetInitialDataDocumentString = print(GetInitialDataDocument);
 const GetDistrictsDocumentString = print(GetDistrictsDocument);
+const GetCitiesDocumentString = print(GetCitiesDocument);
 const GetClapStoreDocumentString = print(GetClapStoreDocument);
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
@@ -703,6 +814,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getDistricts(variables?: GetDistrictsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: GetDistrictsQuery | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<GetDistrictsQuery>(GetDistrictsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDistricts');
+    },
+    getCities(variables: GetCitiesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: GetCitiesQuery | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+        return withWrapper((wrappedRequestHeaders) => client.rawRequest<GetCitiesQuery>(GetCitiesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCities');
     },
     getClapStore(variables: GetClapStoreQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: GetClapStoreQuery | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<GetClapStoreQuery>(GetClapStoreDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getClapStore');

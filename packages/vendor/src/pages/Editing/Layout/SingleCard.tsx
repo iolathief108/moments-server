@@ -1,5 +1,4 @@
 import React, {FunctionComponent} from 'react';
-import {Link} from 'react-router-dom';
 import {Col, Row} from 'reactstrap';
 
 
@@ -20,7 +19,7 @@ const SingleCard: FunctionComponent<SingleCardProps> = props => {
                             <h4 className="font-size-18">{props.title}</h4>
                             {/* <ol className="breadcrumb mb-0">
                                 <li className="breadcrumb-item">
-                                    <Link to="#">Veltrix</Link>
+                                    <Link to="#">Moments</Link>
                                 </li>
                                 <li className="breadcrumb-item">
                                     <Link to="#">Forms</Link>

@@ -4,7 +4,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import { withRouter, Link } from 'react-router-dom';
 
 // users
-import user4 from '../assets/images/users/user-4.jpg';
+import defaultUserImage from '../assets/images/users/default.png';
 import {paths} from '../routes';
 
 class ProfileMenu extends Component {
@@ -30,7 +30,7 @@ class ProfileMenu extends Component {
             <React.Fragment>
                 <Dropdown isOpen={this.state.menu} toggle={this.toggle} className="d-inline-block" >
                     <DropdownToggle className="btn header-item waves-effect" id="page-header-user-dropdown" tag="button">
-                        <img className="rounded-circle header-profile-user" src={user4} alt="Header Avatar" />
+                        <img className="rounded-circle header-profile-user" src={defaultUserImage} alt="Header Avatar" />
                     </DropdownToggle>
                     <DropdownMenu right>
                         <Link to={paths.profile()}>

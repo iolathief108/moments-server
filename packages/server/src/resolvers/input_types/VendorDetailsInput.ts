@@ -1,20 +1,6 @@
 import {Field, InputType} from 'type-graphql';
-import {
-    ArrayMinSize,
-    IsPhoneNumber,
-    IsUrl,
-    Length,
-    MinLength,
-    Validate,
-    ValidateNested,
-} from 'class-validator';
-import {
-    IsBusinessNameExist,
-    IsDistrictID,
-    IsObjectID,
-    IsPhoneExist,
-    IsValidBusinessName,
-} from '../../validators';
+import {ArrayMinSize, IsPhoneNumber, IsUrl, Length, MinLength, Validate, ValidateNested} from 'class-validator';
+import {IsBusinessNameExist, IsCityID, IsObjectID, IsPhoneExist, IsValidBusinessName} from '../../validators';
 import {FrequentQuestionInput} from './FrequentQuestionInput';
 import {VendorType} from '../../common/const';
 import {GeoInput} from './GeoInput';
@@ -25,6 +11,12 @@ import {GalleryPhotoInput} from '../utils/GalleryPhoto';
 import {PhotographerDetailsInput} from './type/PhotographerDetailsInput';
 import {CatererDetailsInput} from './type/CatererDetailsInput';
 import {ClapInput} from './Clap';
+import {BandDjsDetailsInput} from './type/BandDjsDetailsInput';
+import {BeautyProfessionalDetailsInput} from './type/BeautyProfessionalDetailsInput';
+import {CakesDessertsDetailsInput} from './type/CakesDessertsDetailsInput';
+import {FloristsDetailsInput} from './type/FloristsDetailsInput';
+import {VideographerDetailsInput} from './type/VideographerDetailsInput';
+import {getDistrictsByCities} from '../../models/Location';
 
 @InputType({description: 'Edit common vendor details'})
 export class VendorDetailsInput {
@@ -33,9 +25,9 @@ export class VendorDetailsInput {
     address?: string;
 
     @Field(() => [String], {nullable: true})
-    @Validate(IsDistrictID, {message: "not a valid district id", each: true})
-    @Validate(IsObjectID, {message: "not a valid object id", each: true})
-    searchDistrictIDs?: string[];
+    @Validate(IsCityID, {message: 'not a valid city id', each: true})
+    @Validate(IsObjectID, {message: 'not a valid object id', each: true})
+    cityIDs?: string[];
 
     @Field({nullable: true})
     @Validate(IsPhoneExist)
@@ -95,6 +87,21 @@ export class VendorDetailsInput {
     @Field(() => CatererDetailsInput, {nullable: true})
     catererDetails?: CatererDetailsInput;
 
+    @Field(() => BandDjsDetailsInput, {nullable: true})
+    bandDjsDetails?: BandDjsDetailsInput;
+
+    @Field(() => BeautyProfessionalDetailsInput, {nullable: true})
+    beautyProfessionalDetails?: BeautyProfessionalDetailsInput;
+
+    @Field(() => CakesDessertsDetailsInput, {nullable: true})
+    cakesDessertsDetails?: CakesDessertsDetailsInput;
+
+    @Field(() => FloristsDetailsInput, {nullable: true})
+    floristsDetails?: FloristsDetailsInput;
+
+    @Field(() => VideographerDetailsInput, {nullable: true})
+    videographerDetails?: VideographerDetailsInput;
+
     @Field(() => [ClapInput], {nullable: true})
     claps?: ClapInput[];
 
@@ -119,14 +126,20 @@ export class VendorDetailsInput {
         this.photographerDetails?.validate(vData);
         this.catererDetails?.validate(vData);
 
+        if (this.cityIDs) {
+            if (this.vendorType === VendorType.venue && this.cityIDs.length > 1) {
+                throw new Error('Venues should have only one city ID');
+            }
+        }
+
         //todo: validate claps
 
         //todo: check if data.phone is verified
     }
 
-    _fillUrls(vData: VendorDataDoc) {
+    async _fillUrls(vData: VendorDataDoc) {
         for (let galleryPhoto of this.gallery_photos) {
-            galleryPhoto.fillUrl(vData);
+            await galleryPhoto.fillUrl(vData);
         }
     }
 
@@ -159,18 +172,22 @@ export class VendorDetailsInput {
         if (this.vendorType) {
             vData.vendor_type = this.vendorType;
         }
-        if (this.searchDistrictIDs) {
-            vData.search_district_ids = this.searchDistrictIDs.map((value) => {
+        if (this.cityIDs) {
+            vData.search_city_ids = this.cityIDs.map(value => {
                 return new Types.ObjectId(value);
             });
+
+            const districts = await getDistrictsByCities(this.cityIDs)
+            vData.search_district_ids = districts.map(district => district.id)
         }
         if (this.frequentQuestion) {
             vData.frequent_questions = this.frequentQuestion;
         }
         if (this.gallery_photos) {
-            this._fillUrls(vData);
+            await this._fillUrls(vData);
             vData.gallery_photos = this.gallery_photos.map(item => item.getImageDetail());
         }
+        // Vendor Type
         if (this.venueDetails) {
             this.venueDetails.fillVendorData(vData);
         }
@@ -180,10 +197,31 @@ export class VendorDetailsInput {
         if (this.photographerDetails) {
             this.photographerDetails.fillVendorData(vData);
         }
-
-        if (this.claps) {
-            vData.claps = this.claps
+        if (this.bandDjsDetails) {
+            this.bandDjsDetails.fillVendorData(vData);
         }
+        if (this.beautyProfessionalDetails) {
+            this.beautyProfessionalDetails.fillVendorData(vData);
+        }
+        if (this.cakesDessertsDetails) {
+            this.cakesDessertsDetails.fillVendorData(vData);
+        }
+        if (this.floristsDetails) {
+            this.floristsDetails.fillVendorData(vData);
+        }
+        if (this.videographerDetails) {
+            this.videographerDetails.fillVendorData(vData);
+        }
+        if (this.claps) {
+            let tClaps: ClapInput[] = [];
+            this.claps.forEach(i => {
+                if (i.values.length) {
+                    tClaps.push(i);
+                }
+            });
+            vData.claps = tClaps;
+        }
+        //
 
         if (isVendorDataComplete(vData)) {
             vData.isComplete = true;

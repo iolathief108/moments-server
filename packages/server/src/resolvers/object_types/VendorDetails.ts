@@ -5,12 +5,9 @@ import {FrequentQuestion} from './FrequentQuestion';
 import {VendorTypes} from './VendorTypes';
 import {Geo} from './Geo';
 import {VendorDataDoc} from '../../models/VendorData';
-import {getDistrictNames} from '../../models/Location';
-import {PhotographerDataType} from './type/PhotographerDetails';
-import {CatererDataType} from './type/CatererDetails';
-import {VenueDataType} from './type/VenueDetails';
 import {Image} from './Image';
 import {Clap} from './Clap';
+import {District} from './District';
 
 @ObjectType()
 export class VendorDetails {
@@ -20,8 +17,8 @@ export class VendorDetails {
     @Field(() => String, {nullable: true})
     address?: string;
 
-    @Field(() => [String], {nullable: true})
-    search_districts?: string[];
+    @Field(() => [District], {nullable: true})
+    searchLocations?: District[];
 
     @Field(() => VendorType, {nullable: true})
     vendor_type?: VendorType;
@@ -59,9 +56,9 @@ export class VendorDetails {
         vendorDetails.geo = vData.geo;
         vendorDetails.address = vData.address;
         vendorDetails.galleryPhoto = vData.gallery_photos;
-        vendorDetails.search_districts = await getDistrictNames(
-            vData.search_district_ids,
-        );
+
+
+        vendorDetails.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || [])
         vendorDetails.phone = vData.phone;
         vendorDetails.claps = vData.claps;
         vendorDetails.vendor_type = vData.vendor_type;
@@ -95,9 +92,8 @@ export class VendorDetailsExtra extends VendorDetails {
         vendorDetailsExtra.geo = vData.geo;
         vendorDetailsExtra.address = vData.address;
         vendorDetailsExtra.galleryPhoto = vData.gallery_photos;
-        vendorDetailsExtra.search_districts = await getDistrictNames(
-            vData.search_district_ids,
-        );
+        vendorDetailsExtra.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || [])
+
         vendorDetailsExtra.phone = vData.phone;
         vendorDetailsExtra.claps = vData.claps;
         vendorDetailsExtra.vendor_type = vData.vendor_type;
