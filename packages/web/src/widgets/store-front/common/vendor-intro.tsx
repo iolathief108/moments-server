@@ -13,32 +13,65 @@ type Weapons = Weapon[]
 function getting(data: VendorDetailsBQuery) {
     let thanosWeapons: Weapons = [];
     console.log(data.vendorDetailsB?.claps);
-    
+
     for (const clap of data.vendorDetailsB?.claps || []) {
         thanosWeapons.push({
             name: clap.name,
-            tings: clap.values
-        })
+            tings: clap.values,
+        });
     }
     return thanosWeapons;
 }
 
 export function VendorIntro({data}: {data: VendorDetailsBQuery}) {
+
+    const getDescription = () => {
+        if (!data?.vendorDetailsB.description) {
+            return null
+        }
+        let wow = data?.vendorDetailsB.description;
+        wow = wow.replace('\n\n\n', '\n\n');
+        const sep = wow.split('\n');
+        let final: string[][] = [[]];
+        for (let ss of sep) {
+            if (ss !== '') {
+                final[final.length - 1].push(ss);
+            } else {
+                final.push([]);
+            }
+        }
+        return (
+            final.map(i => (
+                <p>
+                    {
+                        i.map(
+                            r =>
+                                <>
+                                    {r}
+                                    <br/>
+                                </>
+                        )
+                    }
+                </p>
+            ))
+        );
+    };
+
     return (
         <div className={VendorIntroStyle.vIntroTop}>
             <div className={'container'}>
                 <div className="row" style={{
-                    marginTop: '80px',
+                    marginTop: '50px',
                 }}>
                     <div className="col-xs-12 col-sm-12 col-md-11 col-xl-9">
                         <div className="vendor-intro-section__container ml-secondary">
-                            {
-                                data.vendorDetailsB?.vendor_type &&
-                                <h6 className="mb-tertiary">{getPlaceholder(data.vendorDetailsB?.vendor_type)}</h6>
-                            }
-                            <h2 className="marketplace__h2">{data.vendorDetailsB?.business_name}</h2>
+                            {/*{*/}
+                            {/*    data.vendorDetailsB?.vendor_type &&*/}
+                            {/*    <h6 className="mb-tertiary">{getPlaceholder(data.vendorDetailsB?.vendor_type)}</h6>*/}
+                            {/*}*/}
+                            <h2 className="marketplace__h2">About {data.vendorDetailsB?.business_name}</h2>
                             <div className="vendor-intro-section__body">
-                                <p className="mt-tertiary">{data.vendorDetailsB?.description}</p>
+                                <p className="mt-tertiary">{getDescription()}</p>
                             </div>
 
                             <div className={VendorIntroStyle.vIntro2}>

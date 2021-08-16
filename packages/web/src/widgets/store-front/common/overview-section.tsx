@@ -2,6 +2,7 @@ import {VendorDetailsBQuery} from '../../../http/generated';
 import OverviewStyle from '../../../styles/store-front-comps/OverviewSection.module.scss';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
+import {getVendorTypeInfo} from '../../../utils/other';
 
 export function OverviewSection({data}: {data: VendorDetailsBQuery}) {
     return (
@@ -11,7 +12,7 @@ export function OverviewSection({data}: {data: VendorDetailsBQuery}) {
                     <div className="col-md-8 col-sm-12">
                         <h6 style={{
                             marginBottom: 0,
-                        }}>{data.vendorDetailsB?.vendor_type}</h6>
+                        }}>{getVendorTypeInfo(data.vendorDetailsB?.vendor_type).displayName}</h6>
                         <h1 className="h1"
                             style={{marginBottom: 0, marginTop: 0}}>{data.vendorDetailsB?.business_name}</h1>
                         <h6 className="location" style={{fontWeight: 400, marginTop: '7px'}}>

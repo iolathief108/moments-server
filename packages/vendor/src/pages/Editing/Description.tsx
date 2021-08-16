@@ -55,6 +55,40 @@ const Description = () => {
         return true;
     };
 
+    const getDescription = () => {
+        if (!description) {
+            return null
+        }
+        let wow = description;
+        wow = wow.replace('\n\n\n', '\n\n');
+        const sep = wow.split('\n');
+        let final: string[][] = [[]];
+        for (let ss of sep) {
+            if (ss !== '') {
+                final[final.length - 1].push(ss);
+            } else {
+                final.push([]);
+            }
+        }
+        return (
+            final.map(i => (
+                <p>
+                    {
+                        i.map(
+                            r =>
+                                <>
+                                    {r}
+                                    <br/>
+                                </>
+                        )
+                    }
+                </p>
+            ))
+        );
+    };
+
+
+
     return (
         <Card>
             <CardBody>
@@ -65,7 +99,7 @@ const Description = () => {
                 {
                     !editMode ?
                         <div>
-                            <p>{description || <span className={'text-danger'}>No data has been added yet</span>}</p>
+                            <p>{getDescription() || <span className={'text-danger'}>No data has been added yet</span>}</p>
                             <Button onClick={() => setEditMode(true)}>Edit</Button>
                         </div> :
                         <div>
