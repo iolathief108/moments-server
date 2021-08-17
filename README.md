@@ -40,16 +40,6 @@ gen-data
 ````
 
 
-#### Envs
-virgin-image
-```dosini
-VERGIN_CACHE_PATH=C:\Users\iolat/mara-dev/objs/cache/p/
-VERGIN_IMAGE_PATH=C:\Users\iolat/mara-dev/objs/main/img/
-VERGIN_PORT=3100
-```
-
-
-
 dev process
 
 1 create folder 

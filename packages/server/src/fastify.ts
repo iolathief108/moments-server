@@ -9,6 +9,7 @@ import mercurius from 'mercurius';
 import apollo from './apollo';
 import {TEMP_PATH} from './common/const';
 import * as fs from 'fs';
+import { IS_DEV } from './utils';
 
 const RedisStore = require('connect-redis')(fastifySession);
 
@@ -70,12 +71,12 @@ export default async (options?: FastifyServerOptions): Promise<FastifyInstance> 
         },
 
     });
-    //todo: important uncomment this in production
-    // app.register(cors, {
-    //   credentials: true,
-    //   // origin: false,
-    //   // origin: "https://www.zola.lk/",
-    // });
+
+    if (!IS_DEV) {
+        app.register(cors, {
+            credentials: true
+        });
+    }
 
     return app;
 };

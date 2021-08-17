@@ -23,6 +23,7 @@ import {Image} from './object_types/Image';
 @InputType({description: 'Register new vendor data'})
 class ListInput {
     @Field(() => String, {nullable: true})
+    // todo: these Comments 
     // @Validate(IsObjectID)
     // @Validate(IsDistrictID)
     districtID?: string;

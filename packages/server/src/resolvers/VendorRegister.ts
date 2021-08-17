@@ -86,9 +86,9 @@ export class VendorRegisterResolver {
     async vendorRegister(@Args() data: VendorRegisterInput, @Ctx() ctx: GQLContext): Promise<boolean> {
         const hashedPassword = await bcrypt.hash(data.password, 12);
 
-        //todo: important uncomment this
-        if (!verifyOTP(data.phone, Number(data.otp)))
+        if (!verifyOTP(data.phone, Number(data.otp))) {
             throw new Error('otp verfication failed');
+        }
 
         const document = await VendorModel.create<VendorSchema>({
             email: data.email || undefined,

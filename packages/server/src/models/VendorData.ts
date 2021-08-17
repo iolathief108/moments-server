@@ -147,7 +147,7 @@ export function isVendorDataComplete(vData: VendorDataDoc) {
     if (!vData.address) {
         return false;
     }
-    // todo: now
+
     if (!vData.search_city_ids || vData.search_city_ids.length < 1) {
         return false;
     }
