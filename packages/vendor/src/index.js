@@ -6,7 +6,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
 import store from './store';
-
+//todo: gallery max count
 const app = (
     <Provider store={store}>
         <BrowserRouter basename={'/dash'}>

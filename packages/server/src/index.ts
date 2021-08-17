@@ -3,7 +3,7 @@ import "reflect-metadata";
 import fastify from "./fastify";
 import initDb from './init-db'
 
-
+// todo: important gallery max count
 async function main() {
 
     await initDb();
