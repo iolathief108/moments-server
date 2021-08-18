@@ -59,7 +59,6 @@ export async function InitDatabase() {
     let districtMap: {id: string; dbid: string}[] = [];
     try {
         let data = fs.readFileSync("./src/gen/static/district.json", "utf8");
-        // console.log(data)
         const districs: districts = JSON.parse(data);
         for (let i = 0; i < districs.length; i++) {
             const district = districs[i];
@@ -91,6 +90,7 @@ export async function InitDatabase() {
 
     try {
         let data = fs.readFileSync("./src/gen/static/cities.json", "utf8");
+        // let data:any = '[]'
         const cities: cities = JSON.parse(data);
         for (let i = 0; i < cities.length; i++) {
             const city = cities[i];

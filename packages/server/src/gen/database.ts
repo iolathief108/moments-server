@@ -191,6 +191,7 @@ export async function createVendors(count: number) {
     }
 }
 
+//todo: remove sfmv all things (json and other utils)
 export async function create_sfmv_store() {
     // let dasf = await getSFMVStoreData();
     // console.log('started');

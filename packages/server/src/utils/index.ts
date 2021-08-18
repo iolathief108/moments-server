@@ -7,9 +7,6 @@ export function addToLimitedArray<T>(el: T[], item: T, limit: number) {
     el.push(item);
 }
 
-// envs
-export const IS_DEV = process.env.NODE_ENV === 'development';
-
 export function getTimeDiffFromNow(time: Date, format: 'minute'): number {
     let now = moment(new Date()); //todays date
     let end = moment(time); // another date
@@ -22,3 +19,14 @@ export function getTimeDiffFromNow(time: Date, format: 'minute'): number {
     }
     return diff;
 }
+
+
+
+// envs
+const NODE_ENV = process.env.NODE_ENV;
+if (!NODE_ENV || !(NODE_ENV === 'development' || NODE_ENV === 'production')) {
+    throw new Error('NODE_ENV environment variable should be either development or production!')
+}
+
+
+export const IS_DEV = process.env.NODE_ENV === 'development';

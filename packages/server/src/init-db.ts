@@ -1,17 +1,25 @@
 import mongoose from "mongoose";
+import { IS_DEV } from "./utils";
 
 export default async function () {
-    const host = process.env.DB_HOST || 'localhost';
-    const env = process.env.NODE_ENV;
-    if (!env || !(env === 'development' || env === 'production')) {
-        throw new Error('env is required');
-    }
-    const dbName = env === 'development' ? 'mara-dev' : 'mara';
+    const host = process.env.DB_HOST || 'localhost:27017';
+    const dbName = process.env.DB_NAME || IS_DEV ? 'mara-dev' : 'mara';
 
-    await mongoose.connect(`mongodb://${host}:27017/${dbName}`, {
+    const userName = process.env.DB_USER;
+    const pass = process.env.DB_PASS;
+
+    const url = 'mongodb://' + 
+        (userName || pass ? (userName || '') + (userName && pass && ':' + pass) + '@' : '') + 
+        host;
+
+    console.log(url)
+    console.log(dbName);
+    
+    await mongoose.connect(url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
         useFindAndModify: false,
+        dbName: dbName
     });
 }

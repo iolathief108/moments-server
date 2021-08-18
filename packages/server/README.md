@@ -1,5 +1,7 @@
 # SERVER
 
+# to get build 
+yarn tsc -p ./tsconfig.json
 
 #### Vendor Types
 - `common/const.ts`
