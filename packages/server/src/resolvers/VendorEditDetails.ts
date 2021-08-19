@@ -15,7 +15,7 @@ export class VendorEditDetailsResolver {
         @Arg("data") data: VendorDetailsInput,
     ): Promise<boolean> {
         const vendor = await VendorModel.findById(ctx.request.session.vendorID);
-        const vendorData = vendor.vendor_data_id
+        const vendorData = vendor?.vendor_data_id
             ? await VendorDataModel.findById(
                   new Types.ObjectId(vendor.vendor_data_id),
               )

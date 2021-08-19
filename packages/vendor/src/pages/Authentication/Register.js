@@ -62,7 +62,7 @@ class Register extends Component {
         }
     }
 
-    handleContinue(event, values) {
+    async handleContinue(event, values) {
 
         this.setState({
             loading: true,
@@ -81,34 +81,38 @@ class Register extends Component {
         if (!values.password) return false;
         if (!isValidPassword(values.password)) return false;
 
-        sdk().isVendorPhoneExist({
-            phone: parsedPhone,
-        }).then((res) => {
-
-            if (res.data.isVendorPhoneExist) {
+        try {
+            const alreadyExistResult = await sdk().isVendorPhoneExist({
+                phone: parsedPhone,
+            });
+            if (alreadyExistResult.data.isVendorPhoneExist) {
                 this.setState({
-                    ...this.state,
-                    loading: false,
-                    error: false,
-                    otpStep: true,
-                    firstName: parseName(values.firstName),
-                    lastName: parseName(values.lastName),
-                    password: values.password,
-                    phone: parsedPhone,
+                    error: 'The phone number you entered already exists!',
                 });
-            } else {
-                this.setState({
-                    ...this.state,
-                    error: 'phone already exist',
-                });
+                return;
             }
 
-        }).catch(e => {
+            const res = await sdk().vendorRegisterOtp({phone: parsedPhone});
+            if (!res.data.vendorRegisterOtp) {
+                throw new Error('OTP send failed!');
+            }
+
+            this.setState({
+                loading: false,
+                error: false,
+                otpStep: true,
+                firstName: parseName(values.firstName),
+                lastName: parseName(values.lastName),
+                password: values.password,
+                phone: parsedPhone,
+            });
+        } catch (e) {
             console.error(e);
             this.setState({
                 loading: false,
+                error: typeof e === 'string' ? e : e?.response?.errors[0].message || 'Something went wrong. Please check the phone number entered.',
             });
-        });
+        }
     }
 
     handleBack() {
@@ -148,23 +152,22 @@ class Register extends Component {
             return;
         }
         sdk().isVendorPhoneExist({phone: parsedPhone}).then(response => {
-            cBack(response.data.isVendorPhoneExist || 'This phone number already exists');
+            cBack(!response.data.isVendorPhoneExist || 'This phone number already exists');
             this.setState({
                 phoneError: !response.data.isVendorPhoneExist,
-                error: null
-            })
+                error: null,
+            });
             return;
         }).catch(e => {
             console.log(e.response.status);
             if (e.response.status === 502) {
                 this.setState({
-                    error: 'Unfortunately the server is down, please try again later'
-                })
+                    error: 'Unfortunately the server is down, please try again later',
+                });
             }
             cBack('Ooops! Something went wrong!');
         });
     }, 1050);
-
 
     validatePassword(value) {
         if (!isValidPassword(value)) return 'Password must be at least 8 characters long';
@@ -218,7 +221,8 @@ class Register extends Component {
                                                     Moments Registration
                                                 </h5>
                                                 <p className="text-white-50">
-                                                    You're one step away from completing the registration.
+                                                    You're one step away from
+                                                    completing the registration.
                                                 </p>
                                                 <Link to="/"
                                                       className="logo logo-admin">
@@ -278,6 +282,7 @@ class Register extends Component {
                                                                     name="phone"
                                                                     label="Phone"
                                                                     type="phone"
+                                                                    // helpMessage="Note: This should be the number of person in charge of this account"
                                                                     value={this.state.phone}
                                                                     required
                                                                     validate={{
@@ -406,7 +411,8 @@ class Register extends Component {
                                         </Link>{' '}
                                     </p>
                                     <p>
-                                        © 2021 {businessName} <span className="d-none d-sm-inline-block"> - All rights reserved.</span>
+                                        © 2021 {businessName} <span
+                                        className="d-none d-sm-inline-block"> - All rights reserved.</span>
                                     </p>
                                 </div>
                             </Col>

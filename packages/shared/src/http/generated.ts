@@ -92,7 +92,7 @@ export type ConnectionNode = {
   id: Scalars['String'];
   gallery_photos: Array<Image>;
   vendor_type: VendorType;
-  district_display_name: Scalars['String'];
+  district_display_name?: Maybe<Scalars['String']>;
 };
 
 export type District = {
@@ -501,6 +501,16 @@ export type IsVendorPhoneExistQuery = (
   & Pick<Query, 'isVendorPhoneExist'>
 );
 
+export type VendorRegisterOtpMutationVariables = Exact<{
+  phone: Scalars['String'];
+}>;
+
+
+export type VendorRegisterOtpMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'vendorRegisterOtp'>
+);
+
 export type VendorRegisterMutationVariables = Exact<{
   firstName: Scalars['String'];
   lastName: Scalars['String'];
@@ -663,6 +673,11 @@ export const IsVendorPhoneExistDocument = gql`
   isVendorPhoneExist(phone: $phone)
 }
     `;
+export const VendorRegisterOtpDocument = gql`
+    mutation vendorRegisterOtp($phone: String!) {
+  vendorRegisterOtp(phone: $phone)
+}
+    `;
 export const VendorRegisterDocument = gql`
     mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $otp: String!) {
   vendorRegister(
@@ -773,6 +788,7 @@ const GetVendorProfileIdDocumentString = print(GetVendorProfileIdDocument);
 const GetVendorProfileDocumentString = print(GetVendorProfileDocument);
 const VendorLogoutDocumentString = print(VendorLogoutDocument);
 const IsVendorPhoneExistDocumentString = print(IsVendorPhoneExistDocument);
+const VendorRegisterOtpDocumentString = print(VendorRegisterOtpDocument);
 const VendorRegisterDocumentString = print(VendorRegisterDocument);
 const EditVendorDetailsDocumentString = print(EditVendorDetailsDocument);
 const GetVendorDetailsExtraDocumentString = print(GetVendorDetailsExtraDocument);
@@ -799,6 +815,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     isVendorPhoneExist(variables: IsVendorPhoneExistQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: IsVendorPhoneExistQuery | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<IsVendorPhoneExistQuery>(IsVendorPhoneExistDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'isVendorPhoneExist');
+    },
+    vendorRegisterOtp(variables: VendorRegisterOtpMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: VendorRegisterOtpMutation | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+        return withWrapper((wrappedRequestHeaders) => client.rawRequest<VendorRegisterOtpMutation>(VendorRegisterOtpDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'vendorRegisterOtp');
     },
     vendorRegister(variables: VendorRegisterMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<{ data?: VendorRegisterMutation | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<VendorRegisterMutation>(VendorRegisterDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'vendorRegister');

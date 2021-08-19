@@ -60,7 +60,7 @@ class VendorLoginOtpInput {
     @Field()
     @Length(12, 12)
     @Validate(IsValidSLPhone)
-    @Validate(IsVendorProfilePhone)
+    // @Validate(IsVendorProfilePhone)
     phone: string;
 }
 
@@ -85,6 +85,9 @@ export class VendorProfileResolver {
     async vendorLoginOtp(
         @Args() { phone }: VendorLoginOtpInput
     ): Promise<boolean | null> {
+        if (!(await (VendorModel.findOne({ phone: phone })))) {
+            throw new Error('No account is registered with this phone number')
+        }
         return await sendOTP(phone);
     }
 

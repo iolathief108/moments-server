@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {debounce as _debounce} from 'lodash';
 import {Row, Col, Card, CardBody, Alert} from 'reactstrap';
 import {isNumeric} from '@mara/shared';
 
@@ -21,6 +22,7 @@ import {
     parseSLPhone,
     validateStandardSLPhone,
 } from '@mara/shared';
+import {makeID} from '../../helpers/utils';
 
 class Login extends Component {
     constructor(props) {
@@ -64,7 +66,10 @@ class Login extends Component {
                 });
             }
         } catch (e) {
-            console.log(e);
+            this.setState({
+                error: e?.response?.errors[0].message || "Something went wrong. Please check the phone number entered."
+            })
+            console.error(e);
         }
     }
 
@@ -111,6 +116,7 @@ class Login extends Component {
         }
         return true;
     }
+
 
     render() {
         return (

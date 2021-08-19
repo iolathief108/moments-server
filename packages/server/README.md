@@ -3,6 +3,8 @@
 # to get build 
 yarn tsc -p ./tsconfig.json
 
+todo: max lenght of description both server and vendor
+
 #### Vendor Types
 - `common/const.ts`
 - `models/vendors/[Type]Data.ts`

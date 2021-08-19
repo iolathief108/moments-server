@@ -1,6 +1,6 @@
 import {Field, InputType} from 'type-graphql';
 import {ArrayMinSize, IsPhoneNumber, IsUrl, Length, MinLength, Validate, ValidateNested} from 'class-validator';
-import {IsBusinessNameExist, IsCityID, IsObjectID, IsPhoneExist, IsValidBusinessName} from '../../validators';
+import {IsBusinessNameExist, IsCityID, IsObjectID, IsPhoneNotExist, IsValidBusinessName} from '../../validators';
 import {FrequentQuestionInput} from './FrequentQuestionInput';
 import {VendorType} from '../../common/const';
 import {GeoInput} from './GeoInput';
@@ -30,7 +30,7 @@ export class VendorDetailsInput {
     cityIDs?: string[];
 
     @Field({nullable: true})
-    @Validate(IsPhoneExist)
+    @Validate(IsPhoneNotExist)
     @IsPhoneNumber('en-SL' as any)
     phone?: string;
 

@@ -32,6 +32,10 @@ query isVendorPhoneExist($phone: String!) {
     isVendorPhoneExist(phone: $phone)
 }
 
+mutation vendorRegisterOtp($phone: String!) {
+    vendorRegisterOtp(phone: $phone)
+}
+
 mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $otp: String!) {
     vendorRegister(firstName: $firstName, lastName: $lastName, phone: $phone, password: $password, otp: $otp)
 }

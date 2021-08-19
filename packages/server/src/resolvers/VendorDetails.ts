@@ -67,7 +67,7 @@ export class VendorDetailsResolver {
         const vProfile = await VendorModel.findById(
             ctx.request.session.vendorID,
         );
-        if (!vProfile.vendor_data_id) return null;
+        if (!vProfile?.vendor_data_id) return null;
         const vData = await VendorDataModel.findById(vProfile.vendor_data_id);
         return await VendorDetailsExtra.getInstanceFromVendorData(vData);
     }

@@ -54,7 +54,7 @@ function _clean() {
 }
 
 /**
- * @param phone should be in standard format 
+ * @param phone should be in standard format
  */
 export async function sendOTP(phone: string): Promise<boolean> {
     _clean();

@@ -20,8 +20,8 @@ const Li = ({name, to, iconCln, effectCln}: any) => {
 
 const build = (cat: VendorType | null) => {
     const nocat = [
-        <Li key={2} to={paths.profile()} name={'Profile'} iconCln={'ti-calendar'}/>,
-        <Li key={3} to={paths.init()} name={'Init'} iconCln={'ti-calendar'}/>,
+        <Li key={2} to={paths.profile()} name={'Profile'} iconCln={'ti-user'}/>,
+        <Li key={3} to={paths.init()} name={'Init'} iconCln={'ti-check-box'}/>,
         // <Li key={1} to={paths.dashboard()} name={'Dashboard'}/>,
     ];
     const common = [

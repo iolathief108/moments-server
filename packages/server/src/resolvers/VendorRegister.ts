@@ -12,7 +12,7 @@ import bcrypt from 'bcryptjs';
 import { VendorType } from '../common/const';
 import { VendorModel, VendorSchema } from '../models/Vendor';
 import { IsEmail, IsNumberString, Length, Validate } from 'class-validator';
-import { IsEmailExist, IsPhoneExist, IsValidPassword, IsValidSLPhone } from '../validators';
+import { IsEmailExist, IsPhoneNotExist, IsValidPassword, IsValidSLPhone } from '../validators';
 import { sendOTP, verifyOTP } from '../sms/otp';
 import { VendorProfile } from './VendorProfile';
 import { makeID } from '../lib/makeID';
@@ -45,7 +45,7 @@ class VendorRegisterInput implements Partial<VendorProfile> {
     @Field()
     @Length(12)
     @Validate(IsValidSLPhone)
-    @Validate(IsPhoneExist)
+    @Validate(IsPhoneNotExist)
     phone: string;
 
     @Field()
@@ -63,7 +63,7 @@ class VendorRegisterOtpInput {
     @Field()
     @Length(12, 12)
     @Validate(IsValidSLPhone)
-    @Validate(IsPhoneExist)
+    @Validate(IsPhoneNotExist)
     phone: string;
 }
 @ArgsType()
@@ -116,12 +116,11 @@ export class VendorRegisterResolver {
 
     @Query(() => Boolean)
     async isVendorPhoneExist(@Args() { phone }: VendorCheckPhoneInput): Promise<boolean> {
-
         const v = await VendorModel.findOne({ phone });
         if (v) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
 

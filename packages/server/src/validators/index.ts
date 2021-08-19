@@ -78,16 +78,20 @@ class IsValidSLPhone implements ValidatorConstraintInterface {
 @ValidatorConstraint({ async: true })
 class IsVendorProfilePhone implements ValidatorConstraintInterface {
     async validate(phone: string) {
+        // if (!(await (VendorModel.findOne({ phone: phone })))) {
+        //     throw new Error('no account')
+        // }
+        // return true;
         return !!(await (VendorModel.findOne({ phone: phone })));
     }
 
-    defaultMessage(args: ValidationArguments) {
-        return "Not a valid phone number";
-    }
+    // defaultMessage(args: ValidationArguments) {
+    //     return "Not a valid phone number";
+    // }
 }
 
 @ValidatorConstraint({ async: true })
-class IsPhoneExist implements ValidatorConstraintInterface {
+class IsPhoneNotExist implements ValidatorConstraintInterface {
     async validate(text: string, args: ValidationArguments) {
         let res = await VendorModel.findOne({ phone: text });
         return !res;
@@ -191,7 +195,7 @@ export {
     IsEmailExist,
     IsVendorProfilePhone,
     IsValidSLPhone,
-    IsPhoneExist,
+    IsPhoneNotExist,
     IsBusinessNameExist,
     IsValidPassword,
     IsCityID,
