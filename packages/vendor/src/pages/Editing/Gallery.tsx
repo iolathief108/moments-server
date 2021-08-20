@@ -105,13 +105,13 @@ const Gallery = () => {
             <Card>
                 <CardBody>
                     {/*<h4 className="card-title mb-4">Contact Details</h4>*/}
-                    {
-                        editMode &&
-                        <p className="card-title-desc">
-                            Make sure the extension of your photos is jpg. Currently only image with jpg extension is
-                            supported.
-                        </p>
-                    }
+                    {/*{*/}
+                    {/*    editMode &&*/}
+                    {/*    <p className="card-title-desc">*/}
+                    {/*        Make sure the extension of your photos is jpg. Currently only image with jpg extension is*/}
+                    {/*        supported.*/}
+                    {/*    </p>*/}
+                    {/*}*/}
                     {
                         !editMode ?
                             <div>

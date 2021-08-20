@@ -1,9 +1,10 @@
 # SERVER
 
-# to get build 
+# to get build
 yarn tsc -p ./tsconfig.json
 
-todo: max lenght of description both server and vendor
+todo: max length of description both server and vendor
+todo: max photos
 
 #### Vendor Types
 - `common/const.ts`

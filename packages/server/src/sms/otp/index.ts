@@ -8,6 +8,7 @@ let cleanPending = false;
 const maxAttempt = 15;
 const otpMaxMin = 10;
 const otpDocClearingTimeMin = 30;
+const maximumOtpResendCount = 15;
 
 function _getOtpDoc(phone: string) {
     for (const value of otpDocs) {
@@ -19,6 +20,7 @@ function _getOtpDoc(phone: string) {
         OTPs: [],
         failCount: 0,
         phone: phone,
+        otpSendCount: 0
     };
     otpDocs.push(doc);
     return doc;
@@ -61,11 +63,15 @@ export async function sendOTP(phone: string): Promise<boolean> {
     _clean();
     let value = _getOtpDoc(phone);
 
+    if (value.otpSendCount > maximumOtpResendCount) {
+        return false;
+    }
+    value.otpSendCount++;
     const generatedOTP = String(makePin(6));
     addToLimitedArray(
         value.OTPs,
         {otp: generatedOTP, timeGenerated: new Date()},
-        4,
+        3,
     );
     return await sendOtp(value.phone, value.OTPs[value.OTPs.length - 1].otp);
 }

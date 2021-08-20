@@ -106,7 +106,7 @@
                 title + location.address +
                 '</div>';
 
-                
+
             google.maps.event.addListener(marker, 'click', function(evt) {
                 infoWin.setContent(content);
                 infoWin.open(map, marker);
@@ -129,9 +129,9 @@
                 return false;
         }
 
-        if ($('.RealWed').length) {
+        if ($('.Moments').length) {
 
-            $('.RealWed').on('mouseover', function() {
+            $('.Moments').on('mouseover', function() {
 
                 var selectedID = $(this).attr('id');
                 toggleBounce(selectedID);

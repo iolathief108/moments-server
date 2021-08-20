@@ -47,7 +47,7 @@ type ConnectionExtra {
 
 type ConnectionNode {
     business_name: String!
-    district_display_name: String!
+    district_display_name: String
     gallery_photos: [Image!]!
     id: String!
     vendor_type: VendorType!
@@ -91,7 +91,7 @@ type Mutation {
     confirmEmailVendor(token: String!): Boolean
     forgotPassword(email: String!): Boolean!
     vendorEditDetails(data: VendorDetailsInput!): Boolean!
-    vendorLogin(otp: Float!, phone: String!): Boolean
+    vendorLogin(otp: String!, phone: String!): Boolean
     vendorLoginOtp(phone: String!): Boolean
     vendorLogout: Boolean!
     vendorRegister(address: String, email: String, firstName: String!, lastName: String!, otp: String!, password: String!, phone: String!): Boolean!
@@ -186,8 +186,11 @@ type VendorDetailsExtra {
     galleryPhoto: [Image!]
     geo: Geo
     isComplete: Boolean
+    isLive: Boolean
     links: SocialMedia
+    listingStatus: ListingStatus
     phone: String
+    reason: String
     searchLocations: [District!]
     vendorTypes: VendorTypes
     vendor_type: VendorType
@@ -219,6 +222,14 @@ type VenueDataType {
 
 type VideographerDataType {
     sample: String
+}
+
+enum ListingStatus {
+    paymentPending
+    pending
+    suspended
+    unverified
+    verified
 }
 
 enum VendorType {

@@ -11,6 +11,7 @@ export type OtpDoc = {
         timeGenerated: Date;
     }[];
     phone: string | undefined;
+    otpSendCount: number
     failCount: number;
 };
 

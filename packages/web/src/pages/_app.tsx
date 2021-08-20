@@ -14,7 +14,7 @@ function MyApp({Component, pageProps}: AppProps) {
                 <meta charSet="utf-8"/>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="description" content="wedding vendor directory HTML template"/>
-                <title>Wedding Vendor &amp; Supplier Directory HTML Template - RealWed </title>
+                <title>Wedding Vendor &amp; Supplier Directory HTML Template - Moments</title>
                 <link href="/css/bootstrap.min.css" rel="stylesheet"/>
                 <link href="/fontawesome/css/fontawesome-all.css" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i"

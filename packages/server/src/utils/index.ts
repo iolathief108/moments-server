@@ -8,7 +8,7 @@ export function addToLimitedArray<T>(el: T[], item: T, limit: number) {
 }
 
 export function getTimeDiffFromNow(time: Date, format: 'minute'): number {
-    let now = moment(new Date()); //todays date
+    let now = moment(new Date()); //today's date
     let end = moment(time); // another date
     let duration = moment.duration(now.diff(end));
     let diff: number;
