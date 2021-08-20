@@ -1,19 +1,11 @@
+// noinspection ES6CheckImport
+
 import React, {Component} from 'react';
-import {debounce as _debounce} from 'lodash';
 import {Row, Col, Card, CardBody, Alert} from 'reactstrap';
 import {isNumeric} from '@mara/shared';
-
-
-// Redux
 import {withRouter, Link} from 'react-router-dom';
-
-// availity-reactstrap-validation
 import {AvForm, AvField} from 'availity-reactstrap-validation';
-
 import Loader from '../../comps/Loader';
-// actions
-
-// import images
 import logoSm from '../../assets/images/logo-sm.png';
 import {
     sdk,
@@ -22,7 +14,6 @@ import {
     parseSLPhone,
     validateStandardSLPhone,
 } from '@mara/shared';
-import {makeID} from '../../helpers/utils';
 
 class Login extends Component {
     constructor(props) {
@@ -78,7 +69,7 @@ class Login extends Component {
         if (!this.state.phone) return;
         const res = await sdk().vendorLogin({
             phone: this.state.phone,
-            otp: Number(otp),
+            otp: otp,
         });
         if (res.data.vendorLogin) {
             initAuthorization().then((res) => {

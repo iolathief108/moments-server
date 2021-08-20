@@ -1,12 +1,15 @@
+import {VendorDataDoc} from '../models/VendorData';
+
+
 export enum VendorType {
-    venue = "venue",
-    photographer = "photographer",
-    caterer = "caterer",
-    videographer = "videographer",
-    florist = "florist",
-    bands_dj = "bands_dj",
-    beauty_professional = "beauty_professional",
-    cakes_dessert = "cakes_dessert",
+    venue = 'venue',
+    photographer = 'photographer',
+    caterer = 'caterer',
+    videographer = 'videographer',
+    florist = 'florist',
+    bands_dj = 'bands_dj',
+    beauty_professional = 'beauty_professional',
+    cakes_dessert = 'cakes_dessert',
 }
 
 export function resolveCategorySlug(slug: string): VendorType | undefined {
@@ -37,10 +40,49 @@ export function resolveCategorySlug(slug: string): VendorType | undefined {
     return undefined;
 }
 
-export enum SubscriptionType {
-    extend = "extend",
-    renew = "renew",
+export enum VerifyStatus {
+    verified = 'verified',
+    unverified = 'unverified',
+    pending = 'pending',
+    verifiedPending = 'verifiedPending'
 }
+
+export enum ListingStatus {
+    verified = 'verified',
+    unverified = 'unverified',
+    suspended = 'suspended',
+    pending = 'pending',
+    paymentPending = 'paymentPending',
+}
+
+export function getListingStatus(vData: VendorDataDoc): [ListingStatus, string | undefined] {
+    if (vData.verifyStatus === VerifyStatus.unverified) {
+        return [ListingStatus.unverified, vData.unverifiedReason];
+    }
+    if (vData.verifyStatus === VerifyStatus.verified) {
+        return [ListingStatus.verified, undefined];
+    }
+    if (vData.verifyStatus === VerifyStatus.pending || vData.verifyStatus === VerifyStatus.verifiedPending || !vData.verifyStatus || !vData.isComplete) {
+        return [ListingStatus.pending, undefined];
+    }
+    if (!vData.isRegPaid) {
+        return [ListingStatus.paymentPending, 'The listing of your accounts is complete but you must pay the registration fee to complete the registration process'];
+    }
+    if (vData.isSuspended) {
+        return [ListingStatus.suspended, vData.suspensionReason];
+    }
+    return [ListingStatus.verified, undefined];
+}
+
+export enum SubscriptionType {
+    extend = 'extend',
+    renew = 'renew',
+}
+
+export const SuspensionReasons = [
+    'The registration fee has not been paid',
+    'Abusing the site',
+];
 
 export enum Roles {
     VENDOR,
@@ -50,7 +92,9 @@ export enum Roles {
     ADMIN,
 }
 
+export const LIVE_UNPAID = true;
+
 export const TEMP_PATH = process.env.TEMP_PATH;
 export const IMAGE_PATH = process.env.IMAGE_PATH;
 
-if (!TEMP_PATH && !IMAGE_PATH) throw new Error("TEMP_PATH and IMAGE_PATH env is undefined");
+if (!TEMP_PATH && !IMAGE_PATH) throw new Error('TEMP_PATH and IMAGE_PATH env is undefined');

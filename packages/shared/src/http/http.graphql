@@ -3,7 +3,7 @@ mutation vendorLoginOtp($phone: String!){
 
 }
 
-mutation vendorLogin($phone: String!, $otp: Float!) {
+mutation vendorLogin($phone: String!, $otp: String!) {
     vendorLogin(phone: $phone, otp: $otp)
 }
 
@@ -85,6 +85,9 @@ query getVendorDetailsExtra {
         phone
         description
         address
+        listingStatus
+        reason
+        isLive
         searchLocations {
             name
             key

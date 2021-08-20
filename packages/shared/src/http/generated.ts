@@ -153,6 +153,14 @@ export type ListInput = {
   searchQuery?: Maybe<Scalars['String']>;
 };
 
+export enum ListingStatus {
+  Verified = 'verified',
+  Unverified = 'unverified',
+  Suspended = 'suspended',
+  Pending = 'pending',
+  PaymentPending = 'paymentPending'
+}
+
 export type LocationNode = {
   __typename?: 'LocationNode';
   id: Scalars['String'];
@@ -197,7 +205,7 @@ export type MutationVendorLoginOtpArgs = {
 
 
 export type MutationVendorLoginArgs = {
-  otp: Scalars['Float'];
+  otp: Scalars['String'];
   phone: Scalars['String'];
 };
 
@@ -355,6 +363,9 @@ export type VendorDetailsExtra = {
   description?: Maybe<Scalars['String']>;
   claps?: Maybe<Array<Clap>>;
   isComplete?: Maybe<Scalars['Boolean']>;
+  listingStatus?: Maybe<ListingStatus>;
+  isLive?: Maybe<Scalars['Boolean']>;
+  reason?: Maybe<Scalars['String']>;
 };
 
 /** Edit common vendor details */
@@ -452,7 +463,7 @@ export type VendorLoginOtpMutation = (
 
 export type VendorLoginMutationVariables = Exact<{
   phone: Scalars['String'];
-  otp: Scalars['Float'];
+  otp: Scalars['String'];
 }>;
 
 
@@ -558,7 +569,7 @@ export type GetVendorDetailsExtraQuery = (
   { __typename?: 'Query' }
   & { vendorDetailsExtra?: Maybe<(
     { __typename?: 'VendorDetailsExtra' }
-    & Pick<VendorDetailsExtra, 'phone' | 'description' | 'address' | 'vendor_type' | 'business_name' | 'isComplete'>
+    & Pick<VendorDetailsExtra, 'phone' | 'description' | 'address' | 'listingStatus' | 'reason' | 'isLive' | 'vendor_type' | 'business_name' | 'isComplete'>
     & { searchLocations?: Maybe<Array<(
       { __typename?: 'District' }
       & Pick<District, 'name' | 'key'>
@@ -640,7 +651,7 @@ export const VendorLoginOtpDocument = gql`
 }
     `;
 export const VendorLoginDocument = gql`
-    mutation vendorLogin($phone: String!, $otp: Float!) {
+    mutation vendorLogin($phone: String!, $otp: String!) {
   vendorLogin(phone: $phone, otp: $otp)
 }
     `;
@@ -702,6 +713,9 @@ export const GetVendorDetailsExtraDocument = gql`
     phone
     description
     address
+    listingStatus
+    reason
+    isLive
     searchLocations {
       name
       key

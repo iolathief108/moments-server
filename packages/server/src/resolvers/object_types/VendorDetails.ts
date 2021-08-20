@@ -1,5 +1,5 @@
-import {Field, ObjectType} from 'type-graphql';
-import {VendorType} from '../../common/const';
+import {Field, ObjectType, registerEnumType} from 'type-graphql';
+import {getListingStatus, ListingStatus, LIVE_UNPAID, VendorType, VerifyStatus} from '../../common/const';
 import {SocialMedia} from './SocialMedia';
 import {FrequentQuestion} from './FrequentQuestion';
 import {VendorTypes} from './VendorTypes';
@@ -8,6 +8,7 @@ import {VendorDataDoc} from '../../models/VendorData';
 import {Image} from './Image';
 import {Clap} from './Clap';
 import {District} from './District';
+
 
 @ObjectType()
 export class VendorDetails {
@@ -58,7 +59,7 @@ export class VendorDetails {
         vendorDetails.galleryPhoto = vData.gallery_photos;
 
 
-        vendorDetails.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || [])
+        vendorDetails.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || []);
         vendorDetails.phone = vData.phone;
         vendorDetails.claps = vData.claps;
         vendorDetails.vendor_type = vData.vendor_type;
@@ -77,37 +78,39 @@ export class VendorDetails {
     }
 }
 
+registerEnumType(ListingStatus, {
+    name: 'ListingStatus',
+});
+
 @ObjectType()
 export class VendorDetailsExtra extends VendorDetails {
 
     @Field(() => Boolean, {nullable: true})
     isComplete?: boolean;
 
+    @Field(() => ListingStatus, {nullable: true})
+    listingStatus?: ListingStatus;
+
+    @Field(() => Boolean, {nullable: true})
+    isLive?: boolean;
+
+    @Field(() => String, {nullable: true})
+    reason?: string;
+
     static async getInstanceFromVendorData(
         vData: VendorDataDoc,
-    ): Promise<VendorDetails> {
-        const vendorDetailsExtra = new VendorDetailsExtra();
-        vendorDetailsExtra.business_name = vData.business_name;
-        vendorDetailsExtra.frequent_questions = vData.frequent_questions;
-        vendorDetailsExtra.geo = vData.geo;
-        vendorDetailsExtra.address = vData.address;
-        vendorDetailsExtra.galleryPhoto = vData.gallery_photos;
-        vendorDetailsExtra.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || [])
+    ): Promise<VendorDetailsExtra> {
 
-        vendorDetailsExtra.phone = vData.phone;
-        vendorDetailsExtra.claps = vData.claps;
-        vendorDetailsExtra.vendor_type = vData.vendor_type;
-        vendorDetailsExtra.links = {
-            facebook: vData.links?.facebook,
-            instagram: vData.links?.instagram,
-            pinterest: vData.links?.pinterest,
-            website: vData.links?.website,
-        };
+        const vendorDetailsExtra: VendorDetailsExtra = await super.getInstanceFromVendorData(vData);
+
         vendorDetailsExtra.isComplete = !!vData.isComplete;
-        vendorDetailsExtra.description = vData.description || null;
+        vendorDetailsExtra.isLive =
+            !((!vData.isComplete || !vData.verifyStatus || vData.verifyStatus === VerifyStatus.pending || vData.verifyStatus === VerifyStatus.unverified) ||
+                (vData.isSuspended) ||
+                (!LIVE_UNPAID && !vData.isRegPaid));
+        vendorDetailsExtra.listingStatus = getListingStatus(vData)[0];
+        vendorDetailsExtra.reason = getListingStatus(vData)[1];
 
-        const typeSpecific = await VendorTypes.getInstanceFromVendorData(vData);
-        vendorDetailsExtra.vendorTypes = typeSpecific;
         return vendorDetailsExtra;
     }
 }

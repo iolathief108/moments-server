@@ -1,6 +1,7 @@
-import { makePin } from "../../lib/makeID";
-import { addToLimitedArray, getTimeDiffFromNow, IS_DEV } from "../../utils";
-import { OtpDoc, sendOtp } from './utils';
+import {makePin} from '../../lib/makeID';
+import {addToLimitedArray, getTimeDiffFromNow, IS_DEV} from '../../utils';
+import {OtpDoc, sendOtp} from './utils';
+
 
 let otpDocs: OtpDoc[] = [];
 let cleanPending = false;
@@ -15,7 +16,7 @@ function _getOtpDoc(phone: string) {
         }
     }
     let doc: OtpDoc = {
-        otps: [],
+        OTPs: [],
         failCount: 0,
         phone: phone,
     };
@@ -29,7 +30,7 @@ function _clean() {
         let removeIndexes = [];
         for (let i = 0; i < otpDocs.length; i++) {
             const doc = otpDocs[i];
-            for (const otp of doc.otps) {
+            for (const otp of doc.OTPs) {
 
                 let docClearedCount = 0;
                 if (getTimeDiffFromNow(otp.timeGenerated, 'minute') > otpDocClearingTimeMin) {
@@ -60,29 +61,26 @@ export async function sendOTP(phone: string): Promise<boolean> {
     _clean();
     let value = _getOtpDoc(phone);
 
-    const generatedOTP = makePin(6);
+    const generatedOTP = String(makePin(6));
     addToLimitedArray(
-        value.otps,
-        { otp: generatedOTP, timeGenerated: new Date() },
+        value.OTPs,
+        {otp: generatedOTP, timeGenerated: new Date()},
         4,
     );
-    return await sendOtp(value.phone, value.otps[value.otps.length - 1].otp);
+    return await sendOtp(value.phone, value.OTPs[value.OTPs.length - 1].otp);
 }
 
 
 // should check the time
-export function verifyOTP(phone: string, otp: number) {
+export function verifyOTP(phone: string, otp: string) {
     if (IS_DEV) {
-        if (phone.endsWith('33')) {
-            return false;
-        }
-        return true;
+        return !phone.endsWith('33');
     }
 
     for (let i = 0; i < otpDocs.length; i++) {
         const value = otpDocs[i];
         if (value.phone === phone) {
-            const success = !!value.otps.find(item => item.otp === otp && getTimeDiffFromNow(item.timeGenerated, 'minute') <= otpMaxMin);
+            const success = !!value.OTPs.find(item => item.otp === otp && getTimeDiffFromNow(item.timeGenerated, 'minute') <= otpMaxMin);
             if (!success) {
                 value.failCount++;
             }

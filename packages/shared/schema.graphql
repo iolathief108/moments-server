@@ -71,7 +71,7 @@ type ConnectionNode {
   id: String!
   gallery_photos: [Image!]!
   vendor_type: VendorType!
-  district_display_name: String!
+  district_display_name: String
 }
 
 type District {
@@ -120,6 +120,14 @@ type Image {
   id: String!
 }
 
+enum ListingStatus {
+  verified
+  unverified
+  suspended
+  pending
+  paymentPending
+}
+
 # Register new vendor data
 input ListInput {
   districtID: String
@@ -138,7 +146,7 @@ type Mutation {
   vendorRegisterOtp(phone: String!): Boolean!
   vendorRegister(firstName: String!, lastName: String!, email: String, address: String, phone: String!, password: String!, otp: String!): Boolean!
   vendorLoginOtp(phone: String!): Boolean
-  vendorLogin(otp: Float!, phone: String!): Boolean
+  vendorLogin(otp: String!, phone: String!): Boolean
   vendorLogout: Boolean!
   confirmEmailVendor(token: String!): Boolean
   forgotPassword(email: String!): Boolean!
@@ -250,6 +258,9 @@ type VendorDetailsExtra {
   description: String
   claps: [Clap!]
   isComplete: Boolean
+  listingStatus: ListingStatus
+  isLive: Boolean
+  reason: String
 }
 
 # Edit common vendor details

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {deAuthorize, sdk} from '@mara/shared';
 import {Link, withRouter} from 'react-router-dom';
 import {Card, CardBody, Col, Button, Row} from 'reactstrap';
+import {getListingStatusLabel, isEnableReason} from '../../helpers/utils';
 
 
 class Profile extends Component {
@@ -75,7 +76,15 @@ class Profile extends Component {
 
                                             <dt className="col-sm-3">Account Status
                                             </dt>
-                                            <dd className="col-sm-9">{this.state.vendorDetailsExtra?.isComplete ? 'Complete' : <span className={'text-danger'}>Not complete</span>}</dd>
+                                            {/*<dd className="col-sm-9">{this.state.vendorDetailsExtra?.isComplete ? 'Complete' : <span className={'text-danger'}>Not complete</span>}</dd>*/}
+                                            <dd className="col-sm-9">{this.state.vendorDetailsExtra && getListingStatusLabel(this.state.vendorDetailsExtra)}</dd>
+                                            {
+                                                isEnableReason(this.state.vendorDetailsExtra) && this.state.vendorDetailsExtra?.reason &&
+                                                <p>Reason: {this.state.vendorDetailsExtra.reason}</p>
+                                            }
+                                            {
+
+                                            }
 
                                             {/*<dt className="col-sm-3">Email</dt>*/}
                                             {/*{*/}

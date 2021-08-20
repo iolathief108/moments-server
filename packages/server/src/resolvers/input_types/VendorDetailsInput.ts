@@ -2,7 +2,7 @@ import {Field, InputType} from 'type-graphql';
 import {ArrayMinSize, IsPhoneNumber, IsUrl, Length, MinLength, Validate, ValidateNested} from 'class-validator';
 import {IsBusinessNameExist, IsCityID, IsObjectID, IsPhoneNotExist, IsValidBusinessName} from '../../validators';
 import {FrequentQuestionInput} from './FrequentQuestionInput';
-import {VendorType} from '../../common/const';
+import {VendorType, VerifyStatus} from '../../common/const';
 import {GeoInput} from './GeoInput';
 import {isVendorDataComplete, VendorDataDoc} from '../../models/VendorData';
 import {Types} from 'mongoose';
@@ -17,6 +17,7 @@ import {CakesDessertsDetailsInput} from './type/CakesDessertsDetailsInput';
 import {FloristsDetailsInput} from './type/FloristsDetailsInput';
 import {VideographerDetailsInput} from './type/VideographerDetailsInput';
 import {getDistrictsByCities} from '../../models/Location';
+
 
 @InputType({description: 'Edit common vendor details'})
 export class VendorDetailsInput {
@@ -177,8 +178,8 @@ export class VendorDetailsInput {
                 return new Types.ObjectId(value);
             });
 
-            const districts = await getDistrictsByCities(this.cityIDs)
-            vData.search_district_ids = districts.map(district => district.id)
+            const districts = await getDistrictsByCities(this.cityIDs);
+            vData.search_district_ids = districts.map(district => district.id);
         }
         if (this.frequentQuestion) {
             vData.frequent_questions = this.frequentQuestion;
@@ -221,10 +222,15 @@ export class VendorDetailsInput {
             });
             vData.claps = tClaps;
         }
-        //
 
         if (isVendorDataComplete(vData)) {
             vData.isComplete = true;
+            if (vData.verifyStatus === VerifyStatus.verified && (this.description || this.gallery_photos)) {
+                vData.verifyStatus = VerifyStatus.verifiedPending;
+            }
+            if (vData.verifyStatus === VerifyStatus.unverified && (this.description || this.gallery_photos) || !vData.verifyStatus) {
+                vData.verifyStatus = VerifyStatus.pending;
+            }
         } else {
             vData.isComplete = undefined;
         }

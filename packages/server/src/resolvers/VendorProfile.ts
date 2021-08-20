@@ -11,17 +11,18 @@ import {
     ObjectType,
     Query,
     Resolver,
-} from "type-graphql";
-import { Roles } from "../common/const";
-import { GQLContext } from "../types";
-import { VendorModel } from "../models/Vendor";
-import { compare, hash } from "bcryptjs";
-import { redis } from "../fastify";
-import { makeID } from "../lib/makeID";
-import { sendMailPasswordReset } from "../sendMail";
-import { Length, Validate } from "class-validator";
-import { IsVendorProfilePhone, IsValidPassword, IsValidSLPhone } from "../validators";
-import { sendOTP, verifyOTP } from '../sms/otp';
+} from 'type-graphql';
+import {Roles} from '../common/const';
+import {GQLContext} from '../types';
+import {VendorModel} from '../models/Vendor';
+import {hash} from 'bcryptjs';
+import {redis} from '../fastify';
+import {makeID} from '../lib/makeID';
+import {sendMailPasswordReset} from '../sendMail';
+import {Length, Validate} from 'class-validator';
+import {IsValidPassword, IsValidSLPhone} from '../validators';
+import {sendOTP, verifyOTP} from '../sms/otp';
+
 
 @ObjectType()
 export class VendorProfile {
@@ -94,7 +95,7 @@ export class VendorProfileResolver {
     @Mutation(() => Boolean, { nullable: true })
     async vendorLogin(
         @Arg("phone") phone: string,
-        @Arg("otp") otp: number,
+        @Arg("otp") otp: string,
         @Ctx() ctx: GQLContext,
     ): Promise<boolean | null> {
         if (!verifyOTP(phone, otp)) {

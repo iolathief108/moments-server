@@ -1,9 +1,9 @@
 export function makeID(length: number, weirdChars: boolean = true): string {
-    let result = "";
+    let result = '';
     // noinspection SpellCheckingInspection
     let characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    characters = weirdChars ? characters + ".~*@,-_" : characters;
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    characters = weirdChars ? characters + '.~*@,-_' : characters;
 
     let charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
@@ -15,13 +15,13 @@ export function makeID(length: number, weirdChars: boolean = true): string {
 }
 
 export function makePin(length: number): number {
-    let result = "";
+    let result = '';
     // noinspection SpellCheckingInspection
-    let characters = "0123456789";
-    let charactersLength = characters.length;
+    let characters = '0123456789';
     for (let i = 0; i < length; i++) {
-        result += characters.charAt(
-            Math.floor(Math.random() * charactersLength),
+        const chars = i === 0 ? '123456789' : characters;
+        result += chars.charAt(
+            Math.floor(Math.random() * chars.length),
         );
     }
     return Number(result);

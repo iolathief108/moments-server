@@ -7,7 +7,7 @@ import {
     prop,
 } from '@typegoose/typegoose';
 import { Types } from 'mongoose';
-import { VendorType } from '../common/const';
+import {VendorType, VerifyStatus} from '../common/const';
 import { VenueDataSchema } from './vendors/VenueData';
 import { CatererDataSchema } from './vendors/CatererData';
 import { PhotographerDataSchema } from './vendors/PhotographerData';
@@ -69,6 +69,25 @@ export class VendorDataSchema {
     // depends on category
     @prop({ required: false, type: () => [ClapSchema] })
     claps?: ClapSchema[];
+
+    @prop({
+        type: () => String,
+        required: false,
+        enum: Object.values(VerifyStatus),
+    })
+    verifyStatus?: VerifyStatus;
+
+    @prop({ type: () => Boolean, required: false, default: false})
+    isRegPaid?: boolean;
+
+    @prop({ type: () => Boolean, required: false, default: false})
+    isSuspended?: boolean;
+
+    @prop({ type: () => String, required: false})
+    suspensionReason?: string;
+
+    @prop({ type: () => String, required: false})
+    unverifiedReason?: string;
 
     // Vendor Type
     @prop({ required: false, type: () => VenueDataSchema })
