@@ -40,20 +40,20 @@ const SearchPage: NextPage<Props> = (props: Props) => {
 };
 
 SearchPage.getInitialProps = async ({query}) => {
-    if (isServer()) {
-        const searchQuery: string = typeof query.id === 'string' ? query.id ?? '' : '';
-        const data = await client.request<VendorSearchQuery, VendorSearchQueryVariables>(VendorSearchDocument, {
-            searchQuery: searchQuery,
-        });
-        return {
-            initialData: [data],
-            searchQuery: searchQuery,
-            vendorType: data.vendorSearchWithExtra.vendor_type ?? undefined,
-            districtKey: data.vendorSearchWithExtra.district_key ?? undefined,
-            districtId: data.vendorSearchWithExtra.district_id ?? undefined,
-            isServer: true,
-        };
-    }
+    // if (isServer()) {
+    //     const searchQuery: string = typeof query.id === 'string' ? query.id ?? '' : '';
+    //     const data = await client.request<VendorSearchQuery, VendorSearchQueryVariables>(VendorSearchDocument, {
+    //         searchQuery: searchQuery,
+    //     });
+    //     return {
+    //         initialData: [data],
+    //         searchQuery: searchQuery,
+    //         vendorType: data.vendorSearchWithExtra.vendor_type ?? undefined,
+    //         districtKey: data.vendorSearchWithExtra.district_key ?? undefined,
+    //         districtId: data.vendorSearchWithExtra.district_id ?? undefined,
+    //         isServer: true,
+    //     };
+    // }
     return {
         isServer: false
     };

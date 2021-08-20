@@ -16,7 +16,10 @@ export default function Home() {
     )
 }
 
-
+Home.getInitialProps = async (ctx) => {
+    console.log('initial props')
+    return { stars: '' }
+}
 
 
 

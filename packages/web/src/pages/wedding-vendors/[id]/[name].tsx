@@ -7,9 +7,10 @@ import {GallerySection} from '../../../widgets/store-front/common/gallery-sectio
 import {ContactBottom} from '../../../widgets/store-front/common/contact-bottom';
 import {ContactPopup} from '../../../widgets/store-front/common/contact-popup';
 import {contactPopupState} from '../../../state';
-import {VendorDetailsBQuery, VendorType} from '../../../http/generated';
-import Link from 'next/link'
+import {VendorDetailsBQuery} from '../../../http/generated';
+import Link from 'next/link';
 import {getCategoryUrl, getVendorTypeInfo} from '../../../utils/other';
+
 
 type Props = {
     data: VendorDetailsBQuery
@@ -72,4 +73,9 @@ export default function WeddingVendor() {
             <ContactBottom/>
         </>
     );
+}
+
+WeddingVendor.getInitialProps = async (ctx) => {
+    console.log('initial props')
+    return { stars: '' }
 }
