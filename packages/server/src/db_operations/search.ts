@@ -44,7 +44,7 @@ function getOptionals(): optionals {
             ],
         },
         // isRegPaid: LIVE_UNPAID ? undefined : true,
-        isSuspended: false,
+        isSuspended: {$in: [null, false]},
     };
     !LIVE_UNPAID && (thing['isRegPaid'] = true);
     return thing;

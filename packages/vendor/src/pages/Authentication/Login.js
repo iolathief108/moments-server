@@ -36,7 +36,7 @@ class Login extends Component {
 
         initAuthorization().then((res) => {
             if (res) {
-                this.props.history.push('/dashboard');
+                this.props.history.push('/dash');
             }
         }).catch(() => {
             console.log('something went wrong');
@@ -109,7 +109,7 @@ class Login extends Component {
 
             initAuthorization().then((res) => {
                 if (res) {
-                    window.location.href = '/';
+                    window.location.href = '/dash/';
                 }
             }).catch(e => {
                 this.setState({
