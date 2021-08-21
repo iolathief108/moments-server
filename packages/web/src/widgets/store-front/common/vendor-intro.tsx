@@ -12,7 +12,6 @@ type Weapons = Weapon[]
 
 function getting(data: VendorDetailsBQuery) {
     let thanosWeapons: Weapons = [];
-    console.log(data.vendorDetailsB?.claps);
 
     for (const clap of data.vendorDetailsB?.claps || []) {
         thanosWeapons.push({
@@ -27,7 +26,7 @@ export function VendorIntro({data}: {data: VendorDetailsBQuery}) {
 
     const getDescription = () => {
         if (!data?.vendorDetailsB.description) {
-            return null
+            return null;
         }
         let wow = data?.vendorDetailsB.description;
         wow = wow.replace('\n\n\n', '\n\n');
@@ -41,15 +40,15 @@ export function VendorIntro({data}: {data: VendorDetailsBQuery}) {
             }
         }
         return (
-            final.map(i => (
-                <p>
+            final.map((i, index) => (
+                <p key={index}>
                     {
                         i.map(
-                            r =>
-                                <>
+                            (r, index) =>
+                                <span key={index}>
                                     {r}
                                     <br/>
-                                </>
+                                </span>,
                         )
                     }
                 </p>
@@ -76,8 +75,8 @@ export function VendorIntro({data}: {data: VendorDetailsBQuery}) {
 
                             <div className={VendorIntroStyle.vIntro2}>
                                 {
-                                    getting(data).map(item => (
-                                        <div className="services-section__service-block" key={item.name}>
+                                    getting(data).map((item, index) => (
+                                        <div className="services-section__service-block" key={index}>
                                             <h6 className="services-section__heading h6">{item.name}</h6>
                                             <ul className="services-section__list">
                                                 {

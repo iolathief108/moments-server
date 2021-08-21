@@ -1,9 +1,8 @@
-// noinspection ES6CheckImport
-
 import React, {Component} from 'react';
 import {Row, Col, Card, CardBody, Alert} from 'reactstrap';
 import {isNumeric} from '@mara/shared';
 import {withRouter, Link} from 'react-router-dom';
+// noinspection ES6CheckImport
 import {AvForm, AvField} from 'availity-reactstrap-validation';
 import Loader from '../../comps/Loader';
 import logoSm from '../../assets/images/logo-sm.png';
@@ -15,12 +14,20 @@ import {
     validateStandardSLPhone,
 } from '@mara/shared';
 
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             otpState: false,
             phone: null,
+            tryCount: 0,
+            resendOtpCountdown: 0,
         };
 
         // handleValidSubmit
@@ -36,58 +43,86 @@ class Login extends Component {
         });
     }
 
+    async sendOTP(phone) {
+        try {
+            const res = await sdk('/api/').vendorLoginOtp({
+                phone,
+            });
+            const count = 59;
+            if (res?.data?.vendorLoginOtp) {
+                this.setState({
+                    otpState: true,
+                    phone,
+                    error: false,
+                    resendOtpCountdown: count,
+                    tryCount: this.state.tryCount + 1,
+                });
+
+                (async () => {
+                    for (let i = 0; i < count; i++) {
+                        await sleep(1000);
+                        this.setState({
+                            resendOtpCountdown: count - i - 1,
+                        });
+                    }
+                })();
+
+            } else {
+                this.setState({
+                    error: 'Something went wrong. Please check the phone number entered.',
+                });
+            }
+        } catch (e) {
+            this.setState({
+                error: e?.response?.errors[0].message || 'Something went wrong. Please check the phone number entered.',
+            });
+            console.error(e);
+        }
+    }
+
     // handleValidSubmit
     async handleContinue(event, values) {
         const phone = parseSLPhone(values.phone);
         if (!phone) {
             this.setState({
                 error: 'Not a valid phone number!',
+                phone,
             });
             return;
         }
-        try {
-            const res = await sdk('/api/').vendorLoginOtp({
-                phone,
-            });
-            if (res?.data?.vendorLoginOtp) {
-                this.setState({
-                    otpState: true,
-                    phone,
-                    error: false,
-                });
-            }
-        } catch (e) {
-            this.setState({
-                error: e?.response?.errors[0].message || "Something went wrong. Please check the phone number entered."
-            })
-            console.error(e);
-        }
+        this.sendOTP(phone);
     }
 
     async handleSubmit(event, values) {
         const otp = values.otp;
         if (!this.state.phone) return;
-        const res = await sdk().vendorLogin({
-            phone: this.state.phone,
-            otp: otp,
-        });
-        if (res.data.vendorLogin) {
+        try {
+            const res = await sdk().vendorLogin({
+                phone: this.state.phone,
+                otp: otp,
+            });
+            if (!res.data.vendorLogin) {
+                this.setState({
+                    error: 'Oops! Something went wrong!',
+                });
+            }
+
             initAuthorization().then((res) => {
                 if (res) {
-                    // because we have initialize the cat and I like reload ^_~
-                    window.location.href = '/'
-                    // this.props.history.push('/dashboard');
+                    window.location.href = '/';
                 }
             }).catch(e => {
                 this.setState({
-                    error: 'Oops! Something went wrong!'
-                })
+                    error: 'Oops! Something went wrong!',
+                });
                 console.log(e);
             });
-        } else {
+
+        } catch (e) {
             this.setState({
-                error: 'Oops! Something went wrong!'
-            })
+                error: e?.response?.errors[0].message || 'OTP failed! Please check the OTP number entered.',
+            });
+            console.error(e);
         }
     }
 
@@ -146,7 +181,6 @@ class Login extends Component {
 
                                         <CardBody className="p-4">
                                             <div className="p-3">
-
                                                 {
                                                     !this.state.otpState ?
                                                         <AvForm
@@ -164,7 +198,7 @@ class Login extends Component {
                                                                     name="phone"
                                                                     label="Phone"
                                                                     className="form-control"
-                                                                    placeholder="Enter phone"
+                                                                    placeholder="Enter your mobile number"
                                                                     type="phone"
                                                                     validate={{validate: this.isPhoneValidate}}
                                                                     required
@@ -198,14 +232,34 @@ class Login extends Component {
                                                                 className="form-group">
                                                                 <AvField
                                                                     name="otp"
-                                                                    label="OTP"
+                                                                    label="Enter the code sent to your mobile phone:"
                                                                     className="form-control"
                                                                     value=""
-                                                                    placeholder="Enter otp"
+                                                                    placeholder="e.g. 111111"
                                                                     type="text"
                                                                     validate={{validate: this.validateOtp}}
                                                                     required
                                                                 />
+                                                                {
+                                                                    this.state.tryCount >= 12 ?
+                                                                        <p>You
+                                                                            have
+                                                                            sent
+                                                                            too
+                                                                            many
+                                                                            OTP,
+                                                                             please
+                                                                            try
+                                                                            again
+                                                                            later.</p> :
+                                                                        this.state.resendOtpCountdown < 1 ?
+                                                                            <a className={'text-link'}
+                                                                               style={{cursor: 'pointer'}}
+                                                                               onClick={() => this.state.phone && this.sendOTP(this.state.phone)}>Resend
+                                                                                Code</a> :
+                                                                            <p>{this.state.resendOtpCountdown} seconds
+                                                                                remaining...</p>
+                                                                }
                                                             </div>
                                                             <Row
                                                                 className="form-group">
@@ -240,7 +294,8 @@ class Login extends Component {
                                         </Link>{' '}
                                     </p>
                                     <p className="mb-0">
-                                        © 2021 {businessName} <span className="d-none d-sm-inline-block"> - All rights reserved.</span>
+                                        © 2021 {businessName} <span
+                                        className="d-none d-sm-inline-block"> - All rights reserved.</span>
                                     </p>
                                 </div>
                             </Col>

@@ -57,20 +57,29 @@ export enum ListingStatus {
 
 export function getListingStatus(vData: VendorDataDoc): [ListingStatus, string | undefined] {
     if (vData.verifyStatus === VerifyStatus.unverified) {
+        if (vData.isSuspended) {
+            return [ListingStatus.suspended, vData.suspensionReason];
+        }
         return [ListingStatus.unverified, vData.unverifiedReason];
     }
     if (vData.verifyStatus === VerifyStatus.verified) {
+        if (vData.isSuspended) {
+            return [ListingStatus.suspended, vData.suspensionReason];
+        }
+        if (!vData.isRegPaid) {
+            return [ListingStatus.paymentPending, 'The listing of your accounts is complete but you must pay the registration fee to complete the registration process'];
+        }
         return [ListingStatus.verified, undefined];
     }
     if (vData.verifyStatus === VerifyStatus.pending || vData.verifyStatus === VerifyStatus.verifiedPending || !vData.verifyStatus || !vData.isComplete) {
         return [ListingStatus.pending, undefined];
     }
-    if (!vData.isRegPaid) {
-        return [ListingStatus.paymentPending, 'The listing of your accounts is complete but you must pay the registration fee to complete the registration process'];
-    }
     if (vData.isSuspended) {
         return [ListingStatus.suspended, vData.suspensionReason];
     }
+    // if (!vData.isRegPaid) {
+    //     return [ListingStatus.paymentPending, 'The listing of your accounts is complete but you must pay the registration fee to complete the registration process'];
+    // }
     return [ListingStatus.verified, undefined];
 }
 

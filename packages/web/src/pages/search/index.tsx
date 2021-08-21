@@ -12,6 +12,5 @@ export default function Search() {
 }
 
 Search.getInitialProps = async (ctx) => {
-    console.log('initial props')
     return { stars: '' }
 }

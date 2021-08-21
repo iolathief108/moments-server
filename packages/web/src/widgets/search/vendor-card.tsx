@@ -23,10 +23,9 @@ export function VendorCard(props: Props) {
     return (
         <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="vendor-thumbnail">
-                <div className="vendor-img zoomimg">
-                    {/*<Link href={getProductLink(props.businessName, props.vType, props.vid)}>*/}
-                        <a href={getProductLink(props.businessName, props.vType, props.vid)} target='_blank'><img src={buildUrl(props.photoUrl)} className="img-fluid"/></a>
-                    {/*</Link>*/}
+                <div className="vendor-img">
+                    <a rel={'noopener noreferrer'} href={getProductLink(props.businessName, props.vType, props.vid)}
+                       target="_blank"><img src={buildUrl(props.photoUrl)} className="img-fluid"/></a>
                 </div>
                 <div className="vendor-content">
                     <p className="vendor-address">{getVendorTypeInfo(props.vType)?.displayName}</p>

@@ -1,9 +1,6 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {Hero} from '../widgets/home/hero';
 import {Categories} from '../widgets/home/categories';
 import {LatestListings} from '../widgets/home/latest-listings';
-
 
 export default function Home() {
     return (
@@ -16,20 +13,6 @@ export default function Home() {
     )
 }
 
-Home.getInitialProps = async (ctx) => {
-    console.log('initial props')
+Home.getInitialProps = async () => {
     return { stars: '' }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

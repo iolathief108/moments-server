@@ -24,15 +24,22 @@ export function getListingStatusLabel(vDetails: VendorDetailsExtra): any {
 
     switch (vDetails.listingStatus) {
         case ListingStatus.PaymentPending:
+            if (vDetails.isLive) {
+                return (
+                    <span>
+                        <span className={'text-success font-weight-bold'}>Verified</span><span className={'text-warning'}> (Payment Pending)</span>
+                    </span>
+                )
+            }
             return 'Payment Pending';
         case ListingStatus.Pending:
             return 'Pending';
         case ListingStatus.Suspended:
-            return <span className={'text-danger'}>Suspended</span>;
+            return <span className={'text-danger font-weight-bold'}>Suspended</span>;
         case ListingStatus.Unverified:
-            return <span className={'text-danger'}>Unverified</span>;
+            return <span className={'text-danger font-weight-bold'}>Unverified</span>;
         case ListingStatus.Verified:
-            return <span className={'text-success'}>Verified</span>;
+            return <span className={'text-success font-weight-bold'}>Verified</span>;
         default:
             return 'Verified';
     }

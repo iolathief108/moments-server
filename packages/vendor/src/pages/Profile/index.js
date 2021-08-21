@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {deAuthorize, sdk} from '@mara/shared';
-import {Link, withRouter} from 'react-router-dom';
-import {Card, CardBody, Col, Button, Row} from 'reactstrap';
-import {getListingStatusLabel, isEnableReason} from '../../helpers/utils';
+import React, { Component } from 'react';
+import { deAuthorize, sdk } from '@mara/shared';
+import { Link, withRouter } from 'react-router-dom';
+import { Card, CardBody, Col, Button, Row } from 'reactstrap';
+import { getListingStatusLabel, isEnableReason } from '../../helpers/utils';
 
 
 class Profile extends Component {
@@ -41,7 +41,7 @@ class Profile extends Component {
 
     render() {
         if (!this.state.vProfile) {
-            return <div/>;
+            return <div />;
         }
         return (
             <React.Fragment>
@@ -62,7 +62,7 @@ class Profile extends Component {
                                     <div>
                                         <dl className="row">
                                             <dt className="col-sm-3">First &
-                                                Last Name
+                                            Last Name
                                             </dt>
                                             <dd className="col-sm-9">{this.state.vProfile?.firstName} {this.state.vProfile?.lastName}</dd>
 
@@ -70,7 +70,7 @@ class Profile extends Component {
                                             <dd className="col-sm-9">{this.state.vProfile?.phone}</dd>
 
                                             <dt className="col-sm-3">Business
-                                                Name
+                                            Name
                                             </dt>
                                             <dd className="col-sm-9">{this.state.vendorDetailsExtra?.business_name}</dd>
 
@@ -80,10 +80,8 @@ class Profile extends Component {
                                             <dd className="col-sm-9">{this.state.vendorDetailsExtra && getListingStatusLabel(this.state.vendorDetailsExtra)}</dd>
                                             {
                                                 isEnableReason(this.state.vendorDetailsExtra) && this.state.vendorDetailsExtra?.reason &&
-                                                <p>Reason: {this.state.vendorDetailsExtra.reason}</p>
-                                            }
-                                            {
-
+                                                <span className={'ml-2'}>Reason: {this.state.vendorDetailsExtra.reason}</span> || 
+                                                (this.state.vendorDetailsExtra?.isLive && <span className="text-success">Your account is Live</span>)
                                             }
 
                                             {/*<dt className="col-sm-3">Email</dt>*/}

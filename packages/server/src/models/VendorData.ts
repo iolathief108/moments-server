@@ -70,6 +70,7 @@ export class VendorDataSchema {
     @prop({ required: false, type: () => [ClapSchema] })
     claps?: ClapSchema[];
 
+    // verifying things
     @prop({
         type: () => String,
         required: false,

@@ -87,7 +87,7 @@ export class VendorRegisterResolver {
         const hashedPassword = await bcrypt.hash(data.password, 12);
 
         if (!verifyOTP(data.phone, data.otp)) {
-            throw new Error('otp verification failed');
+            throw new Error('Invalid OTP, expired or not found');
         }
 
         const document = await VendorModel.create<VendorSchema>({

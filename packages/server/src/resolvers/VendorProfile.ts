@@ -99,7 +99,7 @@ export class VendorProfileResolver {
         @Ctx() ctx: GQLContext,
     ): Promise<boolean | null> {
         if (!verifyOTP(phone, otp)) {
-            throw new Error("otp failed");
+            throw new Error("Invalid OTP, expired or not found");
         }
         const vendor = await VendorModel.findOne({
             phone,

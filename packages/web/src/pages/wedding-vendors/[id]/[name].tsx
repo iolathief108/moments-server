@@ -76,6 +76,5 @@ export default function WeddingVendor() {
 }
 
 WeddingVendor.getInitialProps = async (ctx) => {
-    console.log('initial props')
     return { stars: '' }
 }

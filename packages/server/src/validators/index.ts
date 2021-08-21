@@ -6,6 +6,7 @@ import {
 import { Types } from "mongoose";
 import { CityModel, DistrictModel, ProvinceModel } from "../models/Location";
 import { VendorModel } from "../models/Vendor";
+import { VendorDataModel } from "../models/VendorData";
 //todo: below code should be distributed to files
 
 
@@ -93,7 +94,7 @@ class IsVendorProfilePhone implements ValidatorConstraintInterface {
 @ValidatorConstraint({ async: true })
 class IsPhoneNotExist implements ValidatorConstraintInterface {
     async validate(text: string, args: ValidationArguments) {
-        let res = await VendorModel.findOne({ phone: text });
+        let res = await VendorDataModel.findOne({ phone: text });
         return !res;
     }
 
