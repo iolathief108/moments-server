@@ -7,7 +7,7 @@ import {useGlobalState} from '../../state';
 import {paths} from '../../routes';
 
 
-const Li = ({name, to, iconCln, effectCln}: any) => {
+const Li = ({name, to, iconCln, }: any) => {
     return (
         <li>
             <Link to={to || paths.dashboard()} className={'waves-effect'}>
@@ -22,15 +22,11 @@ const build = (cat: VendorType | null) => {
     const nocat = [
         <Li key={2} to={paths.profile()} name={'Profile'} iconCln={'ti-user'}/>,
         <Li key={3} to={paths.init()} name={'Init'} iconCln={'ti-check-box'}/>,
-        // <Li key={1} to={paths.dashboard()} name={'Dashboard'}/>,
     ];
     const common = [
-        // <Li key={1} to={paths.dashboard()} name={'Dashboard'}/>,
         <Li key={3} to={paths.profile()} name={'Profile'} iconCln={'ti-user'}/>,
-        <Li key={5} to={paths.yan()} name={'Listing'} iconCln={'ti-check-box'}/>,
+        <Li key={5} to={paths.listing()} name={'Listing'} iconCln={'ti-check-box'}/>,
         <Li key={4} to={paths.gallery()} name={'Gallery'} iconCln={'ti-image'}/>,
-        // <Li key={2} to={paths.editContact()} name={'Contacts'}/>,
-        // <Li key={6} to={paths.location()} name={'Location'} iconCln={'ti-calendar'}/>,
     ];
     const caterer = [...common];
     const photographer = [...common];

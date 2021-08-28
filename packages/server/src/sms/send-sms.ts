@@ -20,7 +20,7 @@ export default async function (phone: string, sms: string): Promise<boolean> {
       params: {
         user_id: "13315",
         api_key: "ArVaKDJmERaLaUbvMrse",
-        sender_id: "NotifyDEMO",
+        sender_id: "Moments",
         to: phone.slice(1),
         message: sms
       },

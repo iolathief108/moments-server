@@ -3,14 +3,6 @@ import {LIVE_UNPAID, VendorType, VerifyStatus} from '../common/const';
 import {Types} from 'mongoose';
 
 
-// verifyStatus?: VerifyStatus;
-//
-// @prop({ type: () => Boolean, required: false, default: false})
-// isRegPaid?: boolean;
-//
-// @prop({ type: () => Boolean, required: false, default: false})
-// isSuspended?: boolean;
-//
 type Sandanam = {
     search_district_ids?: {
         $in: Types.ObjectId[];
@@ -21,7 +13,7 @@ type Sandanam = {
         $in: VerifyStatus[]
     };
     isRegPaid?: boolean;
-    isSuspended: boolean;
+    isSuspended: {$in: boolean[]};
 };
 
 type optionals = {
@@ -31,7 +23,7 @@ type optionals = {
         $in: VerifyStatus[]
     };
     isRegPaid?: boolean;
-    isSuspended: boolean;
+    isSuspended: {$in: boolean[]};
 }
 
 function getOptionals(): optionals {

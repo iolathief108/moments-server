@@ -11,7 +11,7 @@ export default function Dev() {
                     <h2 style={{
                         textAlign: 'center',
                     }}>Coming Soon!</h2>
-                    <p>{'The site is still under development, so it\'s normal to see pages like this.'}</p>
+                    <p>{'The site is still under development, therefore it\'s normal to see pages like this.'}</p>
                 </div>
             </div>
         </div>

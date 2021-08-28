@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {sdk, VendorType} from '@mara/shared';
-import './location.css';
+import '../../../css/location.css';
 import {AvField, AvForm, AvRadio, AvRadioGroup, AvCheckboxGroup, AvCheckbox} from 'availity-reactstrap-validation';
-import Loader from '../../comps/Loader';
+import Loader from '../../../comps/Loader';
 import {Button, Card, CardBody, FormGroup} from 'reactstrap';
 
 // venue
@@ -140,7 +140,6 @@ const Ven = ({onNormalMode}: VenProps) => {
             });
             return;
         }
-        ;
         setState({
             ...state,
             selectedDistrict: dis,
@@ -532,7 +531,7 @@ interface LocationState {
     isVenue: boolean;
 }
 
-const Location = () => {
+const LocationA = () => {
     const [state, setState] = useState<LocationState>({
         isEditMode: false,
         isVenue: null,
@@ -544,7 +543,7 @@ const Location = () => {
             const result = await sdk().getVendorDetailsExtra();
             setState({
                 ...state,
-                isVenue: result.data.vendorDetailsExtra.vendor_type === VendorType.Venue,
+                isVenue: result.data.vendorDetailsExtra?.vendor_type === VendorType.Venue,
                 loading: false,
             });
         })();
@@ -577,4 +576,4 @@ const Location = () => {
     );
 };
 
-export default Location;
+export default LocationA;

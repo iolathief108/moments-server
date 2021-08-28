@@ -20,6 +20,11 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/pages/Editing/Listing/LocationA.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/pages/Editing/Listing/KeyInfo.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/pages/Editing/Listing/Location.tsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
@@ -34,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
     <property name="last.edited.regexp" value="http://www.asdf89asd.lk/" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../solvo-test" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -43,14 +48,15 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="C:\Users\iolat\Documents\Projects\mara\packages\vendor\node_modules\typescript\lib" />
+    <property name="ts.rename.search.for.dynamic.occurrences" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\iolat\Documents\Projects\mara\packages\vendor\src\pages\Editing\Listing" />
+      <recent name="C:\Users\iolat\Documents\Projects\mara\packages\vendor\src\pages\Editing\Gallery" />
+      <recent name="C:\Users\iolat\Documents\Projects\mara\packages\vendor\src\pages\Editing\Layout" />
       <recent name="C:\Users\iolat\Desktop\mara\packages\vendor-web\zJackson" />
       <recent name="C:\Users\iolat\Desktop\mara\packages\vendor-web\zJackson\Temp" />
-      <recent name="C:\Users\iolat\Desktop\mara\packages\vendor-web\ssss\requests" />
-      <recent name="C:\Users\iolat\Desktop\mara\packages\vendor-web\ssss\Post Datas" />
-      <recent name="C:\Users\iolat\Desktop\mara\packages\vendor-web\ssss\dd" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

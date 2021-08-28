@@ -1,17 +1,13 @@
-import {Button, Card, CardBody} from 'reactstrap';
-import SingleCard from './Layout/SingleCard';
+import {Clap, sdk, StoreClap} from '@mara/shared';
 import React, {useEffect, useState} from 'react';
-import {sdk, Clap, StoreClap} from '@mara/shared';
-import {getGlobalState} from '../../state';
+import {getGlobalState} from '../../../state';
+import {Button, Card, CardBody} from 'reactstrap';
 import Select from 'react-select';
-import Location from './Location';
-import Contacts from './Contacts';
-import Description from './Description';
 
 
 let tempClaps: Clap[] = [];
 
-const Ghost = () => {
+const KeyInfo = () => {
 
     const [loading, setLoading] = useState(true);
     const [clapStores, setClapStores] = useState<StoreClap[]>(null);
@@ -73,7 +69,7 @@ const Ghost = () => {
 
 
         if (editMode && !clapStores) {
-            const clapStore = sdk().getClapStore({vendorType: getGlobalState('category')});
+            const clapStore = sdk().getClapStore({ vendorType: getGlobalState('category') });
             setClapStores((await clapStore).data.clapStore);
         }
         _setEditMode(editMode);
@@ -111,7 +107,7 @@ const Ghost = () => {
         changeEditMode(false);
     };
 
-    const onSelect = (key, name) => (v: {value: string}[]) => {
+    const onSelect = (key, name) => (v: { value: string; }[]) => {
         for (const tempClap of tempClaps) {
             if (tempClap.key === key || tempClap.name === name) {
                 tempClap.values = v.map(i => i.value);
@@ -127,10 +123,10 @@ const Ghost = () => {
 
     if (!_editMode) {
         return (
-                <Card>
-                    <CardBody>
-                        <h4 className="card-title mb-4">Key Informations</h4>
-                        <ul className={'list-unstyled mb-4'}>
+            <Card>
+                <CardBody>
+                    <h4 className="card-title mb-4">Key Information</h4>
+                    <ul className={'list-unstyled mb-4'}>
 
                         {
                             (!loading && claps && claps.length) ? claps.map(clap => (
@@ -149,17 +145,17 @@ const Ghost = () => {
                                 </li>
                             )) : <p className="text-danger">No data has been added yet.</p>
                         }
-                        </ul>
-                        <Button disabled={loading} onClick={() => changeEditMode(true)} className="mr-1">Edit</Button>
-                    </CardBody>
-                </Card>
+                    </ul>
+                    <Button disabled={loading} onClick={() => changeEditMode(true)} className="mr-1">Edit</Button>
+                </CardBody>
+            </Card>
         );
     }
 
     return (
         <Card>
             <CardBody>
-                <h4 className="card-title mb-4">Key Informations</h4>
+                <h4 className="card-title mb-4">Key Information</h4>
                 {
                     error ? <p className="text-danger">{error}</p> : null
                 }
@@ -177,7 +173,7 @@ const Ghost = () => {
                                 onChange={onSelect(clapStore.key, clapStore.name) as any}
                                 isLoading={loading}
                                 isDisabled={loading}
-                                options={clapStore.values.map(i => ({value: i, label: i}))}
+                                options={clapStore.values.map(i => ({ value: i, label: i }))}
                                 className="basic-multi-select"
                                 classNamePrefix="select"
                             />
@@ -192,15 +188,4 @@ const Ghost = () => {
     );
 };
 
-const Yan = () => {
-    return (
-        <SingleCard title={'Listing Details'}>
-            <Ghost/>
-            <Location/>
-            <Contacts/>
-            <Description/>
-        </SingleCard>
-    );
-}
-
-export default Yan;
+export default KeyInfo;

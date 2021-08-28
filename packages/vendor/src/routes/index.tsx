@@ -11,9 +11,9 @@ import Initialize from '../pages/Initialize';
 
 
 import Profile from '../pages/Profile/index';
-import Contacts from '../pages/Editing/Contacts';
-import Gallery from '../pages/Editing/Gallery';
-import Yan from '../pages/Editing/Yan';
+import Contacts from '../pages/Editing/Listing/Contacts';
+import Gallery from '../pages/Editing/Gallery/Gallery';
+import Listing from '../pages/Editing/Listing';
 
 export const paths = {
     login: () => '/login',
@@ -23,7 +23,7 @@ export const paths = {
     dashboard: () => '/profile',
     profile: () => '/profile',
     gallery: () => '/gallery',
-    yan: () => '/listing',
+    listing: () => '/listing',
     init: () => '/init',
     root: () => '/',
     editContact: () => '/edit-contact'
@@ -36,7 +36,7 @@ const authProtectedRoutes = [
 
     {path: paths.editContact(), component: Contacts},
     {path: paths.gallery(), component: Gallery},
-    {path: paths.yan(), component: Yan},
+    {path: paths.listing(), component: Listing},
     // {path: paths.location(), component: Location},
 
     {path: paths.root(), exact: true, component: () => <Redirect to={paths.dashboard()} />},
