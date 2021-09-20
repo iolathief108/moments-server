@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "/dash",
   "dependencies": {
-    "@mara/shared": "1.0.0",
+    "@mara/shared": "link:..\\shared",
     "@fullcalendar/bootstrap": "^5.8.0",
     "@fullcalendar/daygrid": "^5.8.0",
     "@fullcalendar/interaction": "^5.8.0",
