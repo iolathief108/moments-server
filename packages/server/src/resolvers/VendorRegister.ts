@@ -6,19 +6,20 @@ import {
     registerEnumType,
     Resolver,
     Ctx,
-    Query
+    Query,
 } from 'type-graphql';
 import bcrypt from 'bcryptjs';
-import { VendorType } from '../common/const';
-import { VendorModel, VendorSchema } from '../models/Vendor';
-import { IsEmail, IsNumberString, Length, Validate } from 'class-validator';
-import { IsEmailExist, IsPhoneNotExist, IsValidPassword, IsValidSLPhone } from '../validators';
-import { sendOTP, verifyOTP } from '../sms/otp';
-import { VendorProfile } from './VendorProfile';
-import { makeID } from '../lib/makeID';
-import { redis } from '../fastify';
-import { sendMailEmailConfirmation } from '../sendMail';
-import { GQLContext } from "../types";
+import {VendorType} from '../common/const';
+import {VendorModel, VendorSchema} from '../models/Vendor';
+import {IsEmail, IsNumberString, Length, Validate} from 'class-validator';
+import {IsEmailExist, IsPhoneNotExist, IsValidPassword, IsValidSLPhone} from '../validators';
+import {sendOTP, verifyOTP} from '../sms/otp';
+import {VendorProfile} from './VendorProfile';
+import {makeID} from '../lib/makeID';
+import {redis} from '../fastify';
+import {sendMailEmailConfirmation} from '../sendMail';
+import {GQLContext} from '../types';
+
 
 registerEnumType(VendorType, {
     name: 'VendorType',
@@ -34,12 +35,12 @@ class VendorRegisterInput implements Partial<VendorProfile> {
     @Length(1, 255)
     lastName: string;
 
-    @Field({ nullable: true })
+    @Field({nullable: true})
     @IsEmail()
     @Validate(IsEmailExist)
     email?: string;
 
-    @Field({ nullable: true })
+    @Field({nullable: true})
     address?: string;
 
     @Field()
@@ -53,9 +54,12 @@ class VendorRegisterInput implements Partial<VendorProfile> {
     password: string;
 
     @Field()
-    @IsNumberString()
-    @Length(6)
-    otp: string;
+    authCode: string;
+
+    // @Field()
+    // @IsNumberString()
+    // @Length(6)
+    // otp: string;
 }
 
 @ArgsType()
@@ -66,6 +70,7 @@ class VendorRegisterOtpInput {
     @Validate(IsPhoneNotExist)
     phone: string;
 }
+
 @ArgsType()
 class VendorCheckPhoneInput {
 
@@ -77,18 +82,26 @@ class VendorCheckPhoneInput {
 @Resolver()
 export class VendorRegisterResolver {
 
+    /**
+     * @deprecated
+     * */
     @Mutation(() => Boolean)
-    async vendorRegisterOtp(@Args() { phone }: VendorRegisterOtpInput): Promise<boolean> {
+    async vendorRegisterOtp(@Args() {phone}: VendorRegisterOtpInput): Promise<boolean> {
         return await sendOTP(phone);
     }
 
     @Mutation(() => Boolean)
     async vendorRegister(@Args() data: VendorRegisterInput, @Ctx() ctx: GQLContext): Promise<boolean> {
+
+        if (data.authCode !== 'mompass834098967') {
+            throw new Error('INVALID_AUTHCODE');
+        }
+
         const hashedPassword = await bcrypt.hash(data.password, 12);
 
-        if (!verifyOTP(data.phone, data.otp)) {
-            throw new Error('Invalid OTP, expired or not found');
-        }
+        // if (!verifyOTP(data.phone, data.otp)) {
+        //     throw new Error('Invalid OTP, expired or not found');
+        // }
 
         const document = await VendorModel.create<VendorSchema>({
             email: data.email || undefined,
@@ -114,9 +127,12 @@ export class VendorRegisterResolver {
         return true;
     }
 
+    /**
+     * @deprecated
+     * */
     @Query(() => Boolean)
-    async isVendorPhoneExist(@Args() { phone }: VendorCheckPhoneInput): Promise<boolean> {
-        const v = await VendorModel.findOne({ phone });
+    async isVendorPhoneExist(@Args() {phone}: VendorCheckPhoneInput): Promise<boolean> {
+        const v = await VendorModel.findOne({phone});
         if (v) {
             return true;
         }

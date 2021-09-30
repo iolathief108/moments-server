@@ -4,3 +4,4 @@ paths: { value: undefined, reason: 'aliased imports are not supported' }
 
 from the file node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
 
+localhost:4200/dash

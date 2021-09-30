@@ -144,9 +144,9 @@ type LocationNode {
 
 type Mutation {
   vendorRegisterOtp(phone: String!): Boolean!
-  vendorRegister(firstName: String!, lastName: String!, email: String, address: String, phone: String!, password: String!, otp: String!): Boolean!
+  vendorRegister(firstName: String!, lastName: String!, email: String, address: String, phone: String!, password: String!, authCode: String!): Boolean!
   vendorLoginOtp(phone: String!): Boolean
-  vendorLogin(otp: String!, phone: String!): Boolean
+  vendorLogin(password: String!, phone: String!): Boolean
   vendorLogout: Boolean!
   confirmEmailVendor(token: String!): Boolean
   forgotPassword(email: String!): Boolean!

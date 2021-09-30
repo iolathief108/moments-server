@@ -14,14 +14,14 @@ import {
 } from 'type-graphql';
 import {Roles} from '../common/const';
 import {GQLContext} from '../types';
-import {VendorModel} from '../models/Vendor';
-import {hash} from 'bcryptjs';
+import {VendorDoc, VendorModel} from '../models/Vendor';
+import bcrypt, {hash} from 'bcryptjs';
 import {redis} from '../fastify';
 import {makeID} from '../lib/makeID';
 import {sendMailPasswordReset} from '../sendMail';
 import {Length, Validate} from 'class-validator';
 import {IsValidPassword, IsValidSLPhone} from '../validators';
-import {sendOTP, verifyOTP} from '../sms/otp';
+import {sendOTP} from '../sms/otp';
 
 
 @ObjectType()
@@ -95,16 +95,19 @@ export class VendorProfileResolver {
     @Mutation(() => Boolean, { nullable: true })
     async vendorLogin(
         @Arg("phone") phone: string,
-        @Arg("otp") otp: string,
+        @Arg("password") password: string,
         @Ctx() ctx: GQLContext,
     ): Promise<boolean | null> {
-        if (!verifyOTP(phone, otp)) {
-            throw new Error("Invalid OTP, expired or not found");
-        }
+
         const vendor = await VendorModel.findOne({
             phone,
-        });
+        }) as VendorDoc;
+
         if (!vendor) return null;
+
+        if (!bcrypt.compare(password, vendor.password)) {
+            throw new Error('PASSWORD_NOT_VALID')
+        }
 
         ctx.request.session.vendorID = vendor.id;
         return true;

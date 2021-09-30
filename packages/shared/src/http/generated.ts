@@ -195,7 +195,7 @@ export type MutationVendorRegisterArgs = {
   address?: Maybe<Scalars['String']>;
   phone: Scalars['String'];
   password: Scalars['String'];
-  otp: Scalars['String'];
+  authCode: Scalars['String'];
 };
 
 
@@ -205,7 +205,7 @@ export type MutationVendorLoginOtpArgs = {
 
 
 export type MutationVendorLoginArgs = {
-  otp: Scalars['String'];
+  password: Scalars['String'];
   phone: Scalars['String'];
 };
 
@@ -463,7 +463,7 @@ export type VendorLoginOtpMutation = (
 
 export type VendorLoginMutationVariables = Exact<{
   phone: Scalars['String'];
-  otp: Scalars['String'];
+  password: Scalars['String'];
 }>;
 
 
@@ -527,7 +527,7 @@ export type VendorRegisterMutationVariables = Exact<{
   lastName: Scalars['String'];
   phone: Scalars['String'];
   password: Scalars['String'];
-  otp: Scalars['String'];
+  authCode: Scalars['String'];
 }>;
 
 
@@ -651,8 +651,8 @@ export const VendorLoginOtpDocument = gql`
 }
     `;
 export const VendorLoginDocument = gql`
-    mutation vendorLogin($phone: String!, $otp: String!) {
-  vendorLogin(phone: $phone, otp: $otp)
+    mutation vendorLogin($phone: String!, $password: String!) {
+  vendorLogin(phone: $phone, password: $password)
 }
     `;
 export const GetVendorProfileIdDocument = gql`
@@ -690,13 +690,13 @@ export const VendorRegisterOtpDocument = gql`
 }
     `;
 export const VendorRegisterDocument = gql`
-    mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $otp: String!) {
+    mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $authCode: String!) {
   vendorRegister(
     firstName: $firstName
     lastName: $lastName
     phone: $phone
     password: $password
-    otp: $otp
+    authCode: $authCode
   )
 }
     `;

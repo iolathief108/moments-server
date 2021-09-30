@@ -140,6 +140,7 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
             setLoading(false);
 
         } catch (e) {
+            //@ts-ignore
             setError(e.response?.errors[0]?.message || 'Oops! Something went wrong');
             setLoading(false);
         }

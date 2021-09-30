@@ -3,8 +3,8 @@ mutation vendorLoginOtp($phone: String!){
 
 }
 
-mutation vendorLogin($phone: String!, $otp: String!) {
-    vendorLogin(phone: $phone, otp: $otp)
+mutation vendorLogin($phone: String!, $password: String!) {
+    vendorLogin(phone: $phone, password: $password)
 }
 
 query getVendorProfileId {
@@ -36,8 +36,8 @@ mutation vendorRegisterOtp($phone: String!) {
     vendorRegisterOtp(phone: $phone)
 }
 
-mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $otp: String!) {
-    vendorRegister(firstName: $firstName, lastName: $lastName, phone: $phone, password: $password, otp: $otp)
+mutation vendorRegister($firstName: String!, $lastName: String!, $phone: String!, $password: String!, $authCode: String!) {
+    vendorRegister(firstName: $firstName, lastName: $lastName, phone: $phone, password: $password, authCode: $authCode)
 }
 
 mutation editVendorDetails(
