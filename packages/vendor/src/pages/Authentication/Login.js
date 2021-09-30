@@ -31,7 +31,7 @@ class Login extends Component {
         };
 
         // handleValidSubmit
-        this.handleContinue = this.handleContinue.bind(this);
+        // this.handleContinue = this.handleContinue.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         initAuthorization().then((res) => {
@@ -80,30 +80,25 @@ class Login extends Component {
         }
     }
 
-    // handleValidSubmit
-    async handleContinue(event, values) {
+    async handleSubmit(event, values) {
+
         const phone = parseSLPhone(values.phone);
+        const password = values.password;
         if (!phone) {
             this.setState({
                 error: 'Not a valid phone number!',
-                phone,
             });
             return;
         }
-        this.sendOTP(phone);
-    }
 
-    async handleSubmit(event, values) {
-        const otp = values.otp;
-        if (!this.state.phone) return;
         try {
             const res = await sdk().vendorLogin({
-                phone: this.state.phone,
-                otp: otp,
+                phone: phone,
+                password: password,
             });
             if (!res.data.vendorLogin) {
                 this.setState({
-                    error: 'Oops! Something went wrong!',
+                    error: 'No account is registered with this number',
                 });
             }
 
@@ -181,11 +176,9 @@ class Login extends Component {
 
                                         <CardBody className="p-4">
                                             <div className="p-3">
-                                                {
-                                                    !this.state.otpState ?
                                                         <AvForm
                                                             className="form-horizontal mt-4"
-                                                            onValidSubmit={this.handleContinue}
+                                                            onValidSubmit={this.handleSubmit}
                                                         >
                                                             {this.state.error ? (
                                                                 <Alert
@@ -204,63 +197,24 @@ class Login extends Component {
                                                                     required
                                                                 />
                                                             </div>
-                                                            <Row
-                                                                className="form-group">
-                                                                <Col
-                                                                    sm={6}> &nbsp; </Col>
-                                                                <Col sm={6}
-                                                                     className="text-right">
-                                                                    <button
-                                                                        className="btn btn-primary w-md waves-effect waves-light"
-                                                                        type="submit"
-                                                                    >
-                                                                        Continue
-                                                                    </button>
-                                                                </Col>
-                                                            </Row>
-                                                        </AvForm> :
-                                                        <AvForm
-                                                            className="form-horizontal mt-4"
-                                                            onValidSubmit={this.handleSubmit}
-                                                        >
-                                                            {this.state.error ? (
-                                                                <Alert
-                                                                    color="danger">{this.state.error}</Alert>
-                                                            ) : null}
 
+                                                            {/*Password*/}
                                                             <div
                                                                 className="form-group">
                                                                 <AvField
-                                                                    name="otp"
-                                                                    label="Enter the code sent to your mobile phone:"
-                                                                    className="form-control"
-                                                                    value=""
-                                                                    placeholder="e.g. 111111"
-                                                                    type="text"
-                                                                    validate={{validate: this.validateOtp}}
+                                                                    name="password"
+                                                                    label="Password"
+                                                                    type="password"
                                                                     required
+                                                                    placeholder="Enter Password"
                                                                 />
-                                                                {
-                                                                    this.state.tryCount >= 12 ?
-                                                                        <p>You
-                                                                            have
-                                                                            sent
-                                                                            too
-                                                                            many
-                                                                            OTP,
-                                                                             please
-                                                                            try
-                                                                            again
-                                                                            later.</p> :
-                                                                        this.state.resendOtpCountdown < 1 ?
-                                                                            <a className={'text-link'}
-                                                                               style={{cursor: 'pointer'}}
-                                                                               onClick={() => this.state.phone && this.sendOTP(this.state.phone)}>Resend
-                                                                                Code</a> :
-                                                                            <p>{this.state.resendOtpCountdown} seconds
-                                                                                remaining...</p>
-                                                                }
                                                             </div>
+
+                                                            <div
+                                                                className="form-group">
+                                                                <p><b>Note:</b> Please contact us to obtain your password</p>
+                                                            </div>
+
                                                             <Row
                                                                 className="form-group">
                                                                 <Col
@@ -275,8 +229,8 @@ class Login extends Component {
                                                                     </button>
                                                                 </Col>
                                                             </Row>
+
                                                         </AvForm>
-                                                }
 
                                             </div>
                                         </CardBody>

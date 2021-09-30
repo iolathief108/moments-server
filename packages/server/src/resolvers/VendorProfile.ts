@@ -105,7 +105,7 @@ export class VendorProfileResolver {
 
         if (!vendor) return null;
 
-        if (!bcrypt.compare(password, vendor.password)) {
+        if (!await bcrypt.compare(password, vendor.password)) {
             throw new Error('PASSWORD_NOT_VALID')
         }
 
