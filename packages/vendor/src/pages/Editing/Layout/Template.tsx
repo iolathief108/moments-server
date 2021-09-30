@@ -105,7 +105,8 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
             props.onViewMode()
         }
         sdk().getVendorDetailsExtra().then(res => {
-            if (res.data.vendorDetailsExtra?.description) {
+            console.log(res);
+            if (res.data.vendorDetailsExtra) {
                 setVDetails(res.data.vendorDetailsExtra);
             }
             setLoading(false);

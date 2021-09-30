@@ -360,10 +360,6 @@ class Register extends Component {
                                                             value={this.state.authCode}
                                                             className="form-control"
                                                             required
-                                                            validate={{
-                                                                validate: this.valPhone,
-                                                                async: this.validatePhone,
-                                                            }}
                                                             placeholder="Enter Auth Code"
                                                         />
                                                     </div>

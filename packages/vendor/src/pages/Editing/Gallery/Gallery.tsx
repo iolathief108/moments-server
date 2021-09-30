@@ -21,11 +21,11 @@ interface Image {
 }
 
 const getCloudImages = (vDetails: VendorDetailsExtra):Image[] => {
-    return vDetails?.galleryPhoto?.map(i => ({
+    return ( vDetails?.galleryPhoto?.map(i => ({
         source: '/p/' + i.id + '_q95.webp',
         id: i.id,
         progress: 100,
-    })) || [];
+    })) || [] );
 };
 
 const Gallery = () => {
