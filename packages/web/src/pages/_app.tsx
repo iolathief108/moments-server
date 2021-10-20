@@ -1,4 +1,5 @@
 import type {AppProps} from 'next/app';
+// import 'bootstrap/dist/css/bootstrap.css'
 import 'normalize.css';
 import Head from 'next/head';
 // import '../../public/css/style.css'

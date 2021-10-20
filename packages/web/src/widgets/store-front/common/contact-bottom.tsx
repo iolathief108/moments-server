@@ -1,7 +1,8 @@
 import ContactBottomStyle from '../../../styles/store-front-comps/ContactBottom.module.scss'
 import {contactPopupState} from '../../../state';
+import {VendorDetailsBQuery} from '../../../http/generated';
 
-export function ContactBottom() {
+export function ContactBottom({data}: {data: VendorDetailsBQuery}) {
 
 
     return (
@@ -9,7 +10,7 @@ export function ContactBottom() {
             <div className={ContactBottomStyle.storefrontListing}>
 
                 <div className={ContactBottomStyle.vendorInfo}>
-                    <div className={ContactBottomStyle.vendorName}>Montalvo Arts Center</div>
+                    <div className={ContactBottomStyle.vendorName}>{data.vendorDetailsB.business_name}</div>
                     <div className={ContactBottomStyle.vendorLocation}>
                         <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="GeoPin1" role="img"
                              className="zui-svg-icon location-pin-icon" viewBox="0 0 18 23" fill="currentColor"

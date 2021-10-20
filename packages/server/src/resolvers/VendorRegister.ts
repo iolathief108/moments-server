@@ -1,29 +1,15 @@
-import {
-    Args,
-    ArgsType,
-    Field,
-    Mutation,
-    registerEnumType,
-    Resolver,
-    Ctx,
-    Query,
-} from 'type-graphql';
+import {Args, ArgsType, Ctx, Field, Mutation, Query, Resolver} from 'type-graphql';
 import bcrypt from 'bcryptjs';
-import {VendorType} from '../common/const';
 import {VendorModel, VendorSchema} from '../models/Vendor';
-import {IsEmail, IsNumberString, Length, Validate} from 'class-validator';
+import {IsEmail, Length, Validate} from 'class-validator';
 import {IsEmailExist, IsPhoneNotExist, IsValidPassword, IsValidSLPhone} from '../validators';
-import {sendOTP, verifyOTP} from '../sms/otp';
+import {sendOTP} from '../sms/otp';
 import {VendorProfile} from './VendorProfile';
 import {makeID} from '../lib/makeID';
 import {redis} from '../fastify';
 import {sendMailEmailConfirmation} from '../sendMail';
 import {GQLContext} from '../types';
 
-
-registerEnumType(VendorType, {
-    name: 'VendorType',
-});
 
 @ArgsType()
 class VendorRegisterInput implements Partial<VendorProfile> {
@@ -133,10 +119,8 @@ export class VendorRegisterResolver {
     @Query(() => Boolean)
     async isVendorPhoneExist(@Args() {phone}: VendorCheckPhoneInput): Promise<boolean> {
         const v = await VendorModel.findOne({phone});
-        if (v) {
-            return true;
-        }
-        return false;
+        return !!v;
+
     }
 }
 

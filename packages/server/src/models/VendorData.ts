@@ -92,28 +92,28 @@ export class VendorDataSchema {
 
     // Vendor Type
     @prop({ required: false, type: () => VenueDataSchema })
-    venue_data?: VenueDataSchema;
+    venue?: VenueDataSchema;
 
     @prop({ required: false, type: () => CatererDataSchema })
-    caterer_data?: CatererDataSchema;
+    caterer?: CatererDataSchema;
 
     @prop({ required: false, type: () => PhotographerDataSchema })
-    photographer_data?: PhotographerDataSchema;
+    photographer?: PhotographerDataSchema;
 
     @prop({ required: false, type: () => BandDjsDataSchema })
-    bandDjsData?: BandDjsDataSchema;
+    bandDjs?: BandDjsDataSchema;
 
     @prop({ required: false, type: () => BeautyProfessionalDataSChema })
     beautyProfessional?: BeautyProfessionalDataSChema;
 
     @prop({ required: false, type: () => CakesDessertsDataSchema })
-    CakesDesserts?: CakesDessertsDataSchema;
+    cakesDesserts?: CakesDessertsDataSchema;
 
     @prop({ required: false, type: () => FloristsDataSchema })
-    Florists?: FloristsDataSchema;
+    florists?: FloristsDataSchema;
 
     @prop({ required: false, type: () => VideographerDataSchema })
-    Videographer?: VideographerDataSchema;
+    videographer?: VideographerDataSchema;
 }
 
 export const VendorDataModel = getModelForClass(VendorDataSchema);

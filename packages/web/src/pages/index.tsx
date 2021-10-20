@@ -1,16 +1,9 @@
-import {Hero} from '../widgets/home/hero';
-import {Categories} from '../widgets/home/categories';
-import {LatestListings} from '../widgets/home/latest-listings';
+import {Home2} from '../widgets/home2';
+import {isServer} from '../utils/pageUtils';
 
 export default function Home() {
-    return (
-        <div>
-            <Hero/>
-            <Categories/>
-            <LatestListings/>
-            {/*<PopularLocations/>*/}
-        </div>
-    )
+    if (typeof window === 'undefined' || isServer()) return null
+    return <Home2/>
 }
 
 Home.getInitialProps = async () => {

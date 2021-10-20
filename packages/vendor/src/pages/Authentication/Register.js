@@ -92,7 +92,7 @@ class Register extends Component {
                 authCode: values.authCode
             });
             if (res.data.vendorRegister) {
-                this.props.history.push(paths.dashboard());
+                this.props.history.push(paths.init());
             } else {
                 this.setState({
                     error: 'Registration failed',

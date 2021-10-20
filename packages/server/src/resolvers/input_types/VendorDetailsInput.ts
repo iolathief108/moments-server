@@ -123,9 +123,14 @@ export class VendorDetailsInput {
             }
         }
 
-        this.venueDetails?.validate(vData);
-        this.photographerDetails?.validate(vData);
-        this.catererDetails?.validate(vData);
+        this.venueDetails?.validate();
+        this.photographerDetails?.validate();
+        this.catererDetails?.validate();
+        this.bandDjsDetails?.validate();
+        this.beautyProfessionalDetails?.validate();
+        this.cakesDessertsDetails?.validate();
+        this.floristsDetails?.validate();
+        this.videographerDetails?.validate();
 
         if (this.cityIDs) {
             if (this.vendorType === VendorType.venue && this.cityIDs.length > 1) {
@@ -138,11 +143,11 @@ export class VendorDetailsInput {
         //todo: check if data.phone is verified
     }
 
-    async _fillUrls(vData: VendorDataDoc) {
-        for (let galleryPhoto of this.gallery_photos) {
-            await galleryPhoto.fillUrl(vData);
-        }
-    }
+    // async _fillUrls(vData: VendorDataDoc) {
+    //     for (let galleryPhoto of this.gallery_photos) {
+    //         await galleryPhoto.fillVendorData(vData);
+    //     }
+    // }
 
     async fillVendorData(vData: VendorDataDoc) {
         if (!vData.links)
@@ -185,33 +190,38 @@ export class VendorDetailsInput {
             vData.frequent_questions = this.frequentQuestion;
         }
         if (this.gallery_photos) {
-            await this._fillUrls(vData);
+            // await this._fillUrls(vData);
+
+            for (let galleryPhoto of this.gallery_photos) {
+                await galleryPhoto.fillVendorData(vData);
+            }
             vData.gallery_photos = this.gallery_photos.map(item => item.getImageDetail());
         }
+
         // Vendor Type
         if (this.venueDetails) {
-            this.venueDetails.fillVendorData(vData);
+            await this.venueDetails.fillVendorData(vData);
         }
         if (this.catererDetails) {
-            this.catererDetails.fillVendorData(vData);
+            await this.catererDetails.fillVendorData(vData);
         }
         if (this.photographerDetails) {
-            this.photographerDetails.fillVendorData(vData);
+            await this.photographerDetails.fillVendorData(vData);
         }
         if (this.bandDjsDetails) {
-            this.bandDjsDetails.fillVendorData(vData);
+            await this.bandDjsDetails.fillVendorData(vData);
         }
         if (this.beautyProfessionalDetails) {
-            this.beautyProfessionalDetails.fillVendorData(vData);
+            await this.beautyProfessionalDetails.fillVendorData(vData);
         }
         if (this.cakesDessertsDetails) {
-            this.cakesDessertsDetails.fillVendorData(vData);
+            await this.cakesDessertsDetails.fillVendorData(vData);
         }
         if (this.floristsDetails) {
-            this.floristsDetails.fillVendorData(vData);
+            await this.floristsDetails.fillVendorData(vData);
         }
         if (this.videographerDetails) {
-            this.videographerDetails.fillVendorData(vData);
+            await this.videographerDetails.fillVendorData(vData);
         }
         if (this.claps) {
             let tClaps: ClapInput[] = [];
@@ -235,6 +245,5 @@ export class VendorDetailsInput {
             vData.isComplete = undefined;
         }
 
-        await vData.save();
     }
 }

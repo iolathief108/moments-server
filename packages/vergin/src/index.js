@@ -34,7 +34,7 @@ polka({
 
         const P = parser(I);
 
-        if (!P) {
+        if (!P || P[1] > 6000 || P[2] > 6000) {
             res.statusCode = 404;
             fs.createReadStream('./static/no-image.jpg').pipe(res);
             return;

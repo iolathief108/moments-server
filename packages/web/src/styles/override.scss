@@ -1,3 +1,46 @@
 .venue-thumbnail-carousel .owl-carousel .owl-stage-outer {
   padding-top: 11px;
 }
+
+.serif {
+  font-family: "Times New Roman", Serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.my-close-btn {
+  position: absolute;
+  right: 22px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 3px;
+    border-radius: 7px;
+    background-color: #333;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+div > .select-search {
+  width: auto;
+}

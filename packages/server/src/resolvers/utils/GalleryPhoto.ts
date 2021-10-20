@@ -24,9 +24,9 @@ export class GalleryPhotoInput {
         if (this.token && this.id)
             throw new Error('only one should be allowed');
 
-        if (!this.token && !this.id) throw new Error('one should be included');
+        if (!this.token && !this.id) throw new Error('token or ID is must');
 
-        // no photo url in the database but there is url in the input
+        // no photo id in the database but there is id in the input
         if (!vData.gallery_photos && this.id)
             throw new Error('given id is not valid!');
 
@@ -36,7 +36,7 @@ export class GalleryPhotoInput {
             }
         }
 
-        // check for fake url
+        // check for fake id
         if (
             vData.gallery_photos &&
             this.id &&
@@ -46,7 +46,7 @@ export class GalleryPhotoInput {
         }
     }
 
-    async fillUrl(vData: VendorDataDoc) {
+    async fillVendorData(vData: VendorDataDoc) {
         if (!this.token) {
             const thing = vData.gallery_photos.find(
                 (photo) => photo.id === this.id,
@@ -60,6 +60,8 @@ export class GalleryPhotoInput {
         this.wd = ret.wd;
         this.ht = ret.ht;
         this.id = ret.id;
+
+        // vData.gallery_photos.push(this.getImageDetail())
     }
 
     getImageDetail(): ImageSchema {

@@ -125,9 +125,9 @@ export async function createVendors(count: number) {
                 vendor_type,
                 'gallery',
             ),
-            venue_data: vType.venue_data,
-            photographer_data: vType.photographer_data,
-            caterer_data: vType.caterer_data,
+            venue: vType.venue_data,
+            photographer: vType.photographer_data,
+            caterer: vType.caterer_data,
         };
     };
 

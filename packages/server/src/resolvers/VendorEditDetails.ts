@@ -23,6 +23,7 @@ export class VendorEditDetailsResolver {
 
         await data.validate(vendorData);
         await data.fillVendorData(vendorData);
+        await vendorData.save();
         return true;
     }
 }

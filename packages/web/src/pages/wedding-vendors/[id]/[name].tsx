@@ -10,6 +10,8 @@ import {contactPopupState} from '../../../state';
 import {VendorDetailsBQuery} from '../../../http/generated';
 import Link from 'next/link';
 import {getCategoryUrl, getVendorTypeInfo} from '../../../utils/other';
+import SppView from '../../../widgets/spp';
+import {isMobile} from 'react-device-detect';
 
 
 type Props = {
@@ -37,7 +39,9 @@ function Breadcrumb(
                                 <a>{getVendorTypeInfo(props.data.vendorDetailsB?.vendor_type)?.displayName}</a>
                             </Link>
                         </li>
-                        <li className="breadcrumb-item active" aria-current="page">{props.data.vendorDetailsB?.business_name}</li>
+                        {
+                            <li className="breadcrumb-item active" aria-current="page">{props.data.vendorDetailsB?.business_name}</li>
+                        }
                     </ol>
                 </nav>
             </div>
@@ -53,8 +57,8 @@ export default function WeddingVendor() {
     const vid = router.query.vid as any;
 
     const {data} = sdk.useVendorDetailsB({
-        businessName: id ?? '',
-        vid: vid ?? null,
+        businessName: id || '',
+        vid: vid || null,
     });
 
     if (!data?.vendorDetailsB) {
@@ -63,14 +67,17 @@ export default function WeddingVendor() {
 
     return (
         <>
-
-            <Breadcrumb data={data}/>
+            {
+                !isMobile &&
+                <Breadcrumb data={data}/>
+            }
             <OverviewSection data={data}/>
             <GallerySection data={data}/>
             {popupActive ? <ContactPopup data={data}/> : null}
             <VendorIntro data={data}/>
             <Faqs data={data}/>
-            <ContactBottom/>
+            <SppView data={data}/>
+            <ContactBottom data={data}/>
         </>
     );
 }

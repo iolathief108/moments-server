@@ -13,6 +13,295 @@ query VendorDetailsB($businessName: String!, $vid: String) {
             question
         }
         vendor_type
+        vendorTypes {
+
+            caterer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            beauty_professionals_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            venue_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+            }
+
+            photographer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            videographer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            band_djs_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            florists_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+            cakes_desserts_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo {
+                        ht
+                        id
+                        wd
+                    }
+                }
+
+            }
+
+        }
         searchLocations {
             cities {
                 name

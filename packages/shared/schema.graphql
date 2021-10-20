@@ -5,35 +5,43 @@ directive @specifiedBy(
 ) on SCALAR
 
 type BandDjsDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input BandDjsDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }
 
 type BeautyProfessionalDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input BeautyProfessionalDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }
 
 type CakesDessertsDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input CakesDessertsDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }
 
 type CatererDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input CatererDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }
 
 type City {
@@ -80,12 +88,22 @@ type District {
   cities: [City!]!
 }
 
+input FixedInput {
+  price: Float
+}
+
+type FixedObject {
+  price: Float
+}
+
 type FloristsDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input FloristsDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }
 
 type FrequentQuestion {
@@ -161,6 +179,22 @@ type NodeEdge {
   cursor: String!
 }
 
+input PackageInput {
+  name: String
+  short: String
+  min_price: Float
+  description: String
+  price: [PriceInput!]
+}
+
+type PackageObject {
+  name: String
+  short: String
+  min_price: Float
+  description: String
+  price: [PriceObject!]
+}
+
 type PageInfo {
   hasNextPage: Boolean!
   hasPreviousPage: Boolean!
@@ -168,12 +202,54 @@ type PageInfo {
   endCursor: String
 }
 
+type PersonInfo {
+  person_photo: Image!
+  name: String!
+  position: String
+}
+
+input PersonInfoInput {
+  personPhoto: PersonPhotoInput!
+  name: String!
+  position: String
+}
+
+input PersonPhotoInput {
+  token: String!
+}
+
 type PhotographerDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input PhotographerDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
+}
+
+input PriceInput {
+  name: String
+  price_type: PriceType!
+  fixed: FixedInput
+  range: RangeInput
+  starting: StartingInput
+  unit: String
+}
+
+type PriceObject {
+  name: String
+  price_type: PriceType!
+  fixed: FixedObject
+  range: RangeObject
+  starting: StartingObject
+  unit: String
+}
+
+enum PriceType {
+  fixed
+  range
+  starting
 }
 
 type Query {
@@ -216,11 +292,39 @@ type Query {
   clapStore(vendorType: VendorType!): [StoreClap!]!
 }
 
+input RangeInput {
+  from_price: Float
+  to_price: Float
+}
+
+type RangeObject {
+  from_price: Float
+  to_price: Float
+}
+
 type SocialMedia {
   facebook: String
   instagram: String
   pinterest: String
   website: String
+}
+
+type Spp {
+  min_price: Float
+  packages: [PackageObject!]
+}
+
+input SppInput {
+  min_price: Float
+  packages: [PackageInput!]
+}
+
+input StartingInput {
+  price: Float
+}
+
+type StartingObject {
+  price: Float
 }
 
 type StoreClap {
@@ -327,17 +431,19 @@ type VendorTypes {
 }
 
 type VenueDataType {
-  sample: String
+  pricing: Spp
 }
 
 input VenueDetailsInput {
-  sample: String
+  pricing: SppInput
 }
 
 type VideographerDataType {
-  sample: String
+  pricing: Spp
+  personInfo: PersonInfo
 }
 
 input VideographerDetailsInput {
-  sample: String
+  pricing: SppInput
+  personInfo: PersonInfoInput
 }

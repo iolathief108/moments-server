@@ -6,6 +6,8 @@ yarn tsc -p ./tsconfig.json
 todo: max length of description both server and vendor
 todo: max photos
 
+SPP means Starndard Package Pricing
+
 #### Vendor Types
 - `common/const.ts`
 - `models/vendors/[Type]Data.ts`

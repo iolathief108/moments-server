@@ -101,7 +101,7 @@ export function SearchResult(props: SearchResultProps) {
         data?.forEach((value) => (
             value.vendorSearchWithExtra.edges.forEach((value) => {
                 conNodes.push(value.node);
-            }))
+            })),
         );
         return conNodes;
     };
@@ -109,20 +109,27 @@ export function SearchResult(props: SearchResultProps) {
     if (!data) return <div>loading...</div>;
 
     return (
-        <div className={'container'}>
+        <>
             <ConnectionNodes conNodes={getConNodes()}/>
-            {
-                !!getConNodes().length &&
-                <div className={'row'} style={{
-                    marginTop: getWindowDimensions().width > 768 ? -90 : -10,
-                }}>
-                    <div className={'col pb-5 justify-content-center text-center'}>
-                        <button className={'btn btn-primary'} disabled={isDisable() || isValidating}
-                                onClick={() => setSize(size + 1)}>Load More
-                        </button>
+            <div className={'container'}>
+                {
+                    !!getConNodes().length &&
+                    <div className={'row'} style={{
+                        marginTop: getWindowDimensions().width > 768 ? -90 : -10,
+                    }}>
+                        <div style={{display: (isDisable() && getConNodes().length < 20) ? 'none' : null}}
+                             className={'col pb-5 justify-content-center text-center'}>
+                            <button className={'btn btn-primary'} disabled={isDisable() || isValidating}
+                                    onClick={() => setSize(size + 1)}>Load More
+                            </button>
+                        </div>
+                        {
+                            (isDisable() && getConNodes().length < 20) &&
+                            <p>no more</p>
+                        }
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
+        </>
     );
 }

@@ -39,11 +39,11 @@ export function Footer() {
                                     Quick Links
                                 </h3>
                                 <ul className="listnone">
-                                    <li><Link href={'/dev'}><a>About us</a></Link></li>
-                                    <li><Link href={'/dev'}><a>Contact us</a></Link></li>
+                                    {/*<li><Link href={'/dev'}><a>About us</a></Link></li>*/}
+                                    <li><Link href={'/contact-us'}><a>Contact us</a></Link></li>
                                     <li><Link href={'/dev'}><a>FAQs</a></Link></li>
-                                    <li><Link href={'/dev'}><a>Pricing Plan</a></Link></li>
-                                    <li><Link href={'/dev'}><a>Advertise with us</a></Link></li>
+                                    {/*<li><Link href={'/dev'}><a>Pricing Plan</a></Link></li>*/}
+                                    {/*<li><Link href={'/dev'}><a>Advertise with us</a></Link></li>*/}
                                 </ul>
                             </div>
                         </div>
@@ -53,7 +53,8 @@ export function Footer() {
                                     List you Business
                                 </h3>
                                 <p>Are you vendor ? List your venue and service get more from listing business.</p>
-                                <a href="/dash" target='_blank' className="btn btn-default">List your Business</a>
+                                {/*<a style={{marginRight: '20px'}} href="/dev" target='_blank' className="btn btn-default">List your Business</a>*/}
+                                <a href="/dash" target='_blank' className="btn btn-secondary">Dash Login</a>
                             </div>
                         </div>
                     </div>

@@ -29,10 +29,11 @@
 .v-intro-2 {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
+  //margin-top: 40px;
 
   > div {
-    width: 200px;
+    max-width: 200px;
+    padding-right: 40px;
     margin-bottom: 10px;
   }
   li {
@@ -43,6 +44,6 @@
 .v-intro-top {
   margin-top: 75px;
   background-color: #f9fafc;
-  padding-top: 1px;
-  padding-bottom: 35px;
+  padding-top: 10px;
+  padding-bottom: 65px;
 }

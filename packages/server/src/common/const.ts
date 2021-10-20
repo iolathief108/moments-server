@@ -1,4 +1,5 @@
 import {VendorDataDoc} from '../models/VendorData';
+import {registerEnumType} from 'type-graphql';
 
 
 export enum VendorType {
@@ -11,6 +12,10 @@ export enum VendorType {
     beauty_professional = 'beauty_professional',
     cakes_dessert = 'cakes_dessert',
 }
+
+registerEnumType(VendorType, {
+    name: 'VendorType',
+});
 
 export function resolveCategorySlug(slug: string): VendorType | undefined {
     if (slug.includes('venue')) {

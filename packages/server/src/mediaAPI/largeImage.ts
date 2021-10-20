@@ -36,6 +36,11 @@ export async function uploadCacheImage(
             throw new Error('The uploaded file is unrecognizable!');
         }
 
+        const dim = imageSize(await file.toBuffer());
+        if (dim.height < 350 || dim.width < 350) {
+            throw new Error('image height and width should be greater than 300px')
+        }
+
         const extension = file.filename.match(
             /^(.+\.)(jpg|JPG|png|PNG|jpeg|JPEG|webp|WEBP)$/,
         )[2];

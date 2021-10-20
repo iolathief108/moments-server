@@ -105,7 +105,6 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
             props.onViewMode()
         }
         sdk().getVendorDetailsExtra().then(res => {
-            console.log(res);
             if (res.data.vendorDetailsExtra) {
                 setVDetails(res.data.vendorDetailsExtra);
             }
@@ -141,6 +140,9 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
             setLoading(false);
 
         } catch (e) {
+            //@ts-ignore
+            !e.response?.errors[0]?.message &&
+            console.log(e);
             //@ts-ignore
             setError(e.response?.errors[0]?.message || 'Oops! Something went wrong');
             setLoading(false);

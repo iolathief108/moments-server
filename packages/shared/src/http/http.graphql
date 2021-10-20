@@ -53,27 +53,39 @@ mutation editVendorDetails(
     $pinterest: String
     $instagram: String
     $website: String
+    $claps: [ClapInput!]
+    $description: String
+
     $catererDetails: CatererDetailsInput
     $photographerDetails: PhotographerDetailsInput 
     $venueDetails: VenueDetailsInput
-    $claps: [ClapInput!]
-    $description: String
+    $videographerDetails: VideographerDetailsInput
+    $bandDjsDetails: BandDjsDetailsInput
+    $beautyProfessionalsDetails: BeautyProfessionalDetailsInput
+    $cakesDessertsDetails: CakesDessertsDetailsInput
+    $floristsDetails: FloristsDetailsInput
 ){
     vendorEditDetails(data: {
+        catererDetails: $catererDetails
+        photographerDetails: $photographerDetails
+        venueDetails: $venueDetails
+        videographerDetails: $videographerDetails
+        bandDjsDetails: $bandDjsDetails
+        beautyProfessionalDetails: $beautyProfessionalsDetails
+        cakesDessertsDetails: $cakesDessertsDetails
+        floristsDetails: $floristsDetails
+
         businessName: $businessName 
         vendorType: $vendorType
         address: $address
-        catererDetails: $catererDetails
         facebook: $facebook
         gallery_photos: $galleryPhotos
         frequentQuestion: $frequentQuestion
         geo: $geo
         instagram: $instagram
         phone: $phone
-        photographerDetails: $photographerDetails
         pinterest: $pinterest
         cityIDs: $cityIds
-        venueDetails: $venueDetails
         website: $website
         claps: $claps
         description: $description
@@ -88,6 +100,296 @@ query getVendorDetailsExtra {
         listingStatus
         reason
         isLive
+        vendorTypes {
+
+            caterer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+            beauty_professionals_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+            venue_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+            }
+
+            photographer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+            videographer_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+            band_djs_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+
+            florists_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+            cakes_desserts_type{
+                pricing{
+                    min_price
+                    packages{
+                        name
+                        short
+                        min_price
+                        description
+                        price {
+                            name
+                            price_type
+                            fixed {
+                                price
+                            }
+                            range {
+                                from_price
+                                to_price
+                            }
+                            starting{
+                                price
+                            }
+                            unit 
+                        }
+                    }
+                }
+
+                personInfo {
+                    name
+                    position
+                    person_photo{
+                        ht
+                        wd
+                        id
+                    }
+                }
+            }
+
+        }
         searchLocations {
             name
             key

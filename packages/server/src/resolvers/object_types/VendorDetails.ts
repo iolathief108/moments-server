@@ -72,8 +72,8 @@ export class VendorDetails {
 
         vendorDetails.description = vData.description || null;
 
-        const typeSpecific = await VendorTypes.getInstanceFromVendorData(vData);
-        vendorDetails.vendorTypes = typeSpecific;
+        const vType = await VendorTypes.getInstanceFromVendorData(vData);
+        vendorDetails.vendorTypes = vType;
         return vendorDetails;
     }
 }
@@ -81,6 +81,7 @@ export class VendorDetails {
 registerEnumType(ListingStatus, {
     name: 'ListingStatus',
 });
+
 
 @ObjectType()
 export class VendorDetailsExtra extends VendorDetails {

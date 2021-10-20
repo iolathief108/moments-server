@@ -17,7 +17,7 @@ import {
 } from './utils/connectionPaging';
 import {search, searchResultCount} from '../db_operations/search';
 import parseSearchQuery from './utils/parseSearchQuery';
-import {getDistrictNames} from '../models/Location';
+import {getDistrictNames, getDistrictsByCities} from '../models/Location';
 import {Image} from './object_types/Image';
 
 @InputType({description: 'Register new vendor data'})
@@ -103,7 +103,7 @@ class Connection extends connectionTypes<ConnectionNode>("Node", ConnectionNode)
                     business_name: vData.business_name,
                     gallery_photos: vData.gallery_photos,
                     vendor_type: vData.vendor_type,
-                    district_display_name: (await getDistrictNames(vData.search_city_ids[0]))[0]
+                    district_display_name: (await getDistrictsByCities([ vData.search_city_ids[0] ]))[0].display_name
                 },
             });
         }

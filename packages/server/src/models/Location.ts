@@ -59,12 +59,17 @@ export const CityModel = getModelForClass(CitySchema);
 export async function getDistrictNames(
     districtIds: Types.ObjectId[] | Types.ObjectId,
 ): Promise<string[]> {
-    return (
-        await DistrictModel.find({
+
+
+
+    const res = await CityModel.find({
             _id: {
                 $in: Array.isArray(districtIds) ? districtIds : [districtIds],
             },
         })
+
+    return (
+        res
     ).map((item) => item.display_name);
 }
 
@@ -72,7 +77,7 @@ export async function getDistrictFromKey(districtKey: string): Promise<DistrictD
     return await DistrictModel.findOne({key: districtKey});
 }
 
-export async function getDistrictsByCities(cityIds: string[]): Promise<DistrictDoc[]> {
+export async function getDistrictsByCities(cityIds: Types.ObjectId[]): Promise<DistrictDoc[]> {
     let districtIds: Types.ObjectId[] = [];
 
     for (let cityId of cityIds) {
