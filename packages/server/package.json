@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsc src/index.ts",
+    "build": "tsc",
     "start": "ts-node-dev --no-notify --respawn src/index.ts",
     "observe": "ts-node-dev --no-notify --respawn src/observe.ts",
     "init:samples": "ts-node-dev src/gen/index.ts"

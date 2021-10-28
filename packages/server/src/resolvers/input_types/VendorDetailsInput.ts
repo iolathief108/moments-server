@@ -183,7 +183,7 @@ export class VendorDetailsInput {
                 return new Types.ObjectId(value);
             });
 
-            const districts = await getDistrictsByCities(this.cityIDs);
+            const districts = await getDistrictsByCities(this.cityIDs.map(val => Types.ObjectId(val)));
             vData.search_district_ids = districts.map(district => district.id);
         }
         if (this.frequentQuestion) {
