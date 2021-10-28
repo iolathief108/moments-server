@@ -9,7 +9,7 @@
     ],
     "allowJs": true,
     "outDir": "build",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
     "moduleResolution": "node",

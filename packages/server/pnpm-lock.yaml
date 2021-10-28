@@ -10,8 +10,8 @@ specifiers:
   '@types/ioredis': ^4.19.3
   '@types/jest': ^26.0.23
   '@types/js-yaml': ^4.0.2
-  '@types/mongoose': ^5.10.1
   '@types/node': ^14.14.8
+  '@types/polka': ^0.5.3
   '@types/react-select': ^4.0.17
   '@types/sharp': ^0.28.5
   apollo-server: ^2.19.0
@@ -41,6 +41,7 @@ specifiers:
   moment: ^2.29.1
   mongoose: ^5.10.15
   nodemailer: ^6.5.0
+  polka: ^0.5.2
   prettier: ^2.2.1
   reflect-metadata: ^0.1.13
   regenerator-runtime: ^0.13.9
@@ -52,15 +53,15 @@ specifiers:
   unique-names-generator: ^4.5.0
 
 dependencies:
-  '@typegoose/typegoose': 7.6.3_1bd6ed1b649aed8f766dce6446782ddf
+  '@typegoose/typegoose': 7.6.3_mongoose@5.13.9
   '@types/bcryptjs': 2.4.2
   '@types/connect-redis': 0.0.16
   '@types/fs-extra': 9.0.12
   '@types/ioredis': 4.27.4
   '@types/jest': 26.0.24
   '@types/js-yaml': 4.0.3
-  '@types/mongoose': 5.11.97
   '@types/node': 14.17.17
+  '@types/polka': 0.5.3
   '@types/react-select': 4.0.17
   '@types/sharp': 0.28.6
   apollo-server: 2.25.2_graphql@15.5.3
@@ -90,6 +91,7 @@ dependencies:
   moment: 2.29.1
   mongoose: 5.13.9
   nodemailer: 6.6.3
+  polka: 0.5.2
   prettier: 2.4.1
   reflect-metadata: 0.1.13
   sharp: 0.28.3
@@ -157,6 +159,11 @@ packages:
       graphql: 15.5.3
       http-errors: 1.8.0
       object-path: 0.11.8
+    dev: false
+
+  /@arr/every/1.0.1:
+    resolution: {integrity: sha512-UQFQ6SgyJ6LX42W8rHCs8KVc0JS0tzVL9ct4XYedJukskYVWTo49tNiMEK9C2HTyarbNiT/RVIRSY82vH+6sTg==}
+    engines: {node: '>=4'}
     dev: false
 
   /@babel/code-frame/7.14.5:
@@ -812,6 +819,10 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@polka/url/0.5.0:
+    resolution: {integrity: sha512-oZLYFEAzUKyi3SKnXvj32ZCEGH6RDnao7COuCVhDydMS9NrCSVXhM79VaKyP5+Zc33m0QXEd2DN3UkU7OsHcfw==}
+    dev: false
+
   /@protobufjs/aspromise/1.1.2:
     resolution: {integrity: sha1-m4sMxmPWaafY9vXQiToU00jzD78=}
     dev: false
@@ -1018,14 +1029,13 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
-  /@typegoose/typegoose/7.6.3_1bd6ed1b649aed8f766dce6446782ddf:
+  /@typegoose/typegoose/7.6.3_mongoose@5.13.9:
     resolution: {integrity: sha512-u12nUEmpMa0e+K8UuzAZvSnWZ7JZGo0yMs7HR4mG47gJJhVe/PIAzfXVPV+CJQBZrMSPyaEZ6HRKjmDxnjEgFg==}
     engines: {node: '>=10.15.0'}
     peerDependencies:
       '@types/mongoose': ~5.10.2
       mongoose: 5.10.0 - 5.10.18
     dependencies:
-      '@types/mongoose': 5.11.97
       lodash: 4.17.21
       loglevel: 1.7.1
       mongoose: 5.13.9
@@ -1262,20 +1272,6 @@ packages:
       '@types/node': 14.17.17
     dev: false
 
-  /@types/mongoose/5.11.97:
-    resolution: {integrity: sha512-cqwOVYT3qXyLiGw7ueU2kX9noE8DPGRY6z8eUxudhXY8NZ7DMKYAxyZkLSevGfhCX3dO/AoX5/SO9lAzfjon0Q==}
-    deprecated: Mongoose publishes its own types, so you do not need to install this package.
-    dependencies:
-      mongoose: 5.13.9
-    transitivePeerDependencies:
-      - aws4
-      - bson-ext
-      - kerberos
-      - mongodb-client-encryption
-      - mongodb-extjson
-      - snappy
-    dev: false
-
   /@types/node/10.17.60:
     resolution: {integrity: sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==}
     dev: false
@@ -1286,6 +1282,15 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: false
+
+  /@types/polka/0.5.3:
+    resolution: {integrity: sha512-Myj8ztBAH63xXhff5OMGiHIj37O4RG7GTDmFL/Amb05BAdG8IYFC90vp9IpdN7hjpZ5tkepsSvQkPvWwB8IRwQ==}
+    dependencies:
+      '@types/express': 4.17.13
+      '@types/express-serve-static-core': 4.17.24
+      '@types/node': 14.17.17
+      '@types/trouter': 3.1.0
     dev: false
 
   /@types/prettier/2.3.2:
@@ -1370,6 +1375,10 @@ packages:
 
   /@types/strip-json-comments/0.0.30:
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
+    dev: false
+
+  /@types/trouter/3.1.0:
+    resolution: {integrity: sha512-4LPNrqSJknLzILMVXn2P/mh0djNgFvom4T9Y1hmhaB8OBm1cY71bMMSrGRu1q5qF4JZzY6iaGT11BHmCMY/NZg==}
     dev: false
 
   /@types/validator/13.6.3:
@@ -4719,6 +4728,13 @@ packages:
       object-visit: 1.0.1
     dev: false
 
+  /matchit/1.1.0:
+    resolution: {integrity: sha512-+nGYoOlfHmxe5BW5tE0EMJppXEwdSf8uBA1GTZC7Q77kbT35+VKLYJMzVNWCHSsga1ps1tPYFtFyvxvKzWVmMA==}
+    engines: {node: '>=6'}
+    dependencies:
+      '@arr/every': 1.0.1
+    dev: false
+
   /media-typer/0.3.0:
     resolution: {integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=}
     engines: {node: '>= 0.6'}
@@ -5330,6 +5346,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: false
+
+  /polka/0.5.2:
+    resolution: {integrity: sha512-FVg3vDmCqP80tOrs+OeNlgXYmFppTXdjD5E7I4ET1NjvtNmQrb1/mJibybKkb/d4NA7YWAr1ojxuhpL3FHqdlw==}
+    dependencies:
+      '@polka/url': 0.5.0
+      trouter: 2.0.1
     dev: false
 
   /posix-character-classes/0.1.1:
@@ -6319,6 +6342,13 @@ packages:
   /tree-kill/1.2.2:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
+    dev: false
+
+  /trouter/2.0.1:
+    resolution: {integrity: sha512-kr8SKKw94OI+xTGOkfsvwZQ8mWoikZDd2n8XZHjJVZUARZT+4/VV6cacRS6CLsH9bNm+HFIPU1Zx4CnNnb4qlQ==}
+    engines: {node: '>=6'}
+    dependencies:
+      matchit: 1.1.0
     dev: false
 
   /ts-invariant/0.4.4:

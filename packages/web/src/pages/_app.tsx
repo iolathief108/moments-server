@@ -37,7 +37,7 @@ function MyApp({Component, pageProps}: AppProps) {
 
             <Header/>
             <Component {...pageProps} />
-            <Footer/>
+            {/*<Footer/>*/} 
             <a href="javascript:" id="return-to-top"><i className="fa fa-angle-up"/></a>
 
             {/*should active imported above*/}

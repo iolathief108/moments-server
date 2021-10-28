@@ -2,6 +2,8 @@ require('dotenv').config()
 import "reflect-metadata";
 import fastify from "./fastify";
 import initDb from './init-db'
+import './vergin'
+
 
 // todo: important gallery max count
 async function main() {
@@ -13,7 +15,7 @@ async function main() {
     });
 
     app.listen({port: 4000}, () => {
-        console.log("running.....");
+        console.log("Express running on port 4000");
     });
 }
 

@@ -53,11 +53,13 @@ export default function WeddingVendor() {
 
     const router = useRouter();
     const [popupActive] = contactPopupState.useGlobalState('contactPopupActive');
-    const id = router.query.id as any;
+    const name = router.query.name as any;
     const vid = router.query.vid as any;
+    
+    console.log(router.query)
 
     const {data} = sdk.useVendorDetailsB({
-        businessName: id || '',
+        businessName: name || '',
         vid: vid || null,
     });
 
