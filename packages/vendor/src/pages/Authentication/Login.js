@@ -239,13 +239,14 @@ class Login extends Component {
                                 <div className="mt-5 text-center">
                                     <p>
                                         Don't have an account ?{' '}
-                                        <Link
-                                            to="/register"
-                                            className="font-weight-medium text-primary"
-                                        >
-                                            {' '}
-                                            Signup now{' '}
-                                        </Link>{' '}
+                                        <a className={'font-weight-medium text-primary'} href={'/become-a-vendor/'}>Signup now </a>
+                                        {/*<Link*/}
+                                        {/*    to="/register"*/}
+                                        {/*    className="font-weight-medium text-primary"*/}
+                                        {/*>*/}
+                                        {/*    {' '}*/}
+                                        {/*    Signup now{' '}*/}
+                                        {/*</Link>{' '}*/}
                                     </p>
                                     <p className="mb-0">
                                         © 2021 {businessName} <span
