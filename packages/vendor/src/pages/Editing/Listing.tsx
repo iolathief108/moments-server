@@ -7,11 +7,19 @@ import Links from './Listing/Links';
 import KeyInfo from './Listing/KeyInfo';
 import Pricing from './Listing/Pricing';
 import PersonInfoView from './Listing/PersonInfoView';
+import {Frequent} from './Listing/Frequent';
+import Video from './Listing/Video';
+import ServicePrice from './Listing/ServicePrice';
+import GuestCapacity from './Listing/GuestCapacity';
 
 
 const Listing = () => {
     return (
         <SingleCard title={'Listing Details'}>
+            <ServicePrice/>
+            <Video/>
+            <GuestCapacity/>
+            <Frequent/>
             <PersonInfoView/>
             <Pricing/>
             <KeyInfo />

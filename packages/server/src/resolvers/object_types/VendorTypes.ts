@@ -46,6 +46,9 @@ export class VendorTypes {
             case VendorType.caterer:
                 vTypes.caterer_type = {
                     pricing: vData.caterer?.pricing,
+                    servicePricing: {
+                        pricings: vData.caterer?.service_pricing
+                    },
                     personInfo: vData.caterer?.person_info
                 };
                 break;
@@ -53,12 +56,20 @@ export class VendorTypes {
             case VendorType.venue:
                 vTypes.venue_type = {
                     pricing: vData.venue?.pricing,
+                    servicePricing: {
+                        pricings: vData.venue?.service_pricing
+                    },
+                    hightlight: vData.venue?.highlight_video,
+                    guestCapacity: vData.venue?.guest_capacity
                 };
                 break;
 
             case VendorType.photographer:
                 vTypes.photographer_type = {
                     pricing: vData.photographer?.pricing,
+                    servicePricing: {
+                        pricings: vData.photographer?.service_pricing
+                    },
                     personInfo: vData.photographer?.person_info,
                 };
                 break;
@@ -66,13 +77,21 @@ export class VendorTypes {
             case VendorType.bands_dj:
                 vTypes.band_djs_type = {
                     pricing: vData.bandDjs?.pricing,
-                    personInfo: vData.beautyProfessional?.person_info,
+                    servicePricing: {
+                        pricings: vData.bandDjs?.service_pricing
+                    },
+                    personInfo: vData.bandDjs?.person_info,
+                    hightlight: vData.bandDjs?.highlight_video,
+                    videoSample: vData.bandDjs?.video_sample
                 };
                 break;
 
             case VendorType.beauty_professional:
                 vTypes.beauty_professionals_type = {
                     pricing: vData.beautyProfessional?.pricing,
+                    servicePricing: {
+                        pricings: vData.beautyProfessional?.service_pricing
+                    },
                     personInfo: vData.beautyProfessional?.person_info,
                 };
                 break;
@@ -80,6 +99,9 @@ export class VendorTypes {
             case VendorType.cakes_dessert:
                 vTypes.cakes_desserts_type = {
                     pricing: vData.cakesDesserts?.pricing,
+                    servicePricing: {
+                        pricings: vData.cakesDesserts?.service_pricing
+                    },
                     personInfo: vData.cakesDesserts?.person_info,
                 };
                 break;
@@ -87,6 +109,9 @@ export class VendorTypes {
             case VendorType.florist:
                 vTypes.florists_type = {
                     pricing: vData.florists?.pricing,
+                    servicePricing: {
+                        pricings: vData.florists?.service_pricing
+                    },
                     personInfo: vData.florists?.person_info,
                 };
                 break;
@@ -94,7 +119,12 @@ export class VendorTypes {
             case VendorType.videographer:
                 vTypes.videographer_type = {
                     pricing: vData.videographer?.pricing,
+                    servicePricing: {
+                        pricings: vData.videographer?.service_pricing
+                    },
                     personInfo: vData.videographer?.person_info,
+                    hightlight: vData.videographer?.highlight_video,
+                    videoSample: vData.videographer?.video_sample
                 };
                 break;
         }

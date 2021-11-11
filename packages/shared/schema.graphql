@@ -6,41 +6,53 @@ directive @specifiedBy(
 
 type BandDjsDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
+  hightlight: VideoUrl
+  videoSample: [VideoUrl!]
 }
 
 input BandDjsDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
+  highlight: VideoUrlInput
+  videoSample: [VideoUrlInput!]
 }
 
 type BeautyProfessionalDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
 }
 
 input BeautyProfessionalDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
 }
 
 type CakesDessertsDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
 }
 
 input CakesDessertsDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
 }
 
 type CatererDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
 }
 
 input CatererDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
 }
 
@@ -76,16 +88,26 @@ type ConnectionExtra {
 
 type ConnectionNode {
   business_name: String!
+  business_name_slug: String
   id: String!
   gallery_photos: [Image!]!
   vendor_type: VendorType!
   district_display_name: String
 }
 
+input CustomThumbnailInput {
+  token: String
+  id: String
+}
+
 type District {
   name: String!
   key: String!
   cities: [City!]!
+}
+
+type Fixed {
+  price: Float!
 }
 
 input FixedInput {
@@ -98,11 +120,13 @@ type FixedObject {
 
 type FloristsDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
 }
 
 input FloristsDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
 }
 
@@ -209,22 +233,24 @@ type PersonInfo {
 }
 
 input PersonInfoInput {
-  personPhoto: PersonPhotoInput!
+  personPhoto: PersonPhotoInput
   name: String!
   position: String
 }
 
 input PersonPhotoInput {
-  token: String!
+  token: String
 }
 
 type PhotographerDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
 }
 
 input PhotographerDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
 }
 
@@ -292,6 +318,11 @@ type Query {
   clapStore(vendorType: VendorType!): [StoreClap!]!
 }
 
+type Range {
+  from_price: Float!
+  to_price: Float!
+}
+
 input RangeInput {
   from_price: Float
   to_price: Float
@@ -300,6 +331,52 @@ input RangeInput {
 type RangeObject {
   from_price: Float
   to_price: Float
+}
+
+type ServicePrice {
+  price_type: ServicePriceType!
+  product: String
+  fixed: Fixed
+  range: Range
+  starting: Starting
+  class: String
+  unit: String
+}
+
+input ServicePriceInput {
+  price_type: ServicePriceType!
+  product: String
+  fixed: FixedInput
+  range: RangeInput
+  starting: StartingInput
+  class: String
+  unit: String
+}
+
+enum ServicePriceType {
+  Fixed
+  Range
+  Starting
+}
+
+type ServicePricing {
+  name: String!
+  service_prices: [ServicePrice!]!
+  min_spend: Float
+}
+
+input ServicePricingInput {
+  name: String!
+  service_prices: [ServicePriceInput!]
+  min_spend: Float
+}
+
+type ServicePricings {
+  pricings: [ServicePricing!]
+}
+
+input ServicePricingsInput {
+  pricings: [ServicePricingInput!]
 }
 
 type SocialMedia {
@@ -317,6 +394,10 @@ type Spp {
 input SppInput {
   min_price: Float
   packages: [PackageInput!]
+}
+
+type Starting {
+  price: Float!
 }
 
 input StartingInput {
@@ -432,18 +513,46 @@ type VendorTypes {
 
 type VenueDataType {
   pricing: Spp
+  servicePricing: ServicePricings
+  hightlight: VideoUrl
+  guestCapacity: Float
 }
 
 input VenueDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
+  highlight: VideoUrlInput
+  guestCapacity: Float
 }
 
 type VideographerDataType {
   pricing: Spp
+  servicePricing: ServicePricings
   personInfo: PersonInfo
+  hightlight: VideoUrl
+  videoSample: [VideoUrl!]
 }
 
 input VideographerDetailsInput {
   pricing: SppInput
+  servicePricing: ServicePricingsInput
   personInfo: PersonInfoInput
+  highlight: VideoUrlInput
+  videoSample: [VideoUrlInput!]
+}
+
+type VideoUrl {
+  vimeoUrl: String
+  youtubeUrl: String
+  videoTitle: String
+  videoType: String
+  customThumbnail: Image
+}
+
+input VideoUrlInput {
+  vimeoUrl: String
+  youtubeUrl: String
+  videoTitle: String
+  videoType: String
+  customThumbnail: CustomThumbnailInput
 }

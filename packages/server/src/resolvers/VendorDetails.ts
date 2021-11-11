@@ -12,6 +12,8 @@ import {VendorDetails, VendorDetailsExtra} from './object_types/VendorDetails';
 import {GQLContext} from '../types';
 import {VendorModel} from '../models/Vendor';
 import {Roles} from '../common/const';
+import {isSlug} from '../utils/slug';
+
 
 @ArgsType()
 class VendorDetailsArgs {
@@ -43,17 +45,29 @@ export class VendorDetailsResolver {
     async vendorDetailsB(
         @Args() {businessName, vendorDataId}: VendorDetailsArgsB,
     ): Promise<VendorDetails | null> {
-        let vData : VendorDataDoc;
+        let vData: VendorDataDoc;
+        const bSlug = isSlug(businessName);
         if (vendorDataId) {
             vData = await VendorDataModel.findById(vendorDataId);
+            if (!vData) {
+                if (bSlug)
+                    vData = await VendorDataModel.findOne({
+                        business_name_slug: businessName,
+                    });
+                if (!vData)
+                    vData = await VendorDataModel.findOne({
+                        business_name: businessName,
+                    });
+            }
+        } else {
+            if (bSlug)
+                vData = await VendorDataModel.findOne({
+                    business_name_slug: businessName,
+                });
             if (!vData)
                 vData = await VendorDataModel.findOne({
                     business_name: businessName,
                 });
-        } else {
-            vData = await VendorDataModel.findOne({
-                business_name: businessName,
-            });
         }
         if (!vData) return null;
         return await VendorDetails.getInstanceFromVendorData(vData);
@@ -69,6 +83,7 @@ export class VendorDetailsResolver {
         );
         if (!vProfile?.vendor_data_id) return null;
         const vData = await VendorDataModel.findById(vProfile.vendor_data_id);
+        if (!vData) return null;
         return await VendorDetailsExtra.getInstanceFromVendorData(vData);
     }
 }

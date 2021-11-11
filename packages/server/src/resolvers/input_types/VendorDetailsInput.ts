@@ -4,7 +4,7 @@ import {IsBusinessNameExist, IsCityID, IsObjectID, IsPhoneNotExist, IsValidBusin
 import {FrequentQuestionInput} from './FrequentQuestionInput';
 import {VendorType, VerifyStatus} from '../../common/const';
 import {GeoInput} from './GeoInput';
-import {isVendorDataComplete, VendorDataDoc} from '../../models/VendorData';
+import {isVendorDataComplete, VendorDataDoc, VendorDataModel} from '../../models/VendorData';
 import {Types} from 'mongoose';
 import {VenueDetailsInput} from './type/VenueDetailsInput';
 import {GalleryPhotoInput} from '../utils/GalleryPhoto';
@@ -17,6 +17,7 @@ import {CakesDessertsDetailsInput} from './type/CakesDessertsDetailsInput';
 import {FloristsDetailsInput} from './type/FloristsDetailsInput';
 import {VideographerDetailsInput} from './type/VideographerDetailsInput';
 import {getDistrictsByCities} from '../../models/Location';
+import {generateBusinessNameSlug} from '../../utils/slug';
 
 
 @InputType({description: 'Edit common vendor details'})
@@ -111,6 +112,13 @@ export class VendorDetailsInput {
         if (vData.business_name && this.businessName) {
             throw new Error('business name cannot be changed');
         }
+        if (this.businessName) {
+            // todo: check for keywords
+            const isExist = await VendorDataModel.findOne({business_name: this.businessName})
+            if (isExist) {
+                throw new Error('Name already exist');
+            }
+        }
 
         // velidate vendor type
         if (vData.vendor_type && this.vendorType) {
@@ -148,8 +156,58 @@ export class VendorDetailsInput {
     //         await galleryPhoto.fillVendorData(vData);
     //     }
     // }
+    initializeTypeObject(vData: VendorDataDoc) {
+
+        switch (vData.vendor_type) {
+            case VendorType.bands_dj:
+                if (!vData.bandDjs) {
+                    vData.bandDjs = {};
+                }
+                break;
+            case VendorType.photographer:
+                if (!vData.photographer) {
+                    vData.photographer = {};
+                }
+                break;
+            case VendorType.videographer:
+                if (!vData.videographer) {
+                    vData.videographer = {};
+                }
+                break;
+            case VendorType.florist:
+                if (!vData.florists) {
+                    vData.florists = {};
+                }
+                break;
+            case VendorType.venue:
+                if (!vData.venue) {
+                    vData.venue = {};
+                }
+                break;
+            case VendorType.caterer:
+                if (!vData.caterer) {
+                    vData.caterer = {};
+                }
+                break;
+            case VendorType.cakes_dessert:
+                if (!vData.cakesDesserts) {
+                    vData.cakesDesserts = {};
+                }
+                break;
+            case VendorType.beauty_professional:
+                if (!vData.beautyProfessional) {
+                    vData.beautyProfessional = {};
+                }
+                break;
+        }
+    }
 
     async fillVendorData(vData: VendorDataDoc) {
+
+        if (vData) {
+            this.initializeTypeObject(vData);
+        }
+
         if (!vData.links)
             vData.links = {};
         if (this.facebook)
@@ -168,6 +226,7 @@ export class VendorDetailsInput {
         }
         if (this.businessName) {
             vData.business_name = this.businessName;
+            vData.business_name_slug = await generateBusinessNameSlug(this.businessName);
         }
         if (this.geo) {
             vData.geo = this.geo;
@@ -200,7 +259,7 @@ export class VendorDetailsInput {
 
         // Vendor Type
         if (this.venueDetails) {
-            await this.venueDetails.fillVendorData(vData);
+            this.venueDetails.fillVendorData(vData);
         }
         if (this.catererDetails) {
             await this.catererDetails.fillVendorData(vData);

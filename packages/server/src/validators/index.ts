@@ -22,6 +22,43 @@ class IsEmailExist implements ValidatorConstraintInterface {
     }
 }
 
+@ValidatorConstraint({ name: "Not valid url", async: true })
+class IsValidYoutubeUrl implements ValidatorConstraintInterface {
+    async validate(text: string, args: ValidationArguments) {
+
+        function ytVidId(url) {
+            let p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+            return (url.match(p)) ? RegExp.$1 : false;
+        }
+
+        let res = ytVidId(text)
+        return !res;
+    }
+
+    defaultMessage(args: ValidationArguments) {
+        return "Not valid youtube url!";
+    }
+}
+
+
+@ValidatorConstraint({ name: "Not valid url", async: true })
+class IsValidVimeoUrl implements ValidatorConstraintInterface {
+    async validate(text: string, args: ValidationArguments) {
+
+        function vimeoVid(url) {
+            let d  = /^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)(\/?)$/
+            return (url.match(d)) ? true : false;
+        }
+
+        let res = vimeoVid(text)
+        return !res;
+    }
+
+    defaultMessage(args: ValidationArguments) {
+        return "Not valid vimeo url!";
+    }
+}
+
 @ValidatorConstraint({ async: true })
 class IsValidSLPhone implements ValidatorConstraintInterface {
     async validate(phone: string, hello: any) {
@@ -203,5 +240,7 @@ export {
     IsObjectID,
     IsDistrictID,
     IsValidBusinessName,
-    IsProvinceID
+    IsProvinceID,
+    IsValidVimeoUrl,
+    IsValidYoutubeUrl
 };

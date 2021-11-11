@@ -50,11 +50,11 @@ export class VendorDataSchema {
     @prop({ type: () => String, required: false, unique: true })
     business_name?: string;
 
+    @prop({ type: () => String, required: false, unique: true })
+    business_name_slug?: string;
+
     @prop({ type: () => String, required: false })
     description?: string;
-
-    @prop({ type: () => Boolean, required: false })
-    isComplete?: boolean;
 
     // optional
     @prop({ required: false, type: () => LinkObjectSchema })
@@ -71,6 +71,10 @@ export class VendorDataSchema {
     claps?: ClapSchema[];
 
     // verifying things
+    @prop({ type: () => Boolean, required: false })
+    isComplete?: boolean;
+
+
     @prop({
         type: () => String,
         required: false,

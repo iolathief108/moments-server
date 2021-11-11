@@ -31,3 +31,8 @@ VERGIN_PORT=3100
 If the desired file is in the cache folder, it sends the cache file.  
 Otherwise it will generate the file and return the file and copy the file to the cache directory.
 
+### add details in vendor detail
+1. /models/vendors/[type]
+2. /resolvers/input_types/type/[type]
+3. /resovers/object_types/type/[type]
+4. /resolvers/object_types/VendorTypes.ts

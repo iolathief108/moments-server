@@ -45,6 +45,7 @@ export function resolveCategorySlug(slug: string): VendorType | undefined {
     return undefined;
 }
 
+// Internal or Database field
 export enum VerifyStatus {
     verified = 'verified',
     unverified = 'unverified',
@@ -52,6 +53,7 @@ export enum VerifyStatus {
     verifiedPending = 'verifiedPending'
 }
 
+// Vendor dashboad listing status
 export enum ListingStatus {
     verified = 'verified',
     unverified = 'unverified',

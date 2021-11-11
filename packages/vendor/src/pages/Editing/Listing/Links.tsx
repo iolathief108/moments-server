@@ -81,7 +81,7 @@ const Links = function () {
                     type="text"
                     disabled={props.globalLoading}
                     validate={{myValidation: linkValidator('instagram'), required: {value: false}}}
-                    value={props.vDetails?.links?.instagram ?? undefined}
+                    value={props.vDetails?.links?.instagram || undefined}
                 />
                 <AvField
                     name="facebook"
@@ -89,7 +89,7 @@ const Links = function () {
                     placeholder="Facebook Page Url"
                     type="text"
                     disabled={props.globalLoading}
-                    value={props.vDetails?.links?.facebook ?? undefined}
+                    value={props.vDetails?.links?.facebook || undefined}
                     validate={{myValidation: linkValidator('facebook'), required: {value: false}}}
                 />
                 <AvField
@@ -98,7 +98,7 @@ const Links = function () {
                     placeholder="Pinterest Page Url"
                     type="text"
                     disabled={props.globalLoading}
-                    value={props.vDetails?.links?.pinterest ?? undefined}
+                    value={props.vDetails?.links?.pinterest || undefined}
                     validate={{myValidation: linkValidator('pinterest'), required: {value: false}}}
                 />
                 <AvField
@@ -107,7 +107,7 @@ const Links = function () {
                     placeholder="Website"
                     type="text"
                     disabled={props.globalLoading}
-                    value={props.vDetails?.links?.website ?? undefined}
+                    value={props.vDetails?.links?.website || undefined}
                     validate={{myValidation: linkValidator('website'), required: {value: false}}}
                 />
             </div>

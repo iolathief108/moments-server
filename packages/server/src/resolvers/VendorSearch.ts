@@ -23,7 +23,7 @@ import {Image} from './object_types/Image';
 @InputType({description: 'Register new vendor data'})
 class ListInput {
     @Field(() => String, {nullable: true})
-    // todo: these Comments 
+    // todo: these Comments
     // @Validate(IsObjectID)
     // @Validate(IsDistrictID)
     districtID?: string;
@@ -55,6 +55,9 @@ class ListArgs extends ConnectionArgs {
 export class ConnectionNode {
     @Field(() => String)
     business_name: string;
+
+    @Field(() => String, {nullable: true})
+    business_name_slug?: string;
 
     @Field(() => String)
     id: string;
@@ -101,6 +104,7 @@ class Connection extends connectionTypes<ConnectionNode>("Node", ConnectionNode)
                 node: {
                     id: vData.id,
                     business_name: vData.business_name,
+                    business_name_slug: vData.business_name_slug,
                     gallery_photos: vData.gallery_photos,
                     vendor_type: vData.vendor_type,
                     district_display_name: (await getDistrictsByCities([ vData.search_city_ids[0] ]))[0].display_name

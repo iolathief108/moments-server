@@ -69,6 +69,8 @@ export function tokenExists(token: string) {
 }
 
 export async function commit(token: string) {
+
+    //todo:important we should check image size details here
     const tokenThing = _tokens.find((t) => t.token === token);
     const id = makeID(13, false);
     const tImg = TEMP_PATH + tokenThing.token;

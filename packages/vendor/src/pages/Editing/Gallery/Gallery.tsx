@@ -129,6 +129,7 @@ const Gallery = () => {
     const Edit = () => {
         return (
             <div>
+                <p>Mix the portrait and the rest evenly while keeping the best photos up front</p>
                 {
                     editImages &&
                     <RUG

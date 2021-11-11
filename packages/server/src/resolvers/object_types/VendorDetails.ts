@@ -58,7 +58,6 @@ export class VendorDetails {
         vendorDetails.address = vData.address;
         vendorDetails.galleryPhoto = vData.gallery_photos;
 
-
         vendorDetails.searchLocations = await District.get(vData.search_city_ids || [], vData.search_district_ids || []);
         vendorDetails.phone = vData.phone;
         vendorDetails.claps = vData.claps;

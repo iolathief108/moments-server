@@ -75,16 +75,18 @@ export interface ViewProps {
 export interface EditProps extends ViewProps {
     setError: Function;
 }
-export type SubmitType = (_event:any, values: any) => EditVendorDetailsMutationVariables | null
+
+export type SubmitType = (_event: any, values: any) => EditVendorDetailsMutationVariables | null
+
 interface BlaProps {
     View: (props: ViewProps) => JSX.Element;
     Edit?: (props: EditProps) => JSX.Element;
     desc?: string;
     title?: string;
     onSubmitVariables: SubmitType;
-    submitLoading?: boolean
-    onViewMode?: () => void
-    onEditMode?: (vDetails: VendorDetailsExtra) => void
+    submitLoading?: boolean;
+    onViewMode?: () => void;
+    onEditMode?: (vDetails: VendorDetailsExtra) => void;
 }
 
 const Template = (props: React.PropsWithChildren<BlaProps>) => {
@@ -100,9 +102,10 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
                 props.onEditMode(vDetails);
             }
             return;
-        };
+        }
+        ;
         if (vDetails && props.onViewMode) {
-            props.onViewMode()
+            props.onViewMode();
         }
         sdk().getVendorDetailsExtra().then(res => {
             if (res.data.vendorDetailsExtra) {
@@ -121,9 +124,9 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
         setLoading(true);
 
         try {
-            const variables = await props.onSubmitVariables(_event, values)
+            const variables = await props.onSubmitVariables(_event, values);
             if (!variables) {
-                setLoading(false)
+                setLoading(false);
             }
             const editVD = await sdk().editVendorDetails(variables);
 
@@ -140,11 +143,16 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
             setLoading(false);
 
         } catch (e) {
+            setTimeout(() => {
+                if (error) {
+                    setError(null);
+                }
+            }, 10 * 1000);
             //@ts-ignore
             !e.response?.errors[0]?.message &&
             console.log(e);
             //@ts-ignore
-            setError(e.response?.errors[0]?.message || 'Oops! Something went wrong');
+            setError(e.response?.errors[0]?.message || (e.message?.length < 40 ? e.message : null) || 'Oops! Something went wrong');
             setLoading(false);
         }
     }
@@ -170,7 +178,10 @@ const Template = (props: React.PropsWithChildren<BlaProps>) => {
                         props.Edit &&
                         <props.Edit setError={setError} globalLoading={loading} vDetails={vDetails}/>
                 }
-                <EditModeButtons onCancel={() => setEditMode(false)} disabled={loading || props.submitLoading}/>
+                <EditModeButtons onCancel={() => {
+                    setEditMode(false);
+                    setError(null);
+                }} disabled={loading || props.submitLoading}/>
             </AvForm>
         </Frame>
     );

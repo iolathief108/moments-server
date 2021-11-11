@@ -1,10 +1,10 @@
-import {Arg, Authorized, Ctx, Mutation, Resolver} from "type-graphql";
-import {Roles} from "../common/const";
-import {GQLContext} from "../types";
-import {VendorModel} from "../models/Vendor";
-import {Types} from "mongoose";
-import {createVendorData, VendorDataModel} from "../models/VendorData";
-import {VendorDetailsInput} from "./input_types/VendorDetailsInput";
+import {Arg, Authorized, Ctx, Mutation, Resolver} from 'type-graphql';
+import {Roles} from '../common/const';
+import {GQLContext} from '../types';
+import {VendorModel} from '../models/Vendor';
+import {Types} from 'mongoose';
+import {createVendorData, VendorDataDoc, VendorDataModel} from '../models/VendorData';
+import {VendorDetailsInput} from './input_types/VendorDetailsInput';
 
 @Resolver()
 export class VendorEditDetailsResolver {
@@ -12,17 +12,34 @@ export class VendorEditDetailsResolver {
     @Authorized(Roles.VENDOR)
     async vendorEditDetails(
         @Ctx() ctx: GQLContext,
-        @Arg("data") data: VendorDetailsInput,
+        @Arg('data') data: VendorDetailsInput,
     ): Promise<boolean> {
+        if (!data) return false;
         const vendor = await VendorModel.findById(ctx.request.session.vendorID);
-        const vendorData = vendor?.vendor_data_id
-            ? await VendorDataModel.findById(
-                  new Types.ObjectId(vendor.vendor_data_id),
-              )
-            : await createVendorData(vendor);
+
+        let vendorData:VendorDataDoc;
+        if (vendor?.vendor_data_id) {
+            vendorData = await VendorDataModel.findById(
+                new Types.ObjectId(vendor.vendor_data_id),
+            );
+        } else {
+            vendorData = await createVendorData(vendor);
+        }
+        if (!vendorData) {
+            if (data.businessName || data.vendorType) {
+                vendorData = await createVendorData(vendor);
+            } else return false;
+        }
+
+        // const vendorData = vendor?.vendor_data_id
+        //     ? await VendorDataModel.findById(
+        //           new Types.ObjectId(vendor.vendor_data_id),
+        //       )
+        //     : await createVendorData(vendor);
 
         await data.validate(vendorData);
         await data.fillVendorData(vendorData);
+        
         await vendorData.save();
         return true;
     }

@@ -86,7 +86,7 @@ export class SppInput {
                 throw new Error('Package short should be less than 35 characters');
             }
 
-            if (pkg.min_price && pkg.min_price < 10) {
+            if (pkg.min_price && pkg.min_price < 100) {
                 throw new Error('invalid min price');
             }
 

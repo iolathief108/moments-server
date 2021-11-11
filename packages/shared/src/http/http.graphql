@@ -92,6 +92,64 @@ mutation editVendorDetails(
     })
 }
 
+fragment Pricing on Spp {
+    min_price
+    packages{
+        name
+        short
+        min_price
+        description
+        price {
+            name
+            price_type
+            fixed {
+                price
+            }
+            range {
+                from_price
+                to_price
+            }
+            starting{
+                price
+            }
+            unit 
+        }
+    }
+}
+
+fragment PersonInfoItems on PersonInfo {
+    name
+    position
+    person_photo{
+        ht
+        wd
+        id
+    }
+}
+
+fragment ServicePricingsItems on ServicePricings{
+    pricings {
+        name
+        service_prices {
+            price_type
+            product
+            fixed {
+                price
+            }
+            range {
+                to_price
+                from_price
+            }
+            starting {
+                price
+            }
+            class
+            unit
+        }
+        min_spend
+    }
+}
+
 query getVendorDetailsExtra {
     vendorDetailsExtra {
         phone
@@ -103,213 +161,113 @@ query getVendorDetailsExtra {
         vendorTypes {
 
             caterer_type{
-                pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                pricing {
+                    ...Pricing
                 }
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
-                        id
-                    }
+                    ...PersonInfoItems
+                }
+                servicePricing {
+                    ...ServicePricingsItems
                 }
             }
 
             beauty_professionals_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
                 }
 
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
-                        id
-                    }
+                    ...PersonInfoItems
+                }
+                servicePricing {
+                    ...ServicePricingsItems
                 }
             }
 
             venue_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
                 }
+                hightlight {
+                    vimeoUrl
+                    youtubeUrl
+                }
+                servicePricing {
+                    ...ServicePricingsItems
+                }
+                guestCapacity
 
             }
 
             photographer_type{
+
+
+                servicePricing {
+                    ...ServicePricingsItems
+                }
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
                 }
 
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
-                        id
-                    }
+                    ...PersonInfoItems
                 }
             }
 
             videographer_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
+                }
+
+                servicePricing {
+                    ...ServicePricingsItems
                 }
 
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
+                    ...PersonInfoItems
+                }
+
+                hightlight {
+                    vimeoUrl
+                    youtubeUrl
+                }
+                videoSample {
+                    vimeoUrl
+                    youtubeUrl
+                    videoTitle
+                    videoType
+                    customThumbnail {
                         id
+                        wd
+                        ht
                     }
                 }
             }
 
             band_djs_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
                 }
-
+                servicePricing {
+                    ...ServicePricingsItems
+                }
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
+                    ...PersonInfoItems
+                }
+                hightlight {
+                    vimeoUrl
+                    youtubeUrl
+                }
+                videoSample {
+                    vimeoUrl
+                    youtubeUrl
+                    videoTitle
+                    videoType
+                    customThumbnail {
                         id
+                        wd
+                        ht
                     }
                 }
             }
@@ -317,75 +275,29 @@ query getVendorDetailsExtra {
 
             florists_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
+                }
+
+                servicePricing {
+                    ...ServicePricingsItems
                 }
 
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
-                        id
-                    }
+                    ...PersonInfoItems
                 }
             }
 
             cakes_desserts_type{
                 pricing{
-                    min_price
-                    packages{
-                        name
-                        short
-                        min_price
-                        description
-                        price {
-                            name
-                            price_type
-                            fixed {
-                                price
-                            }
-                            range {
-                                from_price
-                                to_price
-                            }
-                            starting{
-                                price
-                            }
-                            unit 
-                        }
-                    }
+                    ...Pricing
+                }
+
+                servicePricing {
+                    ...ServicePricingsItems
                 }
 
                 personInfo {
-                    name
-                    position
-                    person_photo{
-                        ht
-                        wd
-                        id
-                    }
+                    ...PersonInfoItems
                 }
             }
 

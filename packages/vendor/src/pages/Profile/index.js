@@ -74,13 +74,17 @@ class Profile extends Component {
                                             </dt>
                                             <dd className="col-sm-9">{this.state.vendorDetailsExtra?.business_name}</dd>
 
+                                            <dt className="col-sm-3">Vendor Type
+                                            </dt>
+                                            <dd style={{textTransform: 'capitalize'}} className="col-sm-9">{this.state.vendorDetailsExtra?.vendor_type}</dd>
+
                                             <dt className="col-sm-3">Account Status
                                             </dt>
                                             {/*<dd className="col-sm-9">{this.state.vendorDetailsExtra?.isComplete ? 'Complete' : <span className={'text-danger'}>Not complete</span>}</dd>*/}
                                             <dd className="col-sm-9">{this.state.vendorDetailsExtra && getListingStatusLabel(this.state.vendorDetailsExtra)}</dd>
                                             {
                                                 isEnableReason(this.state.vendorDetailsExtra) && this.state.vendorDetailsExtra?.reason &&
-                                                <span className={'ml-2'}>Reason: {this.state.vendorDetailsExtra.reason}</span> || 
+                                                <span className={'ml-2'}>Reason: {this.state.vendorDetailsExtra.reason}</span> ||
                                                 (this.state.vendorDetailsExtra?.isLive && <span className="text-success">Your account is Live</span>)
                                             }
 

@@ -22,12 +22,11 @@ export class PersonPhotoInput {
         if (this._isUrlCommited)
             throw new Error('validator should run before url commit');
 
-        console.log(this.token);
+       
         if (this.token && !tokenExists(this.token)) {
             throw new Error('given token is not valid!');
         }
     }
-
 
     async getCommitDetail() {
         const ret = await commit(this.token);
@@ -57,14 +56,13 @@ export class PersonInfoInput {
 
     validate() {
 
-        console.log(this.personPhoto);
         if (this.name.length > 30 || this.name.length < 2) {
             throw new Error('name lenght should be more than 2 characters or less than 30 characters');
         }
         if (this.position && (this.position.length > 30 || this.position.length < 2)) {
             throw new Error('name lenght should be more than 2 characters or less than 30 characters');
         }
-        this.personPhoto.validate()
+        this.personPhoto?.validate()
     }
 
     async fillVendorData(vData: VendorDataDoc) {

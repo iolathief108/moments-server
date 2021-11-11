@@ -1,6 +1,7 @@
 import {DocumentType, modelOptions, prop} from "@typegoose/typegoose";
 import {SppSchema} from '../Spp';
 import {PersonInfoSchema} from '../PersonInfo';
+import {ServicePricing} from '../ServicePricing';
 
 @modelOptions({options: {customName: "caterer_data"}})
 export class CatererDataSchema {
@@ -9,6 +10,12 @@ export class CatererDataSchema {
 
     @prop({required: false, type: () => PersonInfoSchema})
     person_info?: PersonInfoSchema;
+
+
+    @prop({required: false, type: () => [ ServicePricing ]})
+    service_pricing?: ServicePricing[];
+
+
 }
 
 export type CatererDataDoc = DocumentType<CatererDataSchema>;

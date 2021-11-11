@@ -79,7 +79,7 @@ export class VendorRegisterResolver {
     @Mutation(() => Boolean)
     async vendorRegister(@Args() data: VendorRegisterInput, @Ctx() ctx: GQLContext): Promise<boolean> {
 
-        if (data.authCode !== 'mompass834098967') {
+        if (data.authCode !== '1234') {
             throw new Error('INVALID_AUTHCODE');
         }
 

@@ -19,6 +19,7 @@ specifiers:
   axios: ^0.21.1
   bcryptjs: ^2.4.3
   body-parser: ^1.19.0
+  class-transformer: ^0.4.0
   class-validator: ^0.13.1
   connect-redis: ^5.0.0
   cors: ^2.8.5
@@ -69,6 +70,7 @@ dependencies:
   axios: 0.21.4
   bcryptjs: 2.4.3
   body-parser: 1.19.0
+  class-transformer: 0.4.0
   class-validator: 0.13.1
   connect-redis: 5.2.0
   cors: 2.8.5
@@ -2268,6 +2270,10 @@ packages:
 
   /cjs-module-lexer/0.6.0:
     resolution: {integrity: sha512-uc2Vix1frTfnuzxxu1Hp4ktSvM3QaI4oXl4ZUqL1wjTu/BGki9TrCWoqLTg/drR1KwAEarXuRFCG2Svr1GxPFw==}
+    dev: false
+
+  /class-transformer/0.4.0:
+    resolution: {integrity: sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==}
     dev: false
 
   /class-utils/0.3.6:

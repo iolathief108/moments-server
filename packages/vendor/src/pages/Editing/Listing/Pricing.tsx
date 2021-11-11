@@ -71,16 +71,21 @@ function View(props: ViewProps) {
             <div>
                 <p>
                     <span className={'font-weight-bold'}>Minimum Spend </span>
-                    Rs.{spp?.min_price.toLocaleString()}
+                    Rs.{spp?.min_price?.toLocaleString()}
                 </p>
                 <h4>Packages</h4>
+                {
+                    !spp.packages || !spp.packages?.length ?
+                    <div><p className="text-danger">No Packages Available</p></div>:
                 <div className={'d-flex'}>
                     {
-                        spp.packages.map(((value, index) => (
+                        spp.packages?.map(((value, index) => (
                             <div key={index}>{sppPackageView(value, index)}</div>
                         )))
                     }
                 </div>
+
+                }
             </div>
         );
     };
@@ -513,7 +518,7 @@ export default function Pricing() {
                 <div className={'mt-2 d-flex flex-wrap'}>
                     {
                         // spp?.packages.map((value, index) => <Package package={value} index={index} key={index}/>)
-                        spp?.packages.map((value, index) =>
+                        spp?.packages?.map((value, index) =>
                             <div key={index}>
                                 {Package({
                                     index: index,

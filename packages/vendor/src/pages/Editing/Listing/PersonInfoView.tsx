@@ -8,30 +8,70 @@ import {
     VendorType,
 } from '@mara/shared';
 import axios from 'axios';
+import { getGlobalState } from '../../../state';
 
 
 function View(props: ViewProps) {
-    return (
-        <div>
-            {
-                props.vDetails?.vendorTypes?.photographer_type?.personInfo?.person_photo?.id &&
-                <img src={'/p/'+props.vDetails?.vendorTypes?.photographer_type?.personInfo?.person_photo?.id+'_q95.jpg'} width={'240px'}/>
-            }
-            <p>
-                {props.vDetails?.vendorTypes?.photographer_type?.personInfo?.name}
-            </p>
-            <p>
-                {props.vDetails?.vendorTypes?.photographer_type?.personInfo?.position}
-            </p>
-        </div>
-    );
-}
 
+    function Person({personInfo}: {personInfo: PersonInfo}) {
+        return (
+            <div>
+                <div className={"text-center d-inline-block"} style={{maxWidth: '300px'}}>
+                    {
+                        personInfo?.person_photo?.id &&
+                        <img
+                            src={'/p/' + personInfo?.person_photo?.id + '_q95.jpg'}
+                            style={{
+                                borderRadius: '50%',
+                                boxShadow: '1px 1px 10px 0px #0002'
+                            }}
+                            width={'150px'}/>
+                    }
+                    <div className={'text-center mt-2 mb-3'}>
+                        <h4 className={'mb-1'}>{personInfo?.name}</h4>
+                        <span>{personInfo?.position}</span>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    const vTypes = props?.vDetails?.vendorTypes;
+    let typeData;
+    switch (props?.vDetails?.vendor_type) {
+        case VendorType.Venue:
+            typeData = vTypes?.venue_type;
+            break;
+        case VendorType.CakesDessert:
+            typeData = vTypes?.cakes_desserts_type;
+            break;
+        case VendorType.Florist:
+            typeData = vTypes?.florists_type;
+            break;
+        case VendorType.BandsDj:
+            typeData = vTypes?.band_djs_type;
+            break;
+        case VendorType.Videographer:
+            typeData = vTypes?.videographer_type;
+            break;
+        case VendorType.Caterer:
+            typeData = vTypes?.caterer_type;
+            break;
+        case VendorType.Photographer:
+            typeData = vTypes?.photographer_type;
+            break;
+        case VendorType.BeautyProfessional:
+            typeData = vTypes?.beauty_professionals_type;
+            break;
+    }
+    if (!typeData) return <div><p className={'text-danger'}></p></div>;
+    return <Person personInfo={typeData.personInfo}/>;
+}
 
 export default function PersonInfoView() {
 
     const [personInfo, setPersonInfo] = useState<Partial<PersonInfoInput>>(undefined);
-    const [id, setId] = useState(undefined)
+    const [id, setId] = useState(undefined);
     const [vType, setVType] = useState<VendorType>(undefined);
 
 
@@ -43,49 +83,49 @@ export default function PersonInfoView() {
                     name: vDetails.vendorTypes?.band_djs_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.band_djs_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.band_djs_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.band_djs_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.BeautyProfessional:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.beauty_professionals_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.beauty_professionals_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.beauty_professionals_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.beauty_professionals_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.CakesDessert:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.cakes_desserts_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.cakes_desserts_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.cakes_desserts_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.cakes_desserts_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.Caterer:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.caterer_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.caterer_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.caterer_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.caterer_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.Florist:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.florists_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.florists_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.florists_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.florists_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.Photographer:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.photographer_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.photographer_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.photographer_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.photographer_type?.personInfo?.person_photo?.id);
                 break;
             case VendorType.Videographer:
                 setPersonInfo({
                     name: vDetails.vendorTypes?.videographer_type?.personInfo?.name,
                     position: vDetails.vendorTypes?.videographer_type?.personInfo?.position,
                 } || undefined);
-                setId(vDetails.vendorTypes?.videographer_type?.personInfo?.person_photo?.id)
+                setId(vDetails.vendorTypes?.videographer_type?.personInfo?.person_photo?.id);
                 break;
             default:
                 setPersonInfo(undefined);
@@ -101,8 +141,8 @@ export default function PersonInfoView() {
 
         const response = await axios.post('/api/upload_cache_image/', form, e.headers);
         let newSpp = personInfo;
-        newSpp.personPhoto= {token: response.data.token};
-        setPersonInfo({...personInfo})
+        newSpp.personPhoto = {token: response.data.token};
+        setPersonInfo({...personInfo});
         // setPersonInfo(response.data.token);
     };
 
@@ -174,7 +214,7 @@ export default function PersonInfoView() {
                         name: personInfo.name,
                         position: personInfo.position,
                         personPhoto: {
-                            token: personInfo?.personPhoto?.token || undefined
+                            token: personInfo?.personPhoto?.token || undefined,
                         },
                     },
                 };
@@ -182,66 +222,66 @@ export default function PersonInfoView() {
             case VendorType.BeautyProfessional:
                 viva.beautyProfessionalsDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
             case VendorType.CakesDessert:
                 viva.cakesDessertsDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
             case VendorType.Caterer:
                 viva.catererDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
             case VendorType.Florist:
                 viva.floristsDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
             case VendorType.Photographer:
                 viva.photographerDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
             case VendorType.Videographer:
                 viva.videographerDetails = {
                     personInfo: {
-                    	name: personInfo.name,
-                    	position: personInfo.position,
-                    	personPhoto: {
-                    		token: personInfo?.personPhoto?.token || undefined
-                    	}
+                        name: personInfo.name,
+                        position: personInfo.position,
+                        personPhoto: {
+                            token: personInfo?.personPhoto?.token || undefined,
+                        },
                     },
                 };
                 break;
@@ -249,6 +289,9 @@ export default function PersonInfoView() {
         return viva;
     };
 
+    if (getGlobalState('category') === VendorType.Venue) {
+        return null;
+    }
     return (
         <Template title={'Profile Information'} onEditMode={onEditMode} View={View}
                   onSubmitVariables={onSubmit}>

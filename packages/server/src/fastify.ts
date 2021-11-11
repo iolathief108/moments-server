@@ -17,7 +17,7 @@ const RedisStore = require('connect-redis')(fastifySession);
 
 
 // const REDIS_URI = process.env.REDIS_URI || "redis://localhost:6379";
-const SESSION_TTL = 864e3 * 365; // 365 day in seconds
+const SESSION_TTL = 864e3 * 365/2; // 365 day in seconds
 
 export const redis = new Redis();
 
@@ -32,7 +32,7 @@ export default async (options?: FastifyServerOptions): Promise<FastifyInstance> 
             reply,
         }),
         path: '/api/',
-        subscription: true,
+        // subscription: true,
     });
 
     app.register(fastifyMultipart);
@@ -44,6 +44,13 @@ export default async (options?: FastifyServerOptions): Promise<FastifyInstance> 
     app.post('/api/mail', (request, reply) => {
         if (typeof request.body === 'string')
             mailForm(request.body);
+        else {
+            mailForm(`
+                <p>
+                    ${JSON.stringify(request.body)}
+                </p>
+                `)
+        }
         reply.send({success: true});
     });
 
@@ -64,9 +71,9 @@ export default async (options?: FastifyServerOptions): Promise<FastifyInstance> 
         // saveUninitialized: true,
         cookieName: 'qid',
         cookie: {
-            // httpOnly: true,
+            httpOnly: IS_DEV ? true: false,
             secure: 'auto',
-            // path: '/',
+            path: '/',
             maxAge: SESSION_TTL,
         },
 

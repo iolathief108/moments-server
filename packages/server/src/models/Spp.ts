@@ -4,19 +4,19 @@ import {ListingStatus} from '../common/const';
 
 //todo; some naming
 @modelOptions({options: {customName: 'fixed_price'}})
-export class FixedSchema {
+class FixedSchema {
     @prop({required: false, type: () => Number})
     price: number;
 }
 
 @modelOptions({options: {customName: 'starting_price'}})
-export class StartingSchema {
+class StartingSchema {
     @prop({required: false, type: () => Number})
     price: number;
 }
 
 @modelOptions({options: {customName: 'range_price'}})
-export class RangeSchema {
+class RangeSchema {
     @prop({required: false, type: () => Number})
     from_price: number;
 
