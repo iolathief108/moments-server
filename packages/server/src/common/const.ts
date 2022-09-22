@@ -18,25 +18,25 @@ registerEnumType(VendorType, {
 });
 
 export function resolveCategorySlug(slug: string): VendorType | undefined {
-    if (slug.includes('venue')) {
+    if (slug.includes('venue') || slug.includes('hall')) {
         return VendorType.venue;
     }
-    if (slug.includes('caterer')) {
+    if (slug.includes('caterer') || slug.includes('cater')) {
         return VendorType.caterer;
     }
     if (slug.includes('photo')) {
         return VendorType.photographer;
     }
-    if (slug.includes('florist')) {
+    if (slug.includes('florist') || slug.includes('flower')) {
         return VendorType.florist;
     }
-    if (slug.includes('cakes') || slug.includes('dessert')) {
+    if (slug.includes('cake') || slug.includes('dessert') || slug.includes('baker')) {
         return VendorType.cakes_dessert;
     }
-    if (slug.includes('beauty')) {
+    if (slug.includes('beauty') || slug.includes('hair') || slug.includes('makeup')) {
         return VendorType.beauty_professional;
     }
-    if (slug.includes('band') || slug.includes('musician')) {
+    if (slug.includes('band') || slug.includes('music') || slug.includes('jewe')) {
         return VendorType.bands_dj;
     }
     if (slug.includes('video')) {

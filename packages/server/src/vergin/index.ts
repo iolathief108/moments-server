@@ -30,14 +30,14 @@ polka({
 
         if (!P || P[1] > 6000 || P[2] > 6000) {
             res.statusCode = 404;
-            fs.createReadStream('./vergin/static/no-image.jpg').pipe(res);
+            fs.createReadStream('./src/vergin/static/no-image.jpg').pipe(res);
             return;
         }
 
         const readStr = getReadStream(P);
         if (!readStr) {
             res.statusCode = 404;
-            fs.createReadStream('./vergin/static/no-image.jpg').pipe(res);
+            fs.createReadStream('./src/vergin/static/no-image.jpg').pipe(res);
             return;
         }
 

@@ -3,7 +3,32 @@ import { deAuthorize, sdk } from '@mara/shared';
 import { Link, withRouter } from 'react-router-dom';
 import { Card, CardBody, Col, Button, Row } from 'reactstrap';
 import { getListingStatusLabel, isEnableReason } from '../../helpers/utils';
+function slugify(str) {
+    str = str.replace(/^\s+|\s+$/g, ''); // trim
+    str = str.toLowerCase();
 
+    // remove accents, swap ñ for n, etc
+    let from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
+    let to = 'aaaaeeeeiiiioooouuuunc------';
+    for (let i = 0, l = from.length; i < l; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-'); // collapse dashes
+
+    return str;
+}
+
+function getUrl(bName) {
+    const hostname = typeof window !== 'undefined' && window.location && window.location.hostname || '';
+    if (hostname === 'localhost'){
+        return `http://localhost/${slugify(bName)}`
+    }
+    return `https://moments.lk/${slugify(bName)}`
+
+}
 
 class Profile extends Component {
     constructor(props) {
@@ -77,6 +102,13 @@ class Profile extends Component {
                                             <dt className="col-sm-3">Vendor Type
                                             </dt>
                                             <dd style={{textTransform: 'capitalize'}} className="col-sm-9">{this.state.vendorDetailsExtra?.vendor_type}</dd>
+
+                                            <dt className="col-sm-3">Link</dt>
+                                            <dd className="col-sm-9">
+                                                <a target={'_blank'} href={getUrl(this.state.vendorDetailsExtra?.business_name || '')}>
+                                                    {getUrl(this.state.vendorDetailsExtra?.business_name || '')}
+                                                </a>
+                                            </dd>
 
                                             <dt className="col-sm-3">Account Status
                                             </dt>

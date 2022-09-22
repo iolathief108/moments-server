@@ -23,8 +23,8 @@ const Contact = function () {
             setLoadiing(false);
         }).catch(e => {
             console.log(e);
-            setError('oops! Something went wrong')
-            setLoadiing(false)
+            setError('oops! Something went wrong');
+            setLoadiing(false);
         });
     }, []);
 
@@ -34,10 +34,11 @@ const Contact = function () {
             setError('Phone is not phone');
             return;
         }
+
         setLoadiing(true);
         sdk().editVendorDetails({
             address: values.address || undefined,
-            phone: parsedPhone,
+            phone: phone !== parsedPhone ? parsedPhone : phone ? undefined : phone,
         }).then(res => {
             if (res.data.vendorEditDetails) {
                 setTimeout(() => {
@@ -92,7 +93,8 @@ const Contact = function () {
                                 <dd className="col-sm-9">{phone || <span className={'text-danger'}>No Phone</span>}</dd>
 
                                 <dt className="col-sm-3">Business Address</dt>
-                                <dd className="col-sm-9">{address || <span className={'text-danger'}>No Address</span>}</dd>
+                                <dd className="col-sm-9">{address ||
+                                <span className={'text-danger'}>No Address</span>}</dd>
                             </dl>
                             <Button onClick={() => setEditMode(true)}>Edit</Button>
                         </div> :

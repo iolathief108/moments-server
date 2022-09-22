@@ -82,13 +82,15 @@ class Login extends Component {
 
     async handleSubmit(event, values) {
 
-        const phone = parseSLPhone(values.phone);
+        let phone = parseSLPhone(values.phone);
         const password = values.password;
         if (!phone) {
-            this.setState({
-                error: 'Not a valid phone number!',
-            });
-            return;
+            phone  = values.phone.replace(/^[ ]+|[ ]+$/g,'')
+
+            // this.setState({
+            //     error: 'Not a valid phone number!',
+            // });
+            // return;
         }
 
         try {
@@ -128,14 +130,15 @@ class Login extends Component {
     }
 
     isPhoneValidate(value) {
-        let parsedPhone = parseSLPhone(value);
-        if (!parsedPhone) {
-            return 'Not a valid phone number';
-        }
-        if (!validateStandardSLPhone(parsedPhone || '')) {
-            return 'Not a valid phone number';
-        }
-        return true;
+        return true
+        // let parsedPhone = parseSLPhone(value);
+        // if (!parsedPhone) {
+        //     return 'Not a valid phone number';
+        // }
+        // if (!validateStandardSLPhone(parsedPhone || '')) {
+        //     return 'Not a valid phone number';
+        // }
+        // return true;
     }
 
 

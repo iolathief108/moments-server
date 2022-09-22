@@ -141,7 +141,6 @@ export class VendorSearchResolver {
     @Query(() => Connection)
     async vendorSearch(@Args() data: ListArgs, conExtra?: ConnectionExtra): Promise<Connection> {
         const { limit, offset } = data.pagingParams();
-
         const parsedSearchQuery = !data?.where?.districtID && !data?.where?.vendorType && data?.where?.searchQuery
             ? await parseSearchQuery(data?.where?.searchQuery) : null;
 
