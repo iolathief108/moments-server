@@ -71,10 +71,11 @@ export default async (options?: FastifyServerOptions): Promise<FastifyInstance> 
         // saveUninitialized: true,
         cookieName: 'qid',
         cookie: {
-            httpOnly: IS_DEV ? true: false,
+            httpOnly: IS_DEV,
             secure: 'auto',
             path: '/',
             maxAge: SESSION_TTL,
+
         },
 
     });
